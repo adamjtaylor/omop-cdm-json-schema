@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cohort",
+  "type": "object",
+  "properties": {
+    "cohort_definition_id": {
+      "type": "integer"
+    },
+    "subject_id": {
+      "type": "integer"
+    },
+    "cohort_start_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "cohort_end_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "cohort_definition_id",
+    "subject_id",
+    "cohort_start_date",
+    "cohort_end_date"
+  ]
+}

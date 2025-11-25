@@ -1,0 +1,3643 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Visit Occurrence",
+  "type": "object",
+  "properties": {
+    "visit_occurrence_id": {
+      "type": "integer",
+      "description": "User Guidance: Use this to identify unique interactions between a person and the health care system. This identifier links across the other CDM event tables to associate events with a visit.\n\nETL Conventions: This should be populated by creating a unique identifier for each unique interaction between a person and the healthcare system where the person receives a medical good or service over a span of time."
+    },
+    "person_id": {
+      "type": "integer"
+    },
+    "visit_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: This field contains a concept id representing the kind of visit, like inpatient or outpatient. All concepts in this field should be standard and belong to the Visit domain.\n\nETL Conventions: Populate this field based on the kind of visit that took place for the person. For example this could be \"Inpatient Visit\", \"Outpatient Visit\", \"Ambulatory Visit\", etc. This table will contain standard concepts in the Visit domain. These concepts are arranged in a hierarchical structure to facilitate cohort definitions by rolling up to generally familiar Visits adopted in most healthcare systems worldwide. [Accepted Concepts](https://athena.ohdsi.org/search-terms/terms?domain=Visit&standardConcept=Standard&page=1&pageSize=15&query=).",
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "0 - No matching concept"
+        },
+        {
+          "const": 262,
+          "title": "262 - Emergency Room and Inpatient Visit"
+        },
+        {
+          "const": 5084,
+          "title": "5084 - Off Campus-Outpatient Hospital"
+        },
+        {
+          "const": 8537,
+          "title": "8537 - School"
+        },
+        {
+          "const": 8546,
+          "title": "8546 - Hospice"
+        },
+        {
+          "const": 8584,
+          "title": "8584 - Mobile Unit"
+        },
+        {
+          "const": 8602,
+          "title": "8602 - Temporary Lodging"
+        },
+        {
+          "const": 8615,
+          "title": "8615 - Assisted Living Facility"
+        },
+        {
+          "const": 8650,
+          "title": "8650 - Birthing Center"
+        },
+        {
+          "const": 8668,
+          "title": "8668 - Ambulance - Land"
+        },
+        {
+          "const": 8672,
+          "title": "8672 - Homeless Shelter"
+        },
+        {
+          "const": 8676,
+          "title": "8676 - Nursing Facility"
+        },
+        {
+          "const": 8716,
+          "title": "8716 - Independent Clinic"
+        },
+        {
+          "const": 8717,
+          "title": "8717 - Inpatient Hospital"
+        },
+        {
+          "const": 8756,
+          "title": "8756 - Outpatient Hospital"
+        },
+        {
+          "const": 8761,
+          "title": "8761 - Rural Health Clinic"
+        },
+        {
+          "const": 8782,
+          "title": "8782 - Urgent Care Facility"
+        },
+        {
+          "const": 8809,
+          "title": "8809 - Independent Laboratory"
+        },
+        {
+          "const": 8827,
+          "title": "8827 - Custodial Care Facility"
+        },
+        {
+          "const": 8850,
+          "title": "8850 - Ambulance - Air or Water"
+        },
+        {
+          "const": 8851,
+          "title": "8851 - Group Home"
+        },
+        {
+          "const": 8858,
+          "title": "8858 - Mass Immunization Center"
+        },
+        {
+          "const": 8863,
+          "title": "8863 - Skilled Nursing Facility"
+        },
+        {
+          "const": 8870,
+          "title": "8870 - Emergency Room - Hospital"
+        },
+        {
+          "const": 8882,
+          "title": "8882 - Adult Living Care Facility (Deprecated)"
+        },
+        {
+          "const": 8883,
+          "title": "8883 - Ambulatory Surgical Center"
+        },
+        {
+          "const": 8905,
+          "title": "8905 - Military Treatment Facility"
+        },
+        {
+          "const": 8913,
+          "title": "8913 - Psychiatric Facility-Partial Hospitalization"
+        },
+        {
+          "const": 8920,
+          "title": "8920 - Comprehensive Inpatient Rehabilitation Facility"
+        },
+        {
+          "const": 8941,
+          "title": "8941 - Tribal 638 Free-standing Facility"
+        },
+        {
+          "const": 8947,
+          "title": "8947 - Comprehensive Outpatient Rehabilitation Facility"
+        },
+        {
+          "const": 8949,
+          "title": "8949 - End-Stage Renal Disease Treatment Facility"
+        },
+        {
+          "const": 8951,
+          "title": "8951 - Intermediate Care Facility/ Individuals with Intellectual Disabilities"
+        },
+        {
+          "const": 8957,
+          "title": "8957 - Residential Substance Abuse Treatment Facility"
+        },
+        {
+          "const": 8960,
+          "title": "8960 - Tribal 638 Provider-based Facility"
+        },
+        {
+          "const": 8964,
+          "title": "8964 - Community Mental Health Center"
+        },
+        {
+          "const": 8966,
+          "title": "8966 - Federally Qualified Health Center"
+        },
+        {
+          "const": 8968,
+          "title": "8968 - Indian Health Service Free-standing Facility"
+        },
+        {
+          "const": 8969,
+          "title": "8969 - Indian Health Service Provider-based Facility"
+        },
+        {
+          "const": 8971,
+          "title": "8971 - Inpatient Psychiatric Facility"
+        },
+        {
+          "const": 8974,
+          "title": "8974 - Non-residential Substance Abuse Treatment Facility"
+        },
+        {
+          "const": 8976,
+          "title": "8976 - Psychiatric Residential Treatment Center"
+        },
+        {
+          "const": 8977,
+          "title": "8977 - Public Health Clinic"
+        },
+        {
+          "const": 9201,
+          "title": "9201 - Inpatient Visit"
+        },
+        {
+          "const": 9202,
+          "title": "9202 - Outpatient Visit"
+        },
+        {
+          "const": 9203,
+          "title": "9203 - Emergency Room Visit"
+        },
+        {
+          "const": 32036,
+          "title": "32036 - Laboratory Visit"
+        },
+        {
+          "const": 32037,
+          "title": "32037 - Intensive Care"
+        },
+        {
+          "const": 32253,
+          "title": "32253 - Outpatient Laboratory Visit"
+        },
+        {
+          "const": 32254,
+          "title": "32254 - Hospital-Swing Beds"
+        },
+        {
+          "const": 32261,
+          "title": "32261 - Religious Non-medical Health Care Inst-Outpatient Services"
+        },
+        {
+          "const": 32276,
+          "title": "32276 - Critical Access Hospital"
+        },
+        {
+          "const": 32693,
+          "title": "32693 - Health examination"
+        },
+        {
+          "const": 32759,
+          "title": "32759 - Home isolation"
+        },
+        {
+          "const": 32760,
+          "title": "32760 - Isolation in inpatient setting"
+        },
+        {
+          "const": 32761,
+          "title": "32761 - Person Under Investigation (PUI)"
+        },
+        {
+          "const": 33004,
+          "title": "33004 - Supplier / Service Provider"
+        },
+        {
+          "const": 33007,
+          "title": "33007 - Alternate care site (ACS)"
+        },
+        {
+          "const": 581379,
+          "title": "581379 - Inpatient Critical Care Facility"
+        },
+        {
+          "const": 581380,
+          "title": "581380 - Outpatient Critical Care Facility"
+        },
+        {
+          "const": 581381,
+          "title": "581381 - Emergency Room Critical Care Facility"
+        },
+        {
+          "const": 581383,
+          "title": "581383 - Inpatient Cardiac Care Facility"
+        },
+        {
+          "const": 581384,
+          "title": "581384 - Inpatient Nursery"
+        },
+        {
+          "const": 581385,
+          "title": "581385 - Observation Room"
+        },
+        {
+          "const": 581458,
+          "title": "581458 - Pharmacy visit"
+        },
+        {
+          "const": 581475,
+          "title": "581475 - Place of Employment-Worksite"
+        },
+        {
+          "const": 581476,
+          "title": "581476 - Home Visit"
+        },
+        {
+          "const": 581477,
+          "title": "581477 - Office Visit"
+        },
+        {
+          "const": 581478,
+          "title": "581478 - Ambulance Visit"
+        },
+        {
+          "const": 581479,
+          "title": "581479 - Ambulatory Rehabilitation Visit"
+        },
+        {
+          "const": 700290,
+          "title": "700290 - Transportation Network Company"
+        },
+        {
+          "const": 705159,
+          "title": "705159 - Ambulatory long COVID clinic"
+        },
+        {
+          "const": 722455,
+          "title": "722455 - Telehealth"
+        },
+        {
+          "const": 722457,
+          "title": "722457 - Non-residential Opioid Treatment Facility"
+        },
+        {
+          "const": 722458,
+          "title": "722458 - Programs of All-Inclusive Care for the Elderly (PACE) Center"
+        },
+        {
+          "const": 38003619,
+          "title": "38003619 - Prison / Correctional Facility"
+        },
+        {
+          "const": 38003620,
+          "title": "38003620 - Walk-in Retail Health Clinic"
+        },
+        {
+          "const": 38003793,
+          "title": "38003793 - Meals Provider"
+        },
+        {
+          "const": 38003809,
+          "title": "38003809 - Lodging Provider"
+        },
+        {
+          "const": 38004192,
+          "title": "38004192 - Local Education Agency (LEA)"
+        },
+        {
+          "const": 38004193,
+          "title": "38004193 - Case Management Agency"
+        },
+        {
+          "const": 38004194,
+          "title": "38004194 - Developmentally Disabled Services Day Training Agency"
+        },
+        {
+          "const": 38004196,
+          "title": "38004196 - Home Infusion Agency"
+        },
+        {
+          "const": 38004197,
+          "title": "38004197 - Community Based Hospice Care Agency"
+        },
+        {
+          "const": 38004198,
+          "title": "38004198 - Nursing Care Agency"
+        },
+        {
+          "const": 38004199,
+          "title": "38004199 - Public Health or Welfare Agency"
+        },
+        {
+          "const": 38004201,
+          "title": "38004201 - PACE Provider Organization"
+        },
+        {
+          "const": 38004202,
+          "title": "38004202 - Voluntary or Charitable Agency"
+        },
+        {
+          "const": 38004203,
+          "title": "38004203 - Supports Brokerage Agency"
+        },
+        {
+          "const": 38004204,
+          "title": "38004204 - Early Intervention Provider Agency"
+        },
+        {
+          "const": 38004205,
+          "title": "38004205 - Foster Care Agency"
+        },
+        {
+          "const": 38004206,
+          "title": "38004206 - In Home Supportive Care Agency"
+        },
+        {
+          "const": 38004207,
+          "title": "38004207 - Clinic/Center"
+        },
+        {
+          "const": 38004208,
+          "title": "38004208 - Ambulatory Family Planning Facility"
+        },
+        {
+          "const": 38004209,
+          "title": "38004209 - Ambulatory Fertility Facility"
+        },
+        {
+          "const": 38004210,
+          "title": "38004210 - Adult Day Care Clinic/Center"
+        },
+        {
+          "const": 38004211,
+          "title": "38004211 - Amputee Clinic/Center"
+        },
+        {
+          "const": 38004213,
+          "title": "38004213 - Augmentative Communication Clinic/Center"
+        },
+        {
+          "const": 38004215,
+          "title": "38004215 - Critical Access Hospital Clinic/Center"
+        },
+        {
+          "const": 38004216,
+          "title": "38004216 - Community Health Clinic/Center"
+        },
+        {
+          "const": 38004217,
+          "title": "38004217 - Corporate Health Clinic/Center"
+        },
+        {
+          "const": 38004218,
+          "title": "38004218 - Dental Clinic/Center"
+        },
+        {
+          "const": 38004219,
+          "title": "38004219 - Developmental Disabilities Clinic/Center"
+        },
+        {
+          "const": 38004220,
+          "title": "38004220 - Emergency Care Clinic/Center"
+        },
+        {
+          "const": 38004222,
+          "title": "38004222 - Endoscopy Clinic/Center"
+        },
+        {
+          "const": 38004223,
+          "title": "38004223 - Non-Surgical Family Planning Clinic/Center"
+        },
+        {
+          "const": 38004225,
+          "title": "38004225 - Genetics Clinic/Center"
+        },
+        {
+          "const": 38004226,
+          "title": "38004226 - Health Service Clinic/Center"
+        },
+        {
+          "const": 38004227,
+          "title": "38004227 - Hearing and Speech Clinic/Center"
+        },
+        {
+          "const": 38004228,
+          "title": "38004228 - Infusion Therapy Clinic/Center"
+        },
+        {
+          "const": 38004229,
+          "title": "38004229 - Lithotripsy Clinic/Center"
+        },
+        {
+          "const": 38004231,
+          "title": "38004231 - Adult Mental Health Clinic/Center"
+        },
+        {
+          "const": 38004232,
+          "title": "38004232 - Adolescent and Children Mental Health Clinic/Center"
+        },
+        {
+          "const": 38004233,
+          "title": "38004233 - Migrant Health Clinic/Center"
+        },
+        {
+          "const": 38004234,
+          "title": "38004234 - Military/U.S. Coast Guard Outpatient Clinic/Center"
+        },
+        {
+          "const": 38004235,
+          "title": "38004235 - Military and U.S. Coast Guard Ambulatory Procedure Clinic/Center"
+        },
+        {
+          "const": 38004236,
+          "title": "38004236 - Military Outpatient Operational (Transportable) Component Clinic/Center"
+        },
+        {
+          "const": 38004237,
+          "title": "38004237 - Military Ambulatory Procedure Visits Operational (Transportable) Clinic/Center"
+        },
+        {
+          "const": 38004238,
+          "title": "38004238 - Magnetic Resonance Imaging (MRI) Clinic/Center"
+        },
+        {
+          "const": 38004239,
+          "title": "38004239 - Multi-Specialty Clinic/Center"
+        },
+        {
+          "const": 38004240,
+          "title": "38004240 - Medical Specialty Clinic/Center"
+        },
+        {
+          "const": 38004241,
+          "title": "38004241 - Methadone Clinic"
+        },
+        {
+          "const": 38004242,
+          "title": "38004242 - Medically Fragile Infants and Children Day Care"
+        },
+        {
+          "const": 38004243,
+          "title": "38004243 - Federal Public Health Clinic/Center"
+        },
+        {
+          "const": 38004244,
+          "title": "38004244 - State or Local Public Health Clinic/Center"
+        },
+        {
+          "const": 38004245,
+          "title": "38004245 - Podiatric Clinic/Center"
+        },
+        {
+          "const": 38004246,
+          "title": "38004246 - Physical Therapy Clinic/Center"
+        },
+        {
+          "const": 38004247,
+          "title": "38004247 - Primary Care Clinic/Center"
+        },
+        {
+          "const": 38004248,
+          "title": "38004248 - Prison Health Clinic/Center"
+        },
+        {
+          "const": 38004249,
+          "title": "38004249 - Pain Clinic/Center"
+        },
+        {
+          "const": 38004250,
+          "title": "38004250 - Radiology Clinic/Center"
+        },
+        {
+          "const": 38004251,
+          "title": "38004251 - Mammography Clinic/Center"
+        },
+        {
+          "const": 38004252,
+          "title": "38004252 - Mobile Mammography Clinic/Center"
+        },
+        {
+          "const": 38004253,
+          "title": "38004253 - Mobile Radiology Clinic/Center"
+        },
+        {
+          "const": 38004254,
+          "title": "38004254 - Rehabilitation Clinic/Center"
+        },
+        {
+          "const": 38004256,
+          "title": "38004256 - Cardiac Rehabilitation Clinic/Center"
+        },
+        {
+          "const": 38004257,
+          "title": "38004257 - Substance Use Disorder Rehabilitation Clinic/Center"
+        },
+        {
+          "const": 38004258,
+          "title": "38004258 - Recovery Care Clinic/Center"
+        },
+        {
+          "const": 38004259,
+          "title": "38004259 - Research Clinic/Center"
+        },
+        {
+          "const": 38004260,
+          "title": "38004260 - Rural Health Clinic/Center"
+        },
+        {
+          "const": 38004261,
+          "title": "38004261 - Oral and Maxillofacial Surgery Clinic/Center"
+        },
+        {
+          "const": 38004262,
+          "title": "38004262 - Ophthalmologic Surgery Clinic/Center"
+        },
+        {
+          "const": 38004263,
+          "title": "38004263 - Student Health Clinic/Center"
+        },
+        {
+          "const": 38004264,
+          "title": "38004264 - Sleep Disorder Diagnostic Clinic/Center"
+        },
+        {
+          "const": 38004266,
+          "title": "38004266 - VA Clinic/Center"
+        },
+        {
+          "const": 38004267,
+          "title": "38004267 - Occupational Medicine Clinic/Center"
+        },
+        {
+          "const": 38004268,
+          "title": "38004268 - Oncology Clinic/Center"
+        },
+        {
+          "const": 38004269,
+          "title": "38004269 - Radiation Oncology Clinic/Center"
+        },
+        {
+          "const": 38004270,
+          "title": "38004270 - Epilepsy Hospital Unit"
+        },
+        {
+          "const": 38004274,
+          "title": "38004274 - Substance Use Disorder Rehabilitation Hospital Unit"
+        },
+        {
+          "const": 38004275,
+          "title": "38004275 - Chronic Disease Hospital"
+        },
+        {
+          "const": 38004276,
+          "title": "38004276 - Children's Chronic Disease Hospital"
+        },
+        {
+          "const": 38004277,
+          "title": "38004277 - Long Term Care Hospital"
+        },
+        {
+          "const": 38004278,
+          "title": "38004278 - Religious Nonmedical Health Care Institution"
+        },
+        {
+          "const": 38004279,
+          "title": "38004279 - General Acute Care Hospital"
+        },
+        {
+          "const": 38004280,
+          "title": "38004280 - Critical Access Hospital"
+        },
+        {
+          "const": 38004281,
+          "title": "38004281 - Children's Hospital"
+        },
+        {
+          "const": 38004282,
+          "title": "38004282 - Rural Acute Care Hospital"
+        },
+        {
+          "const": 38004283,
+          "title": "38004283 - Women's Hospital"
+        },
+        {
+          "const": 38004284,
+          "title": "38004284 - Psychiatric Hospital"
+        },
+        {
+          "const": 38004285,
+          "title": "38004285 - Rehabilitation Hospital"
+        },
+        {
+          "const": 38004286,
+          "title": "38004286 - Children's Rehabilitation Hospital"
+        },
+        {
+          "const": 38004287,
+          "title": "38004287 - Special Hospital"
+        },
+        {
+          "const": 38004288,
+          "title": "38004288 - Military Hospital"
+        },
+        {
+          "const": 38004290,
+          "title": "38004290 - Military General Acute Care Hospital"
+        },
+        {
+          "const": 38004291,
+          "title": "38004291 - Operational (Transportable) Military General Acute Care Hospital"
+        },
+        {
+          "const": 38004293,
+          "title": "38004293 - Military Clinical Medical Laboratory"
+        },
+        {
+          "const": 38004294,
+          "title": "38004294 - Clinical Medical Laboratory"
+        },
+        {
+          "const": 38004295,
+          "title": "38004295 - Dental Laboratory"
+        },
+        {
+          "const": 38004296,
+          "title": "38004296 - Physiological Laboratory"
+        },
+        {
+          "const": 38004297,
+          "title": "38004297 - Exclusive Provider Organization"
+        },
+        {
+          "const": 38004298,
+          "title": "38004298 - Health Maintenance Organization"
+        },
+        {
+          "const": 38004299,
+          "title": "38004299 - Preferred Provider Organization"
+        },
+        {
+          "const": 38004300,
+          "title": "38004300 - Point of Service"
+        },
+        {
+          "const": 38004302,
+          "title": "38004302 - Assisted Living Facility (Mental Illness)"
+        },
+        {
+          "const": 38004303,
+          "title": "38004303 - Assisted Living Facility (Behavioral Disturbances)"
+        },
+        {
+          "const": 38004305,
+          "title": "38004305 - Alzheimer Center (Dementia Center)"
+        },
+        {
+          "const": 38004306,
+          "title": "38004306 - Custodial Care Facility"
+        },
+        {
+          "const": 38004307,
+          "title": "38004307 - Adult Care Home Facility"
+        },
+        {
+          "const": 38004310,
+          "title": "38004310 - Pediatric Skilled Nursing Facility"
+        },
+        {
+          "const": 38004311,
+          "title": "38004311 - Inpatient Hospice"
+        },
+        {
+          "const": 38004314,
+          "title": "38004314 - Intellectual and/or Developmental Disabilities Residential Treatment Facility"
+        },
+        {
+          "const": 38004315,
+          "title": "38004315 - Physical Disabilities Residential Treatment Facility"
+        },
+        {
+          "const": 38004316,
+          "title": "38004316 - Mental Illness Community Based Residential Treatment Facility"
+        },
+        {
+          "const": 38004317,
+          "title": "38004317 - Intellectual and/or Developmental Disabilities Community Based Residential Treatment Facility"
+        },
+        {
+          "const": 38004318,
+          "title": "38004318 - Emotionally Disturbed Childrens' Residential Treatment Facility"
+        },
+        {
+          "const": 38004321,
+          "title": "38004321 - Children's Substance Abuse Rehabilitation Facility"
+        },
+        {
+          "const": 38004322,
+          "title": "38004322 - Blood Bank"
+        },
+        {
+          "const": 38004323,
+          "title": "38004323 - Military/U.S. Coast Guard Pharmacy"
+        },
+        {
+          "const": 38004324,
+          "title": "38004324 - Department of Veterans Affairs (VA) Pharmacy"
+        },
+        {
+          "const": 38004325,
+          "title": "38004325 - Indian Health Service/Tribal/Urban Indian Health (I/T/U) Pharmacy"
+        },
+        {
+          "const": 38004326,
+          "title": "38004326 - Non-Pharmacy Dispensing Site"
+        },
+        {
+          "const": 38004327,
+          "title": "38004327 - Durable Medical Equipment & Medical Supplies"
+        },
+        {
+          "const": 38004328,
+          "title": "38004328 - Customized Equipment (DME)"
+        },
+        {
+          "const": 38004329,
+          "title": "38004329 - Dialysis Equipment & Supplies (DME)"
+        },
+        {
+          "const": 38004330,
+          "title": "38004330 - Nursing Facility Supplies (DME)"
+        },
+        {
+          "const": 38004331,
+          "title": "38004331 - Parenteral & Enteral Nutrition Supplies (DME)"
+        },
+        {
+          "const": 38004332,
+          "title": "38004332 - Oxygen Equipment & Supplies (DME)"
+        },
+        {
+          "const": 38004333,
+          "title": "38004333 - Eye Bank"
+        },
+        {
+          "const": 38004334,
+          "title": "38004334 - Eyewear Supplier"
+        },
+        {
+          "const": 38004335,
+          "title": "38004335 - Hearing Aid Equipment"
+        },
+        {
+          "const": 38004336,
+          "title": "38004336 - Home Delivered Meals"
+        },
+        {
+          "const": 38004337,
+          "title": "38004337 - Emergency Response System Companies"
+        },
+        {
+          "const": 38004338,
+          "title": "38004338 - Pharmacy"
+        },
+        {
+          "const": 38004339,
+          "title": "38004339 - Clinic Pharmacy"
+        },
+        {
+          "const": 38004340,
+          "title": "38004340 - Community/Retail Pharmacy"
+        },
+        {
+          "const": 38004341,
+          "title": "38004341 - Compounding Pharmacy"
+        },
+        {
+          "const": 38004342,
+          "title": "38004342 - Home Infusion Therapy Pharmacy"
+        },
+        {
+          "const": 38004343,
+          "title": "38004343 - Institutional Pharmacy"
+        },
+        {
+          "const": 38004344,
+          "title": "38004344 - Long Term Care Pharmacy"
+        },
+        {
+          "const": 38004345,
+          "title": "38004345 - Mail Order Pharmacy"
+        },
+        {
+          "const": 38004346,
+          "title": "38004346 - Managed Care Organization Pharmacy"
+        },
+        {
+          "const": 38004347,
+          "title": "38004347 - Nuclear Pharmacy"
+        },
+        {
+          "const": 38004348,
+          "title": "38004348 - Specialty Pharmacy"
+        },
+        {
+          "const": 38004349,
+          "title": "38004349 - Prosthetic/Orthotic Supplier"
+        },
+        {
+          "const": 38004350,
+          "title": "38004350 - Medical Foods Supplier"
+        },
+        {
+          "const": 38004351,
+          "title": "38004351 - Organ Procurement Organization"
+        },
+        {
+          "const": 38004352,
+          "title": "38004352 - Portable X-ray and/or Other Portable Diagnostic Imaging Supplier"
+        },
+        {
+          "const": 38004353,
+          "title": "38004353 - Ambulance"
+        },
+        {
+          "const": 38004354,
+          "title": "38004354 - Air Ambulance"
+        },
+        {
+          "const": 38004356,
+          "title": "38004356 - Water Ambulance"
+        },
+        {
+          "const": 38004357,
+          "title": "38004357 - Military/U.S. Coast Guard Transport,"
+        },
+        {
+          "const": 38004358,
+          "title": "38004358 - Military or U.S. Coast Guard Ground Transport Ambulance"
+        },
+        {
+          "const": 38004359,
+          "title": "38004359 - Military or U.S. Coast Guard Air Transport Ambulance"
+        },
+        {
+          "const": 38004360,
+          "title": "38004360 - Military or U.S. Coast Guard Water Transport Ambulance"
+        },
+        {
+          "const": 38004361,
+          "title": "38004361 - Secured Medical Transport (VAN)"
+        },
+        {
+          "const": 38004362,
+          "title": "38004362 - Non-emergency Medical Transport (VAN)"
+        },
+        {
+          "const": 38004363,
+          "title": "38004363 - Taxi"
+        },
+        {
+          "const": 38004364,
+          "title": "38004364 - Air Carrier"
+        },
+        {
+          "const": 38004365,
+          "title": "38004365 - Bus"
+        },
+        {
+          "const": 38004366,
+          "title": "38004366 - Private Vehicle"
+        },
+        {
+          "const": 38004367,
+          "title": "38004367 - Train"
+        },
+        {
+          "const": 38004368,
+          "title": "38004368 - Transportation Broker"
+        },
+        {
+          "const": 38004440,
+          "title": "38004440 - Respite Care"
+        },
+        {
+          "const": 38004441,
+          "title": "38004441 - Respite Care Camp"
+        },
+        {
+          "const": 38004442,
+          "title": "38004442 - Child Mental Illness Respite Care"
+        },
+        {
+          "const": 38004443,
+          "title": "38004443 - Child Intellectual and/or Developmental Disabilities Respite Care"
+        },
+        {
+          "const": 38004444,
+          "title": "38004444 - Child Physical Disabilities Respite Care"
+        },
+        {
+          "const": 38004453,
+          "title": "38004453 - Family Practice"
+        },
+        {
+          "const": 38004515,
+          "title": "38004515 - Hospital"
+        },
+        {
+          "const": 38004519,
+          "title": "38004519 - Home Health Agency"
+        },
+        {
+          "const": 38004521,
+          "title": "38004521 - Medical Supply Company with Respiratory Therapist"
+        },
+        {
+          "const": 38004522,
+          "title": "38004522 - Department Store"
+        },
+        {
+          "const": 38004523,
+          "title": "38004523 - Grocery Store"
+        },
+        {
+          "const": 38004525,
+          "title": "38004525 - Medical Supply Company with Pedorthic Personnel"
+        },
+        {
+          "const": 38004526,
+          "title": "38004526 - Rehabilitation Agency"
+        },
+        {
+          "const": 38004677,
+          "title": "38004677 - Mammography Center"
+        },
+        {
+          "const": 38004678,
+          "title": "38004678 - Independent Diagnostic Testing Facility"
+        },
+        {
+          "const": 38004680,
+          "title": "38004680 - Medical Supply Company with Orthotist"
+        },
+        {
+          "const": 38004681,
+          "title": "38004681 - Medical Supply Company with Prosthetist"
+        },
+        {
+          "const": 38004682,
+          "title": "38004682 - Medical Supply Company with Orthotist-Prosthetist"
+        },
+        {
+          "const": 38004683,
+          "title": "38004683 - Other Medical Supply Company"
+        },
+        {
+          "const": 38004687,
+          "title": "38004687 - Medical Supply Company with Pharmacist"
+        },
+        {
+          "const": 38004689,
+          "title": "38004689 - Public Health or Welfare Agency"
+        },
+        {
+          "const": 38004690,
+          "title": "38004690 - Voluntary Health or Charitable Agency"
+        },
+        {
+          "const": 38004691,
+          "title": "38004691 - Portable X-Ray Supplier"
+        },
+        {
+          "const": 38004693,
+          "title": "38004693 - Clinic or Group Practice"
+        },
+        {
+          "const": 38004696,
+          "title": "38004696 - Radiation Therapy Center"
+        },
+        {
+          "const": 38004697,
+          "title": "38004697 - Slide Preparation Facility"
+        },
+        {
+          "const": 38004698,
+          "title": "38004698 - Supplier"
+        },
+        {
+          "const": 38004700,
+          "title": "38004700 - Part B CAP Drug Vendor"
+        },
+        {
+          "const": 38004702,
+          "title": "38004702 - Indian Health Service facility"
+        },
+        {
+          "const": 38004703,
+          "title": "38004703 - Oxygen supplier"
+        },
+        {
+          "const": 42898160,
+          "title": "42898160 - Non-hospital institution Visit"
+        }
+      ]
+    },
+    "visit_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: For inpatient visits, the start date is typically the admission date. For outpatient visits the start date and end date will be the same.\n\nETL Conventions: When populating VISIT_START_DATE, you should think about the patient experience to make decisions on how to define visits. In the case of an inpatient visit this should be the date the patient was admitted to the hospital or institution. In all other cases this should be the date of the patient-provider interaction.  If this information is not available the record should be dropped."
+    },
+    "visit_start_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ETL Conventions: If no time is given for the start date of a visit, set it to midnight (00:00:0000)."
+    },
+    "visit_end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: For inpatient visits the end date is typically the discharge date.  If a Person is still an inpatient in the hospital at the time of the data extract and does not have a visit_end_date, then set the visit_end_date to the date of the data pull.\n\nETL Conventions: Visit end dates are mandatory. If end dates are not provided in the source there are three ways in which to derive them:\n- Outpatient Visit: visit_end_datetime = visit_start_datetime\n- Emergency Room Visit: visit_end_datetime = visit_start_datetime\n- Inpatient Visit: Usually there is information about discharge. If not, you should be able to derive the end date from the sudden decline of activity or from the absence of inpatient procedures/drugs.\n- Non-hospital institution Visits: Particularly for claims data, if end dates are not provided assume the visit is for the duration of month that it occurs.\nFor Inpatient Visits ongoing at the date of ETL, put date of processing the data into visit_end_datetime and visit_type_concept_id with 32220 \"Still patient\" to identify the visit as incomplete.\n- All other Visits: visit_end_datetime = visit_start_datetime. If this is a one-day visit the end date should match the start date."
+    },
+    "visit_end_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "User Guidance: If a Person is still an inpatient in the hospital at the time of the data extract and does not have a visit_end_datetime, then set the visit_end_datetime to the datetime of the data pull.\n\nETL Conventions: If no time is given for the end date of a visit, set it to midnight (00:00:0000)."
+    },
+    "visit_type_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: Use this field to understand the provenance of the visit record, or where the record comes from.\n\nETL Conventions: Populate this field based on the provenance of the visit record, as in whether it came from an EHR record or billing claim. [Accepted Concepts](https://athena.ohdsi.org/search-terms/terms?domain=Type+Concept&standardConcept=Standard&page=1&pageSize=15&query=). A more detailed explanation of each Type Concept can be found on the [vocabulary wiki](https://github.com/OHDSI/Vocabulary-v5.0/wiki/Vocab.-TYPE_CONCEPT).",
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "0 - No matching concept"
+        },
+        {
+          "const": 32809,
+          "title": "32809 - Case Report Form"
+        },
+        {
+          "const": 32810,
+          "title": "32810 - Claim"
+        },
+        {
+          "const": 32811,
+          "title": "32811 - Claim authorization"
+        },
+        {
+          "const": 32812,
+          "title": "32812 - Claim discharge record"
+        },
+        {
+          "const": 32813,
+          "title": "32813 - Claim enrolment record"
+        },
+        {
+          "const": 32814,
+          "title": "32814 - Cost record"
+        },
+        {
+          "const": 32815,
+          "title": "32815 - Death Certificate"
+        },
+        {
+          "const": 32816,
+          "title": "32816 - Dental claim"
+        },
+        {
+          "const": 32817,
+          "title": "32817 - EHR"
+        },
+        {
+          "const": 32818,
+          "title": "32818 - EHR administration record"
+        },
+        {
+          "const": 32819,
+          "title": "32819 - EHR admission note"
+        },
+        {
+          "const": 32820,
+          "title": "32820 - EHR ancillary report"
+        },
+        {
+          "const": 32821,
+          "title": "32821 - EHR billing record"
+        },
+        {
+          "const": 32822,
+          "title": "32822 - EHR chief complaint"
+        },
+        {
+          "const": 32823,
+          "title": "32823 - EHR discharge record"
+        },
+        {
+          "const": 32824,
+          "title": "32824 - EHR discharge summary"
+        },
+        {
+          "const": 32825,
+          "title": "32825 - EHR dispensing record"
+        },
+        {
+          "const": 32826,
+          "title": "32826 - EHR emergency room note"
+        },
+        {
+          "const": 32827,
+          "title": "32827 - EHR encounter record"
+        },
+        {
+          "const": 32828,
+          "title": "32828 - EHR episode record"
+        },
+        {
+          "const": 32829,
+          "title": "32829 - EHR inpatient note"
+        },
+        {
+          "const": 32830,
+          "title": "32830 - EHR medication list"
+        },
+        {
+          "const": 32831,
+          "title": "32831 - EHR note"
+        },
+        {
+          "const": 32832,
+          "title": "32832 - EHR nursing report"
+        },
+        {
+          "const": 32833,
+          "title": "32833 - EHR order"
+        },
+        {
+          "const": 32834,
+          "title": "32834 - EHR outpatient note"
+        },
+        {
+          "const": 32835,
+          "title": "32835 - EHR Pathology report"
+        },
+        {
+          "const": 32836,
+          "title": "32836 - EHR physical examination"
+        },
+        {
+          "const": 32837,
+          "title": "32837 - EHR planned dispensing record"
+        },
+        {
+          "const": 32838,
+          "title": "32838 - EHR prescription"
+        },
+        {
+          "const": 32839,
+          "title": "32839 - EHR prescription issue record"
+        },
+        {
+          "const": 32840,
+          "title": "32840 - EHR problem list"
+        },
+        {
+          "const": 32841,
+          "title": "32841 - EHR radiology report"
+        },
+        {
+          "const": 32842,
+          "title": "32842 - EHR referral record"
+        },
+        {
+          "const": 32843,
+          "title": "32843 - External CDM instance"
+        },
+        {
+          "const": 32844,
+          "title": "32844 - Facility claim"
+        },
+        {
+          "const": 32845,
+          "title": "32845 - Facility claim detail"
+        },
+        {
+          "const": 32846,
+          "title": "32846 - Facility claim header"
+        },
+        {
+          "const": 32847,
+          "title": "32847 - Geographic isolation record"
+        },
+        {
+          "const": 32848,
+          "title": "32848 - Government report"
+        },
+        {
+          "const": 32849,
+          "title": "32849 - Health Information Exchange record"
+        },
+        {
+          "const": 32850,
+          "title": "32850 - Health Risk Assessment"
+        },
+        {
+          "const": 32851,
+          "title": "32851 - Healthcare professional filled survey"
+        },
+        {
+          "const": 32852,
+          "title": "32852 - Hospital cost"
+        },
+        {
+          "const": 32853,
+          "title": "32853 - Inpatient claim"
+        },
+        {
+          "const": 32854,
+          "title": "32854 - Inpatient claim detail"
+        },
+        {
+          "const": 32855,
+          "title": "32855 - Inpatient claim header"
+        },
+        {
+          "const": 32856,
+          "title": "32856 - Lab"
+        },
+        {
+          "const": 32857,
+          "title": "32857 - Mail order record"
+        },
+        {
+          "const": 32858,
+          "title": "32858 - NLP"
+        },
+        {
+          "const": 32859,
+          "title": "32859 - Outpatient claim"
+        },
+        {
+          "const": 32860,
+          "title": "32860 - Outpatient claim detail"
+        },
+        {
+          "const": 32861,
+          "title": "32861 - Outpatient claim header"
+        },
+        {
+          "const": 32862,
+          "title": "32862 - Patient filled survey"
+        },
+        {
+          "const": 32863,
+          "title": "32863 - Patient or payer paid record"
+        },
+        {
+          "const": 32864,
+          "title": "32864 - Patient reported cost"
+        },
+        {
+          "const": 32865,
+          "title": "32865 - Patient self-report"
+        },
+        {
+          "const": 32866,
+          "title": "32866 - Payer system record (paid premium)"
+        },
+        {
+          "const": 32867,
+          "title": "32867 - Payer system record (primary payer)"
+        },
+        {
+          "const": 32868,
+          "title": "32868 - Payer system record (secondary payer)"
+        },
+        {
+          "const": 32869,
+          "title": "32869 - Pharmacy claim"
+        },
+        {
+          "const": 32870,
+          "title": "32870 - Pre-qualification time period"
+        },
+        {
+          "const": 32871,
+          "title": "32871 - Professional claim"
+        },
+        {
+          "const": 32872,
+          "title": "32872 - Professional claim detail"
+        },
+        {
+          "const": 32873,
+          "title": "32873 - Professional claim header"
+        },
+        {
+          "const": 32874,
+          "title": "32874 - Provider charge list price"
+        },
+        {
+          "const": 32875,
+          "title": "32875 - Provider financial system"
+        },
+        {
+          "const": 32876,
+          "title": "32876 - Provider incurred cost record"
+        },
+        {
+          "const": 32877,
+          "title": "32877 - Randomization record"
+        },
+        {
+          "const": 32878,
+          "title": "32878 - Reference lab"
+        },
+        {
+          "const": 32879,
+          "title": "32879 - Registry"
+        },
+        {
+          "const": 32880,
+          "title": "32880 - Standard algorithm"
+        },
+        {
+          "const": 32881,
+          "title": "32881 - Standard algorithm from claims"
+        },
+        {
+          "const": 32882,
+          "title": "32882 - Standard algorithm from EHR"
+        },
+        {
+          "const": 32883,
+          "title": "32883 - Survey"
+        },
+        {
+          "const": 32884,
+          "title": "32884 - Urgent lab"
+        },
+        {
+          "const": 32885,
+          "title": "32885 - US Social Security Death Master File"
+        },
+        {
+          "const": 32886,
+          "title": "32886 - Vision claim"
+        },
+        {
+          "const": 703249,
+          "title": "703249 - Point of care/express lab"
+        },
+        {
+          "const": 705183,
+          "title": "705183 - Patient self-tested"
+        }
+      ]
+    },
+    "provider_id": {
+      "type": "integer",
+      "description": "User Guidance: There will only be one provider per visit record and the ETL document should clearly state how they were chosen (attending, admitting, etc.). If there are multiple providers associated with a visit in the source, this can be reflected in the event tables (CONDITION_OCCURRENCE, PROCEDURE_OCCURRENCE, etc.) or in the VISIT_DETAIL table.\n\nETL Conventions: If there are multiple providers associated with a visit, you will need to choose which one to put here. The additional providers can be stored in the [VISIT_DETAIL](https://ohdsi.github.io/CommonDataModel/cdm54.html#visit_detail) table."
+    },
+    "care_site_id": {
+      "type": "integer",
+      "description": "User Guidance: This field provides information about the Care Site where the Visit took place.\n\nETL Conventions: There should only be one Care Site associated with a Visit."
+    },
+    "visit_source_value": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "User Guidance: This field houses the verbatim value from the source data representing the kind of visit that took place (inpatient, outpatient, emergency, etc.)\n\nETL Conventions: If there is information about the kind of visit in the source data that value should be stored here. If a visit is an amalgamation of visits from the source then use a hierarchy to choose the visit source value, such as IP -> ER-> OP. This should line up with the logic chosen to determine how visits are created."
+    },
+    "visit_source_concept_id": {
+      "type": "integer",
+      "description": "ETL Conventions: If the visit source value is coded in the source data using an OMOP supported vocabulary put the concept id representing the source value here."
+    },
+    "admitted_from_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: Use this field to determine where the patient was admitted from. This concept is part of the visit domain and can indicate if a patient was admitted to the hospital from a long-term care facility, for example.\n\nETL Conventions: If available, map the admitted_from_source_value to a standard concept in the visit domain. [Accepted Concepts](https://athena.ohdsi.org/search-terms/terms?domain=Visit&standardConcept=Standard&page=1&pageSize=15&query=). If a person was admitted from home or was self-referred, set this to 0.",
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "0 - No matching concept"
+        },
+        {
+          "const": 262,
+          "title": "262 - Emergency Room and Inpatient Visit"
+        },
+        {
+          "const": 5084,
+          "title": "5084 - Off Campus-Outpatient Hospital"
+        },
+        {
+          "const": 8537,
+          "title": "8537 - School"
+        },
+        {
+          "const": 8546,
+          "title": "8546 - Hospice"
+        },
+        {
+          "const": 8584,
+          "title": "8584 - Mobile Unit"
+        },
+        {
+          "const": 8602,
+          "title": "8602 - Temporary Lodging"
+        },
+        {
+          "const": 8615,
+          "title": "8615 - Assisted Living Facility"
+        },
+        {
+          "const": 8650,
+          "title": "8650 - Birthing Center"
+        },
+        {
+          "const": 8668,
+          "title": "8668 - Ambulance - Land"
+        },
+        {
+          "const": 8672,
+          "title": "8672 - Homeless Shelter"
+        },
+        {
+          "const": 8676,
+          "title": "8676 - Nursing Facility"
+        },
+        {
+          "const": 8716,
+          "title": "8716 - Independent Clinic"
+        },
+        {
+          "const": 8717,
+          "title": "8717 - Inpatient Hospital"
+        },
+        {
+          "const": 8756,
+          "title": "8756 - Outpatient Hospital"
+        },
+        {
+          "const": 8761,
+          "title": "8761 - Rural Health Clinic"
+        },
+        {
+          "const": 8782,
+          "title": "8782 - Urgent Care Facility"
+        },
+        {
+          "const": 8809,
+          "title": "8809 - Independent Laboratory"
+        },
+        {
+          "const": 8827,
+          "title": "8827 - Custodial Care Facility"
+        },
+        {
+          "const": 8850,
+          "title": "8850 - Ambulance - Air or Water"
+        },
+        {
+          "const": 8851,
+          "title": "8851 - Group Home"
+        },
+        {
+          "const": 8858,
+          "title": "8858 - Mass Immunization Center"
+        },
+        {
+          "const": 8863,
+          "title": "8863 - Skilled Nursing Facility"
+        },
+        {
+          "const": 8870,
+          "title": "8870 - Emergency Room - Hospital"
+        },
+        {
+          "const": 8882,
+          "title": "8882 - Adult Living Care Facility (Deprecated)"
+        },
+        {
+          "const": 8883,
+          "title": "8883 - Ambulatory Surgical Center"
+        },
+        {
+          "const": 8905,
+          "title": "8905 - Military Treatment Facility"
+        },
+        {
+          "const": 8913,
+          "title": "8913 - Psychiatric Facility-Partial Hospitalization"
+        },
+        {
+          "const": 8920,
+          "title": "8920 - Comprehensive Inpatient Rehabilitation Facility"
+        },
+        {
+          "const": 8941,
+          "title": "8941 - Tribal 638 Free-standing Facility"
+        },
+        {
+          "const": 8947,
+          "title": "8947 - Comprehensive Outpatient Rehabilitation Facility"
+        },
+        {
+          "const": 8949,
+          "title": "8949 - End-Stage Renal Disease Treatment Facility"
+        },
+        {
+          "const": 8951,
+          "title": "8951 - Intermediate Care Facility/ Individuals with Intellectual Disabilities"
+        },
+        {
+          "const": 8957,
+          "title": "8957 - Residential Substance Abuse Treatment Facility"
+        },
+        {
+          "const": 8960,
+          "title": "8960 - Tribal 638 Provider-based Facility"
+        },
+        {
+          "const": 8964,
+          "title": "8964 - Community Mental Health Center"
+        },
+        {
+          "const": 8966,
+          "title": "8966 - Federally Qualified Health Center"
+        },
+        {
+          "const": 8968,
+          "title": "8968 - Indian Health Service Free-standing Facility"
+        },
+        {
+          "const": 8969,
+          "title": "8969 - Indian Health Service Provider-based Facility"
+        },
+        {
+          "const": 8971,
+          "title": "8971 - Inpatient Psychiatric Facility"
+        },
+        {
+          "const": 8974,
+          "title": "8974 - Non-residential Substance Abuse Treatment Facility"
+        },
+        {
+          "const": 8976,
+          "title": "8976 - Psychiatric Residential Treatment Center"
+        },
+        {
+          "const": 8977,
+          "title": "8977 - Public Health Clinic"
+        },
+        {
+          "const": 9201,
+          "title": "9201 - Inpatient Visit"
+        },
+        {
+          "const": 9202,
+          "title": "9202 - Outpatient Visit"
+        },
+        {
+          "const": 9203,
+          "title": "9203 - Emergency Room Visit"
+        },
+        {
+          "const": 32036,
+          "title": "32036 - Laboratory Visit"
+        },
+        {
+          "const": 32037,
+          "title": "32037 - Intensive Care"
+        },
+        {
+          "const": 32253,
+          "title": "32253 - Outpatient Laboratory Visit"
+        },
+        {
+          "const": 32254,
+          "title": "32254 - Hospital-Swing Beds"
+        },
+        {
+          "const": 32261,
+          "title": "32261 - Religious Non-medical Health Care Inst-Outpatient Services"
+        },
+        {
+          "const": 32276,
+          "title": "32276 - Critical Access Hospital"
+        },
+        {
+          "const": 32693,
+          "title": "32693 - Health examination"
+        },
+        {
+          "const": 32759,
+          "title": "32759 - Home isolation"
+        },
+        {
+          "const": 32760,
+          "title": "32760 - Isolation in inpatient setting"
+        },
+        {
+          "const": 32761,
+          "title": "32761 - Person Under Investigation (PUI)"
+        },
+        {
+          "const": 33004,
+          "title": "33004 - Supplier / Service Provider"
+        },
+        {
+          "const": 33007,
+          "title": "33007 - Alternate care site (ACS)"
+        },
+        {
+          "const": 581379,
+          "title": "581379 - Inpatient Critical Care Facility"
+        },
+        {
+          "const": 581380,
+          "title": "581380 - Outpatient Critical Care Facility"
+        },
+        {
+          "const": 581381,
+          "title": "581381 - Emergency Room Critical Care Facility"
+        },
+        {
+          "const": 581383,
+          "title": "581383 - Inpatient Cardiac Care Facility"
+        },
+        {
+          "const": 581384,
+          "title": "581384 - Inpatient Nursery"
+        },
+        {
+          "const": 581385,
+          "title": "581385 - Observation Room"
+        },
+        {
+          "const": 581458,
+          "title": "581458 - Pharmacy visit"
+        },
+        {
+          "const": 581475,
+          "title": "581475 - Place of Employment-Worksite"
+        },
+        {
+          "const": 581476,
+          "title": "581476 - Home Visit"
+        },
+        {
+          "const": 581477,
+          "title": "581477 - Office Visit"
+        },
+        {
+          "const": 581478,
+          "title": "581478 - Ambulance Visit"
+        },
+        {
+          "const": 581479,
+          "title": "581479 - Ambulatory Rehabilitation Visit"
+        },
+        {
+          "const": 700290,
+          "title": "700290 - Transportation Network Company"
+        },
+        {
+          "const": 705159,
+          "title": "705159 - Ambulatory long COVID clinic"
+        },
+        {
+          "const": 722455,
+          "title": "722455 - Telehealth"
+        },
+        {
+          "const": 722457,
+          "title": "722457 - Non-residential Opioid Treatment Facility"
+        },
+        {
+          "const": 722458,
+          "title": "722458 - Programs of All-Inclusive Care for the Elderly (PACE) Center"
+        },
+        {
+          "const": 38003619,
+          "title": "38003619 - Prison / Correctional Facility"
+        },
+        {
+          "const": 38003620,
+          "title": "38003620 - Walk-in Retail Health Clinic"
+        },
+        {
+          "const": 38003793,
+          "title": "38003793 - Meals Provider"
+        },
+        {
+          "const": 38003809,
+          "title": "38003809 - Lodging Provider"
+        },
+        {
+          "const": 38004192,
+          "title": "38004192 - Local Education Agency (LEA)"
+        },
+        {
+          "const": 38004193,
+          "title": "38004193 - Case Management Agency"
+        },
+        {
+          "const": 38004194,
+          "title": "38004194 - Developmentally Disabled Services Day Training Agency"
+        },
+        {
+          "const": 38004196,
+          "title": "38004196 - Home Infusion Agency"
+        },
+        {
+          "const": 38004197,
+          "title": "38004197 - Community Based Hospice Care Agency"
+        },
+        {
+          "const": 38004198,
+          "title": "38004198 - Nursing Care Agency"
+        },
+        {
+          "const": 38004199,
+          "title": "38004199 - Public Health or Welfare Agency"
+        },
+        {
+          "const": 38004201,
+          "title": "38004201 - PACE Provider Organization"
+        },
+        {
+          "const": 38004202,
+          "title": "38004202 - Voluntary or Charitable Agency"
+        },
+        {
+          "const": 38004203,
+          "title": "38004203 - Supports Brokerage Agency"
+        },
+        {
+          "const": 38004204,
+          "title": "38004204 - Early Intervention Provider Agency"
+        },
+        {
+          "const": 38004205,
+          "title": "38004205 - Foster Care Agency"
+        },
+        {
+          "const": 38004206,
+          "title": "38004206 - In Home Supportive Care Agency"
+        },
+        {
+          "const": 38004207,
+          "title": "38004207 - Clinic/Center"
+        },
+        {
+          "const": 38004208,
+          "title": "38004208 - Ambulatory Family Planning Facility"
+        },
+        {
+          "const": 38004209,
+          "title": "38004209 - Ambulatory Fertility Facility"
+        },
+        {
+          "const": 38004210,
+          "title": "38004210 - Adult Day Care Clinic/Center"
+        },
+        {
+          "const": 38004211,
+          "title": "38004211 - Amputee Clinic/Center"
+        },
+        {
+          "const": 38004213,
+          "title": "38004213 - Augmentative Communication Clinic/Center"
+        },
+        {
+          "const": 38004215,
+          "title": "38004215 - Critical Access Hospital Clinic/Center"
+        },
+        {
+          "const": 38004216,
+          "title": "38004216 - Community Health Clinic/Center"
+        },
+        {
+          "const": 38004217,
+          "title": "38004217 - Corporate Health Clinic/Center"
+        },
+        {
+          "const": 38004218,
+          "title": "38004218 - Dental Clinic/Center"
+        },
+        {
+          "const": 38004219,
+          "title": "38004219 - Developmental Disabilities Clinic/Center"
+        },
+        {
+          "const": 38004220,
+          "title": "38004220 - Emergency Care Clinic/Center"
+        },
+        {
+          "const": 38004222,
+          "title": "38004222 - Endoscopy Clinic/Center"
+        },
+        {
+          "const": 38004223,
+          "title": "38004223 - Non-Surgical Family Planning Clinic/Center"
+        },
+        {
+          "const": 38004225,
+          "title": "38004225 - Genetics Clinic/Center"
+        },
+        {
+          "const": 38004226,
+          "title": "38004226 - Health Service Clinic/Center"
+        },
+        {
+          "const": 38004227,
+          "title": "38004227 - Hearing and Speech Clinic/Center"
+        },
+        {
+          "const": 38004228,
+          "title": "38004228 - Infusion Therapy Clinic/Center"
+        },
+        {
+          "const": 38004229,
+          "title": "38004229 - Lithotripsy Clinic/Center"
+        },
+        {
+          "const": 38004231,
+          "title": "38004231 - Adult Mental Health Clinic/Center"
+        },
+        {
+          "const": 38004232,
+          "title": "38004232 - Adolescent and Children Mental Health Clinic/Center"
+        },
+        {
+          "const": 38004233,
+          "title": "38004233 - Migrant Health Clinic/Center"
+        },
+        {
+          "const": 38004234,
+          "title": "38004234 - Military/U.S. Coast Guard Outpatient Clinic/Center"
+        },
+        {
+          "const": 38004235,
+          "title": "38004235 - Military and U.S. Coast Guard Ambulatory Procedure Clinic/Center"
+        },
+        {
+          "const": 38004236,
+          "title": "38004236 - Military Outpatient Operational (Transportable) Component Clinic/Center"
+        },
+        {
+          "const": 38004237,
+          "title": "38004237 - Military Ambulatory Procedure Visits Operational (Transportable) Clinic/Center"
+        },
+        {
+          "const": 38004238,
+          "title": "38004238 - Magnetic Resonance Imaging (MRI) Clinic/Center"
+        },
+        {
+          "const": 38004239,
+          "title": "38004239 - Multi-Specialty Clinic/Center"
+        },
+        {
+          "const": 38004240,
+          "title": "38004240 - Medical Specialty Clinic/Center"
+        },
+        {
+          "const": 38004241,
+          "title": "38004241 - Methadone Clinic"
+        },
+        {
+          "const": 38004242,
+          "title": "38004242 - Medically Fragile Infants and Children Day Care"
+        },
+        {
+          "const": 38004243,
+          "title": "38004243 - Federal Public Health Clinic/Center"
+        },
+        {
+          "const": 38004244,
+          "title": "38004244 - State or Local Public Health Clinic/Center"
+        },
+        {
+          "const": 38004245,
+          "title": "38004245 - Podiatric Clinic/Center"
+        },
+        {
+          "const": 38004246,
+          "title": "38004246 - Physical Therapy Clinic/Center"
+        },
+        {
+          "const": 38004247,
+          "title": "38004247 - Primary Care Clinic/Center"
+        },
+        {
+          "const": 38004248,
+          "title": "38004248 - Prison Health Clinic/Center"
+        },
+        {
+          "const": 38004249,
+          "title": "38004249 - Pain Clinic/Center"
+        },
+        {
+          "const": 38004250,
+          "title": "38004250 - Radiology Clinic/Center"
+        },
+        {
+          "const": 38004251,
+          "title": "38004251 - Mammography Clinic/Center"
+        },
+        {
+          "const": 38004252,
+          "title": "38004252 - Mobile Mammography Clinic/Center"
+        },
+        {
+          "const": 38004253,
+          "title": "38004253 - Mobile Radiology Clinic/Center"
+        },
+        {
+          "const": 38004254,
+          "title": "38004254 - Rehabilitation Clinic/Center"
+        },
+        {
+          "const": 38004256,
+          "title": "38004256 - Cardiac Rehabilitation Clinic/Center"
+        },
+        {
+          "const": 38004257,
+          "title": "38004257 - Substance Use Disorder Rehabilitation Clinic/Center"
+        },
+        {
+          "const": 38004258,
+          "title": "38004258 - Recovery Care Clinic/Center"
+        },
+        {
+          "const": 38004259,
+          "title": "38004259 - Research Clinic/Center"
+        },
+        {
+          "const": 38004260,
+          "title": "38004260 - Rural Health Clinic/Center"
+        },
+        {
+          "const": 38004261,
+          "title": "38004261 - Oral and Maxillofacial Surgery Clinic/Center"
+        },
+        {
+          "const": 38004262,
+          "title": "38004262 - Ophthalmologic Surgery Clinic/Center"
+        },
+        {
+          "const": 38004263,
+          "title": "38004263 - Student Health Clinic/Center"
+        },
+        {
+          "const": 38004264,
+          "title": "38004264 - Sleep Disorder Diagnostic Clinic/Center"
+        },
+        {
+          "const": 38004266,
+          "title": "38004266 - VA Clinic/Center"
+        },
+        {
+          "const": 38004267,
+          "title": "38004267 - Occupational Medicine Clinic/Center"
+        },
+        {
+          "const": 38004268,
+          "title": "38004268 - Oncology Clinic/Center"
+        },
+        {
+          "const": 38004269,
+          "title": "38004269 - Radiation Oncology Clinic/Center"
+        },
+        {
+          "const": 38004270,
+          "title": "38004270 - Epilepsy Hospital Unit"
+        },
+        {
+          "const": 38004274,
+          "title": "38004274 - Substance Use Disorder Rehabilitation Hospital Unit"
+        },
+        {
+          "const": 38004275,
+          "title": "38004275 - Chronic Disease Hospital"
+        },
+        {
+          "const": 38004276,
+          "title": "38004276 - Children's Chronic Disease Hospital"
+        },
+        {
+          "const": 38004277,
+          "title": "38004277 - Long Term Care Hospital"
+        },
+        {
+          "const": 38004278,
+          "title": "38004278 - Religious Nonmedical Health Care Institution"
+        },
+        {
+          "const": 38004279,
+          "title": "38004279 - General Acute Care Hospital"
+        },
+        {
+          "const": 38004280,
+          "title": "38004280 - Critical Access Hospital"
+        },
+        {
+          "const": 38004281,
+          "title": "38004281 - Children's Hospital"
+        },
+        {
+          "const": 38004282,
+          "title": "38004282 - Rural Acute Care Hospital"
+        },
+        {
+          "const": 38004283,
+          "title": "38004283 - Women's Hospital"
+        },
+        {
+          "const": 38004284,
+          "title": "38004284 - Psychiatric Hospital"
+        },
+        {
+          "const": 38004285,
+          "title": "38004285 - Rehabilitation Hospital"
+        },
+        {
+          "const": 38004286,
+          "title": "38004286 - Children's Rehabilitation Hospital"
+        },
+        {
+          "const": 38004287,
+          "title": "38004287 - Special Hospital"
+        },
+        {
+          "const": 38004288,
+          "title": "38004288 - Military Hospital"
+        },
+        {
+          "const": 38004290,
+          "title": "38004290 - Military General Acute Care Hospital"
+        },
+        {
+          "const": 38004291,
+          "title": "38004291 - Operational (Transportable) Military General Acute Care Hospital"
+        },
+        {
+          "const": 38004293,
+          "title": "38004293 - Military Clinical Medical Laboratory"
+        },
+        {
+          "const": 38004294,
+          "title": "38004294 - Clinical Medical Laboratory"
+        },
+        {
+          "const": 38004295,
+          "title": "38004295 - Dental Laboratory"
+        },
+        {
+          "const": 38004296,
+          "title": "38004296 - Physiological Laboratory"
+        },
+        {
+          "const": 38004297,
+          "title": "38004297 - Exclusive Provider Organization"
+        },
+        {
+          "const": 38004298,
+          "title": "38004298 - Health Maintenance Organization"
+        },
+        {
+          "const": 38004299,
+          "title": "38004299 - Preferred Provider Organization"
+        },
+        {
+          "const": 38004300,
+          "title": "38004300 - Point of Service"
+        },
+        {
+          "const": 38004302,
+          "title": "38004302 - Assisted Living Facility (Mental Illness)"
+        },
+        {
+          "const": 38004303,
+          "title": "38004303 - Assisted Living Facility (Behavioral Disturbances)"
+        },
+        {
+          "const": 38004305,
+          "title": "38004305 - Alzheimer Center (Dementia Center)"
+        },
+        {
+          "const": 38004306,
+          "title": "38004306 - Custodial Care Facility"
+        },
+        {
+          "const": 38004307,
+          "title": "38004307 - Adult Care Home Facility"
+        },
+        {
+          "const": 38004310,
+          "title": "38004310 - Pediatric Skilled Nursing Facility"
+        },
+        {
+          "const": 38004311,
+          "title": "38004311 - Inpatient Hospice"
+        },
+        {
+          "const": 38004314,
+          "title": "38004314 - Intellectual and/or Developmental Disabilities Residential Treatment Facility"
+        },
+        {
+          "const": 38004315,
+          "title": "38004315 - Physical Disabilities Residential Treatment Facility"
+        },
+        {
+          "const": 38004316,
+          "title": "38004316 - Mental Illness Community Based Residential Treatment Facility"
+        },
+        {
+          "const": 38004317,
+          "title": "38004317 - Intellectual and/or Developmental Disabilities Community Based Residential Treatment Facility"
+        },
+        {
+          "const": 38004318,
+          "title": "38004318 - Emotionally Disturbed Childrens' Residential Treatment Facility"
+        },
+        {
+          "const": 38004321,
+          "title": "38004321 - Children's Substance Abuse Rehabilitation Facility"
+        },
+        {
+          "const": 38004322,
+          "title": "38004322 - Blood Bank"
+        },
+        {
+          "const": 38004323,
+          "title": "38004323 - Military/U.S. Coast Guard Pharmacy"
+        },
+        {
+          "const": 38004324,
+          "title": "38004324 - Department of Veterans Affairs (VA) Pharmacy"
+        },
+        {
+          "const": 38004325,
+          "title": "38004325 - Indian Health Service/Tribal/Urban Indian Health (I/T/U) Pharmacy"
+        },
+        {
+          "const": 38004326,
+          "title": "38004326 - Non-Pharmacy Dispensing Site"
+        },
+        {
+          "const": 38004327,
+          "title": "38004327 - Durable Medical Equipment & Medical Supplies"
+        },
+        {
+          "const": 38004328,
+          "title": "38004328 - Customized Equipment (DME)"
+        },
+        {
+          "const": 38004329,
+          "title": "38004329 - Dialysis Equipment & Supplies (DME)"
+        },
+        {
+          "const": 38004330,
+          "title": "38004330 - Nursing Facility Supplies (DME)"
+        },
+        {
+          "const": 38004331,
+          "title": "38004331 - Parenteral & Enteral Nutrition Supplies (DME)"
+        },
+        {
+          "const": 38004332,
+          "title": "38004332 - Oxygen Equipment & Supplies (DME)"
+        },
+        {
+          "const": 38004333,
+          "title": "38004333 - Eye Bank"
+        },
+        {
+          "const": 38004334,
+          "title": "38004334 - Eyewear Supplier"
+        },
+        {
+          "const": 38004335,
+          "title": "38004335 - Hearing Aid Equipment"
+        },
+        {
+          "const": 38004336,
+          "title": "38004336 - Home Delivered Meals"
+        },
+        {
+          "const": 38004337,
+          "title": "38004337 - Emergency Response System Companies"
+        },
+        {
+          "const": 38004338,
+          "title": "38004338 - Pharmacy"
+        },
+        {
+          "const": 38004339,
+          "title": "38004339 - Clinic Pharmacy"
+        },
+        {
+          "const": 38004340,
+          "title": "38004340 - Community/Retail Pharmacy"
+        },
+        {
+          "const": 38004341,
+          "title": "38004341 - Compounding Pharmacy"
+        },
+        {
+          "const": 38004342,
+          "title": "38004342 - Home Infusion Therapy Pharmacy"
+        },
+        {
+          "const": 38004343,
+          "title": "38004343 - Institutional Pharmacy"
+        },
+        {
+          "const": 38004344,
+          "title": "38004344 - Long Term Care Pharmacy"
+        },
+        {
+          "const": 38004345,
+          "title": "38004345 - Mail Order Pharmacy"
+        },
+        {
+          "const": 38004346,
+          "title": "38004346 - Managed Care Organization Pharmacy"
+        },
+        {
+          "const": 38004347,
+          "title": "38004347 - Nuclear Pharmacy"
+        },
+        {
+          "const": 38004348,
+          "title": "38004348 - Specialty Pharmacy"
+        },
+        {
+          "const": 38004349,
+          "title": "38004349 - Prosthetic/Orthotic Supplier"
+        },
+        {
+          "const": 38004350,
+          "title": "38004350 - Medical Foods Supplier"
+        },
+        {
+          "const": 38004351,
+          "title": "38004351 - Organ Procurement Organization"
+        },
+        {
+          "const": 38004352,
+          "title": "38004352 - Portable X-ray and/or Other Portable Diagnostic Imaging Supplier"
+        },
+        {
+          "const": 38004353,
+          "title": "38004353 - Ambulance"
+        },
+        {
+          "const": 38004354,
+          "title": "38004354 - Air Ambulance"
+        },
+        {
+          "const": 38004356,
+          "title": "38004356 - Water Ambulance"
+        },
+        {
+          "const": 38004357,
+          "title": "38004357 - Military/U.S. Coast Guard Transport,"
+        },
+        {
+          "const": 38004358,
+          "title": "38004358 - Military or U.S. Coast Guard Ground Transport Ambulance"
+        },
+        {
+          "const": 38004359,
+          "title": "38004359 - Military or U.S. Coast Guard Air Transport Ambulance"
+        },
+        {
+          "const": 38004360,
+          "title": "38004360 - Military or U.S. Coast Guard Water Transport Ambulance"
+        },
+        {
+          "const": 38004361,
+          "title": "38004361 - Secured Medical Transport (VAN)"
+        },
+        {
+          "const": 38004362,
+          "title": "38004362 - Non-emergency Medical Transport (VAN)"
+        },
+        {
+          "const": 38004363,
+          "title": "38004363 - Taxi"
+        },
+        {
+          "const": 38004364,
+          "title": "38004364 - Air Carrier"
+        },
+        {
+          "const": 38004365,
+          "title": "38004365 - Bus"
+        },
+        {
+          "const": 38004366,
+          "title": "38004366 - Private Vehicle"
+        },
+        {
+          "const": 38004367,
+          "title": "38004367 - Train"
+        },
+        {
+          "const": 38004368,
+          "title": "38004368 - Transportation Broker"
+        },
+        {
+          "const": 38004440,
+          "title": "38004440 - Respite Care"
+        },
+        {
+          "const": 38004441,
+          "title": "38004441 - Respite Care Camp"
+        },
+        {
+          "const": 38004442,
+          "title": "38004442 - Child Mental Illness Respite Care"
+        },
+        {
+          "const": 38004443,
+          "title": "38004443 - Child Intellectual and/or Developmental Disabilities Respite Care"
+        },
+        {
+          "const": 38004444,
+          "title": "38004444 - Child Physical Disabilities Respite Care"
+        },
+        {
+          "const": 38004453,
+          "title": "38004453 - Family Practice"
+        },
+        {
+          "const": 38004515,
+          "title": "38004515 - Hospital"
+        },
+        {
+          "const": 38004519,
+          "title": "38004519 - Home Health Agency"
+        },
+        {
+          "const": 38004521,
+          "title": "38004521 - Medical Supply Company with Respiratory Therapist"
+        },
+        {
+          "const": 38004522,
+          "title": "38004522 - Department Store"
+        },
+        {
+          "const": 38004523,
+          "title": "38004523 - Grocery Store"
+        },
+        {
+          "const": 38004525,
+          "title": "38004525 - Medical Supply Company with Pedorthic Personnel"
+        },
+        {
+          "const": 38004526,
+          "title": "38004526 - Rehabilitation Agency"
+        },
+        {
+          "const": 38004677,
+          "title": "38004677 - Mammography Center"
+        },
+        {
+          "const": 38004678,
+          "title": "38004678 - Independent Diagnostic Testing Facility"
+        },
+        {
+          "const": 38004680,
+          "title": "38004680 - Medical Supply Company with Orthotist"
+        },
+        {
+          "const": 38004681,
+          "title": "38004681 - Medical Supply Company with Prosthetist"
+        },
+        {
+          "const": 38004682,
+          "title": "38004682 - Medical Supply Company with Orthotist-Prosthetist"
+        },
+        {
+          "const": 38004683,
+          "title": "38004683 - Other Medical Supply Company"
+        },
+        {
+          "const": 38004687,
+          "title": "38004687 - Medical Supply Company with Pharmacist"
+        },
+        {
+          "const": 38004689,
+          "title": "38004689 - Public Health or Welfare Agency"
+        },
+        {
+          "const": 38004690,
+          "title": "38004690 - Voluntary Health or Charitable Agency"
+        },
+        {
+          "const": 38004691,
+          "title": "38004691 - Portable X-Ray Supplier"
+        },
+        {
+          "const": 38004693,
+          "title": "38004693 - Clinic or Group Practice"
+        },
+        {
+          "const": 38004696,
+          "title": "38004696 - Radiation Therapy Center"
+        },
+        {
+          "const": 38004697,
+          "title": "38004697 - Slide Preparation Facility"
+        },
+        {
+          "const": 38004698,
+          "title": "38004698 - Supplier"
+        },
+        {
+          "const": 38004700,
+          "title": "38004700 - Part B CAP Drug Vendor"
+        },
+        {
+          "const": 38004702,
+          "title": "38004702 - Indian Health Service facility"
+        },
+        {
+          "const": 38004703,
+          "title": "38004703 - Oxygen supplier"
+        },
+        {
+          "const": 42898160,
+          "title": "42898160 - Non-hospital institution Visit"
+        }
+      ]
+    },
+    "admitted_from_source_value": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "ETL Conventions: This information may be called something different in the source data but the field is meant to contain a value indicating where a person was admitted from. Typically this applies only to visits that have a length of stay, like inpatient visits or long-term care visits."
+    },
+    "discharged_to_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: Use this field to determine where the patient was discharged to after a visit. This concept is part of the visit domain and can indicate if a patient was transferred to another hospital or sent to a long-term care facility, for example.  It is assumed that a person is discharged to home therefore there is not a standard concept id for \"home\".  Use concept id = 0 when a person is discharged to home.\n\nETL Conventions: If available, map the discharged_to_source_value to a standard concept in the visit domain. [Accepted Concepts](https://athena.ohdsi.org/search-terms/terms?domain=Visit&standardConcept=Standard&page=1&pageSize=15&query=).",
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "0 - No matching concept"
+        },
+        {
+          "const": 262,
+          "title": "262 - Emergency Room and Inpatient Visit"
+        },
+        {
+          "const": 5084,
+          "title": "5084 - Off Campus-Outpatient Hospital"
+        },
+        {
+          "const": 8537,
+          "title": "8537 - School"
+        },
+        {
+          "const": 8546,
+          "title": "8546 - Hospice"
+        },
+        {
+          "const": 8584,
+          "title": "8584 - Mobile Unit"
+        },
+        {
+          "const": 8602,
+          "title": "8602 - Temporary Lodging"
+        },
+        {
+          "const": 8615,
+          "title": "8615 - Assisted Living Facility"
+        },
+        {
+          "const": 8650,
+          "title": "8650 - Birthing Center"
+        },
+        {
+          "const": 8668,
+          "title": "8668 - Ambulance - Land"
+        },
+        {
+          "const": 8672,
+          "title": "8672 - Homeless Shelter"
+        },
+        {
+          "const": 8676,
+          "title": "8676 - Nursing Facility"
+        },
+        {
+          "const": 8716,
+          "title": "8716 - Independent Clinic"
+        },
+        {
+          "const": 8717,
+          "title": "8717 - Inpatient Hospital"
+        },
+        {
+          "const": 8756,
+          "title": "8756 - Outpatient Hospital"
+        },
+        {
+          "const": 8761,
+          "title": "8761 - Rural Health Clinic"
+        },
+        {
+          "const": 8782,
+          "title": "8782 - Urgent Care Facility"
+        },
+        {
+          "const": 8809,
+          "title": "8809 - Independent Laboratory"
+        },
+        {
+          "const": 8827,
+          "title": "8827 - Custodial Care Facility"
+        },
+        {
+          "const": 8850,
+          "title": "8850 - Ambulance - Air or Water"
+        },
+        {
+          "const": 8851,
+          "title": "8851 - Group Home"
+        },
+        {
+          "const": 8858,
+          "title": "8858 - Mass Immunization Center"
+        },
+        {
+          "const": 8863,
+          "title": "8863 - Skilled Nursing Facility"
+        },
+        {
+          "const": 8870,
+          "title": "8870 - Emergency Room - Hospital"
+        },
+        {
+          "const": 8882,
+          "title": "8882 - Adult Living Care Facility (Deprecated)"
+        },
+        {
+          "const": 8883,
+          "title": "8883 - Ambulatory Surgical Center"
+        },
+        {
+          "const": 8905,
+          "title": "8905 - Military Treatment Facility"
+        },
+        {
+          "const": 8913,
+          "title": "8913 - Psychiatric Facility-Partial Hospitalization"
+        },
+        {
+          "const": 8920,
+          "title": "8920 - Comprehensive Inpatient Rehabilitation Facility"
+        },
+        {
+          "const": 8941,
+          "title": "8941 - Tribal 638 Free-standing Facility"
+        },
+        {
+          "const": 8947,
+          "title": "8947 - Comprehensive Outpatient Rehabilitation Facility"
+        },
+        {
+          "const": 8949,
+          "title": "8949 - End-Stage Renal Disease Treatment Facility"
+        },
+        {
+          "const": 8951,
+          "title": "8951 - Intermediate Care Facility/ Individuals with Intellectual Disabilities"
+        },
+        {
+          "const": 8957,
+          "title": "8957 - Residential Substance Abuse Treatment Facility"
+        },
+        {
+          "const": 8960,
+          "title": "8960 - Tribal 638 Provider-based Facility"
+        },
+        {
+          "const": 8964,
+          "title": "8964 - Community Mental Health Center"
+        },
+        {
+          "const": 8966,
+          "title": "8966 - Federally Qualified Health Center"
+        },
+        {
+          "const": 8968,
+          "title": "8968 - Indian Health Service Free-standing Facility"
+        },
+        {
+          "const": 8969,
+          "title": "8969 - Indian Health Service Provider-based Facility"
+        },
+        {
+          "const": 8971,
+          "title": "8971 - Inpatient Psychiatric Facility"
+        },
+        {
+          "const": 8974,
+          "title": "8974 - Non-residential Substance Abuse Treatment Facility"
+        },
+        {
+          "const": 8976,
+          "title": "8976 - Psychiatric Residential Treatment Center"
+        },
+        {
+          "const": 8977,
+          "title": "8977 - Public Health Clinic"
+        },
+        {
+          "const": 9201,
+          "title": "9201 - Inpatient Visit"
+        },
+        {
+          "const": 9202,
+          "title": "9202 - Outpatient Visit"
+        },
+        {
+          "const": 9203,
+          "title": "9203 - Emergency Room Visit"
+        },
+        {
+          "const": 32036,
+          "title": "32036 - Laboratory Visit"
+        },
+        {
+          "const": 32037,
+          "title": "32037 - Intensive Care"
+        },
+        {
+          "const": 32253,
+          "title": "32253 - Outpatient Laboratory Visit"
+        },
+        {
+          "const": 32254,
+          "title": "32254 - Hospital-Swing Beds"
+        },
+        {
+          "const": 32261,
+          "title": "32261 - Religious Non-medical Health Care Inst-Outpatient Services"
+        },
+        {
+          "const": 32276,
+          "title": "32276 - Critical Access Hospital"
+        },
+        {
+          "const": 32693,
+          "title": "32693 - Health examination"
+        },
+        {
+          "const": 32759,
+          "title": "32759 - Home isolation"
+        },
+        {
+          "const": 32760,
+          "title": "32760 - Isolation in inpatient setting"
+        },
+        {
+          "const": 32761,
+          "title": "32761 - Person Under Investigation (PUI)"
+        },
+        {
+          "const": 33004,
+          "title": "33004 - Supplier / Service Provider"
+        },
+        {
+          "const": 33007,
+          "title": "33007 - Alternate care site (ACS)"
+        },
+        {
+          "const": 581379,
+          "title": "581379 - Inpatient Critical Care Facility"
+        },
+        {
+          "const": 581380,
+          "title": "581380 - Outpatient Critical Care Facility"
+        },
+        {
+          "const": 581381,
+          "title": "581381 - Emergency Room Critical Care Facility"
+        },
+        {
+          "const": 581383,
+          "title": "581383 - Inpatient Cardiac Care Facility"
+        },
+        {
+          "const": 581384,
+          "title": "581384 - Inpatient Nursery"
+        },
+        {
+          "const": 581385,
+          "title": "581385 - Observation Room"
+        },
+        {
+          "const": 581458,
+          "title": "581458 - Pharmacy visit"
+        },
+        {
+          "const": 581475,
+          "title": "581475 - Place of Employment-Worksite"
+        },
+        {
+          "const": 581476,
+          "title": "581476 - Home Visit"
+        },
+        {
+          "const": 581477,
+          "title": "581477 - Office Visit"
+        },
+        {
+          "const": 581478,
+          "title": "581478 - Ambulance Visit"
+        },
+        {
+          "const": 581479,
+          "title": "581479 - Ambulatory Rehabilitation Visit"
+        },
+        {
+          "const": 700290,
+          "title": "700290 - Transportation Network Company"
+        },
+        {
+          "const": 705159,
+          "title": "705159 - Ambulatory long COVID clinic"
+        },
+        {
+          "const": 722455,
+          "title": "722455 - Telehealth"
+        },
+        {
+          "const": 722457,
+          "title": "722457 - Non-residential Opioid Treatment Facility"
+        },
+        {
+          "const": 722458,
+          "title": "722458 - Programs of All-Inclusive Care for the Elderly (PACE) Center"
+        },
+        {
+          "const": 38003619,
+          "title": "38003619 - Prison / Correctional Facility"
+        },
+        {
+          "const": 38003620,
+          "title": "38003620 - Walk-in Retail Health Clinic"
+        },
+        {
+          "const": 38003793,
+          "title": "38003793 - Meals Provider"
+        },
+        {
+          "const": 38003809,
+          "title": "38003809 - Lodging Provider"
+        },
+        {
+          "const": 38004192,
+          "title": "38004192 - Local Education Agency (LEA)"
+        },
+        {
+          "const": 38004193,
+          "title": "38004193 - Case Management Agency"
+        },
+        {
+          "const": 38004194,
+          "title": "38004194 - Developmentally Disabled Services Day Training Agency"
+        },
+        {
+          "const": 38004196,
+          "title": "38004196 - Home Infusion Agency"
+        },
+        {
+          "const": 38004197,
+          "title": "38004197 - Community Based Hospice Care Agency"
+        },
+        {
+          "const": 38004198,
+          "title": "38004198 - Nursing Care Agency"
+        },
+        {
+          "const": 38004199,
+          "title": "38004199 - Public Health or Welfare Agency"
+        },
+        {
+          "const": 38004201,
+          "title": "38004201 - PACE Provider Organization"
+        },
+        {
+          "const": 38004202,
+          "title": "38004202 - Voluntary or Charitable Agency"
+        },
+        {
+          "const": 38004203,
+          "title": "38004203 - Supports Brokerage Agency"
+        },
+        {
+          "const": 38004204,
+          "title": "38004204 - Early Intervention Provider Agency"
+        },
+        {
+          "const": 38004205,
+          "title": "38004205 - Foster Care Agency"
+        },
+        {
+          "const": 38004206,
+          "title": "38004206 - In Home Supportive Care Agency"
+        },
+        {
+          "const": 38004207,
+          "title": "38004207 - Clinic/Center"
+        },
+        {
+          "const": 38004208,
+          "title": "38004208 - Ambulatory Family Planning Facility"
+        },
+        {
+          "const": 38004209,
+          "title": "38004209 - Ambulatory Fertility Facility"
+        },
+        {
+          "const": 38004210,
+          "title": "38004210 - Adult Day Care Clinic/Center"
+        },
+        {
+          "const": 38004211,
+          "title": "38004211 - Amputee Clinic/Center"
+        },
+        {
+          "const": 38004213,
+          "title": "38004213 - Augmentative Communication Clinic/Center"
+        },
+        {
+          "const": 38004215,
+          "title": "38004215 - Critical Access Hospital Clinic/Center"
+        },
+        {
+          "const": 38004216,
+          "title": "38004216 - Community Health Clinic/Center"
+        },
+        {
+          "const": 38004217,
+          "title": "38004217 - Corporate Health Clinic/Center"
+        },
+        {
+          "const": 38004218,
+          "title": "38004218 - Dental Clinic/Center"
+        },
+        {
+          "const": 38004219,
+          "title": "38004219 - Developmental Disabilities Clinic/Center"
+        },
+        {
+          "const": 38004220,
+          "title": "38004220 - Emergency Care Clinic/Center"
+        },
+        {
+          "const": 38004222,
+          "title": "38004222 - Endoscopy Clinic/Center"
+        },
+        {
+          "const": 38004223,
+          "title": "38004223 - Non-Surgical Family Planning Clinic/Center"
+        },
+        {
+          "const": 38004225,
+          "title": "38004225 - Genetics Clinic/Center"
+        },
+        {
+          "const": 38004226,
+          "title": "38004226 - Health Service Clinic/Center"
+        },
+        {
+          "const": 38004227,
+          "title": "38004227 - Hearing and Speech Clinic/Center"
+        },
+        {
+          "const": 38004228,
+          "title": "38004228 - Infusion Therapy Clinic/Center"
+        },
+        {
+          "const": 38004229,
+          "title": "38004229 - Lithotripsy Clinic/Center"
+        },
+        {
+          "const": 38004231,
+          "title": "38004231 - Adult Mental Health Clinic/Center"
+        },
+        {
+          "const": 38004232,
+          "title": "38004232 - Adolescent and Children Mental Health Clinic/Center"
+        },
+        {
+          "const": 38004233,
+          "title": "38004233 - Migrant Health Clinic/Center"
+        },
+        {
+          "const": 38004234,
+          "title": "38004234 - Military/U.S. Coast Guard Outpatient Clinic/Center"
+        },
+        {
+          "const": 38004235,
+          "title": "38004235 - Military and U.S. Coast Guard Ambulatory Procedure Clinic/Center"
+        },
+        {
+          "const": 38004236,
+          "title": "38004236 - Military Outpatient Operational (Transportable) Component Clinic/Center"
+        },
+        {
+          "const": 38004237,
+          "title": "38004237 - Military Ambulatory Procedure Visits Operational (Transportable) Clinic/Center"
+        },
+        {
+          "const": 38004238,
+          "title": "38004238 - Magnetic Resonance Imaging (MRI) Clinic/Center"
+        },
+        {
+          "const": 38004239,
+          "title": "38004239 - Multi-Specialty Clinic/Center"
+        },
+        {
+          "const": 38004240,
+          "title": "38004240 - Medical Specialty Clinic/Center"
+        },
+        {
+          "const": 38004241,
+          "title": "38004241 - Methadone Clinic"
+        },
+        {
+          "const": 38004242,
+          "title": "38004242 - Medically Fragile Infants and Children Day Care"
+        },
+        {
+          "const": 38004243,
+          "title": "38004243 - Federal Public Health Clinic/Center"
+        },
+        {
+          "const": 38004244,
+          "title": "38004244 - State or Local Public Health Clinic/Center"
+        },
+        {
+          "const": 38004245,
+          "title": "38004245 - Podiatric Clinic/Center"
+        },
+        {
+          "const": 38004246,
+          "title": "38004246 - Physical Therapy Clinic/Center"
+        },
+        {
+          "const": 38004247,
+          "title": "38004247 - Primary Care Clinic/Center"
+        },
+        {
+          "const": 38004248,
+          "title": "38004248 - Prison Health Clinic/Center"
+        },
+        {
+          "const": 38004249,
+          "title": "38004249 - Pain Clinic/Center"
+        },
+        {
+          "const": 38004250,
+          "title": "38004250 - Radiology Clinic/Center"
+        },
+        {
+          "const": 38004251,
+          "title": "38004251 - Mammography Clinic/Center"
+        },
+        {
+          "const": 38004252,
+          "title": "38004252 - Mobile Mammography Clinic/Center"
+        },
+        {
+          "const": 38004253,
+          "title": "38004253 - Mobile Radiology Clinic/Center"
+        },
+        {
+          "const": 38004254,
+          "title": "38004254 - Rehabilitation Clinic/Center"
+        },
+        {
+          "const": 38004256,
+          "title": "38004256 - Cardiac Rehabilitation Clinic/Center"
+        },
+        {
+          "const": 38004257,
+          "title": "38004257 - Substance Use Disorder Rehabilitation Clinic/Center"
+        },
+        {
+          "const": 38004258,
+          "title": "38004258 - Recovery Care Clinic/Center"
+        },
+        {
+          "const": 38004259,
+          "title": "38004259 - Research Clinic/Center"
+        },
+        {
+          "const": 38004260,
+          "title": "38004260 - Rural Health Clinic/Center"
+        },
+        {
+          "const": 38004261,
+          "title": "38004261 - Oral and Maxillofacial Surgery Clinic/Center"
+        },
+        {
+          "const": 38004262,
+          "title": "38004262 - Ophthalmologic Surgery Clinic/Center"
+        },
+        {
+          "const": 38004263,
+          "title": "38004263 - Student Health Clinic/Center"
+        },
+        {
+          "const": 38004264,
+          "title": "38004264 - Sleep Disorder Diagnostic Clinic/Center"
+        },
+        {
+          "const": 38004266,
+          "title": "38004266 - VA Clinic/Center"
+        },
+        {
+          "const": 38004267,
+          "title": "38004267 - Occupational Medicine Clinic/Center"
+        },
+        {
+          "const": 38004268,
+          "title": "38004268 - Oncology Clinic/Center"
+        },
+        {
+          "const": 38004269,
+          "title": "38004269 - Radiation Oncology Clinic/Center"
+        },
+        {
+          "const": 38004270,
+          "title": "38004270 - Epilepsy Hospital Unit"
+        },
+        {
+          "const": 38004274,
+          "title": "38004274 - Substance Use Disorder Rehabilitation Hospital Unit"
+        },
+        {
+          "const": 38004275,
+          "title": "38004275 - Chronic Disease Hospital"
+        },
+        {
+          "const": 38004276,
+          "title": "38004276 - Children's Chronic Disease Hospital"
+        },
+        {
+          "const": 38004277,
+          "title": "38004277 - Long Term Care Hospital"
+        },
+        {
+          "const": 38004278,
+          "title": "38004278 - Religious Nonmedical Health Care Institution"
+        },
+        {
+          "const": 38004279,
+          "title": "38004279 - General Acute Care Hospital"
+        },
+        {
+          "const": 38004280,
+          "title": "38004280 - Critical Access Hospital"
+        },
+        {
+          "const": 38004281,
+          "title": "38004281 - Children's Hospital"
+        },
+        {
+          "const": 38004282,
+          "title": "38004282 - Rural Acute Care Hospital"
+        },
+        {
+          "const": 38004283,
+          "title": "38004283 - Women's Hospital"
+        },
+        {
+          "const": 38004284,
+          "title": "38004284 - Psychiatric Hospital"
+        },
+        {
+          "const": 38004285,
+          "title": "38004285 - Rehabilitation Hospital"
+        },
+        {
+          "const": 38004286,
+          "title": "38004286 - Children's Rehabilitation Hospital"
+        },
+        {
+          "const": 38004287,
+          "title": "38004287 - Special Hospital"
+        },
+        {
+          "const": 38004288,
+          "title": "38004288 - Military Hospital"
+        },
+        {
+          "const": 38004290,
+          "title": "38004290 - Military General Acute Care Hospital"
+        },
+        {
+          "const": 38004291,
+          "title": "38004291 - Operational (Transportable) Military General Acute Care Hospital"
+        },
+        {
+          "const": 38004293,
+          "title": "38004293 - Military Clinical Medical Laboratory"
+        },
+        {
+          "const": 38004294,
+          "title": "38004294 - Clinical Medical Laboratory"
+        },
+        {
+          "const": 38004295,
+          "title": "38004295 - Dental Laboratory"
+        },
+        {
+          "const": 38004296,
+          "title": "38004296 - Physiological Laboratory"
+        },
+        {
+          "const": 38004297,
+          "title": "38004297 - Exclusive Provider Organization"
+        },
+        {
+          "const": 38004298,
+          "title": "38004298 - Health Maintenance Organization"
+        },
+        {
+          "const": 38004299,
+          "title": "38004299 - Preferred Provider Organization"
+        },
+        {
+          "const": 38004300,
+          "title": "38004300 - Point of Service"
+        },
+        {
+          "const": 38004302,
+          "title": "38004302 - Assisted Living Facility (Mental Illness)"
+        },
+        {
+          "const": 38004303,
+          "title": "38004303 - Assisted Living Facility (Behavioral Disturbances)"
+        },
+        {
+          "const": 38004305,
+          "title": "38004305 - Alzheimer Center (Dementia Center)"
+        },
+        {
+          "const": 38004306,
+          "title": "38004306 - Custodial Care Facility"
+        },
+        {
+          "const": 38004307,
+          "title": "38004307 - Adult Care Home Facility"
+        },
+        {
+          "const": 38004310,
+          "title": "38004310 - Pediatric Skilled Nursing Facility"
+        },
+        {
+          "const": 38004311,
+          "title": "38004311 - Inpatient Hospice"
+        },
+        {
+          "const": 38004314,
+          "title": "38004314 - Intellectual and/or Developmental Disabilities Residential Treatment Facility"
+        },
+        {
+          "const": 38004315,
+          "title": "38004315 - Physical Disabilities Residential Treatment Facility"
+        },
+        {
+          "const": 38004316,
+          "title": "38004316 - Mental Illness Community Based Residential Treatment Facility"
+        },
+        {
+          "const": 38004317,
+          "title": "38004317 - Intellectual and/or Developmental Disabilities Community Based Residential Treatment Facility"
+        },
+        {
+          "const": 38004318,
+          "title": "38004318 - Emotionally Disturbed Childrens' Residential Treatment Facility"
+        },
+        {
+          "const": 38004321,
+          "title": "38004321 - Children's Substance Abuse Rehabilitation Facility"
+        },
+        {
+          "const": 38004322,
+          "title": "38004322 - Blood Bank"
+        },
+        {
+          "const": 38004323,
+          "title": "38004323 - Military/U.S. Coast Guard Pharmacy"
+        },
+        {
+          "const": 38004324,
+          "title": "38004324 - Department of Veterans Affairs (VA) Pharmacy"
+        },
+        {
+          "const": 38004325,
+          "title": "38004325 - Indian Health Service/Tribal/Urban Indian Health (I/T/U) Pharmacy"
+        },
+        {
+          "const": 38004326,
+          "title": "38004326 - Non-Pharmacy Dispensing Site"
+        },
+        {
+          "const": 38004327,
+          "title": "38004327 - Durable Medical Equipment & Medical Supplies"
+        },
+        {
+          "const": 38004328,
+          "title": "38004328 - Customized Equipment (DME)"
+        },
+        {
+          "const": 38004329,
+          "title": "38004329 - Dialysis Equipment & Supplies (DME)"
+        },
+        {
+          "const": 38004330,
+          "title": "38004330 - Nursing Facility Supplies (DME)"
+        },
+        {
+          "const": 38004331,
+          "title": "38004331 - Parenteral & Enteral Nutrition Supplies (DME)"
+        },
+        {
+          "const": 38004332,
+          "title": "38004332 - Oxygen Equipment & Supplies (DME)"
+        },
+        {
+          "const": 38004333,
+          "title": "38004333 - Eye Bank"
+        },
+        {
+          "const": 38004334,
+          "title": "38004334 - Eyewear Supplier"
+        },
+        {
+          "const": 38004335,
+          "title": "38004335 - Hearing Aid Equipment"
+        },
+        {
+          "const": 38004336,
+          "title": "38004336 - Home Delivered Meals"
+        },
+        {
+          "const": 38004337,
+          "title": "38004337 - Emergency Response System Companies"
+        },
+        {
+          "const": 38004338,
+          "title": "38004338 - Pharmacy"
+        },
+        {
+          "const": 38004339,
+          "title": "38004339 - Clinic Pharmacy"
+        },
+        {
+          "const": 38004340,
+          "title": "38004340 - Community/Retail Pharmacy"
+        },
+        {
+          "const": 38004341,
+          "title": "38004341 - Compounding Pharmacy"
+        },
+        {
+          "const": 38004342,
+          "title": "38004342 - Home Infusion Therapy Pharmacy"
+        },
+        {
+          "const": 38004343,
+          "title": "38004343 - Institutional Pharmacy"
+        },
+        {
+          "const": 38004344,
+          "title": "38004344 - Long Term Care Pharmacy"
+        },
+        {
+          "const": 38004345,
+          "title": "38004345 - Mail Order Pharmacy"
+        },
+        {
+          "const": 38004346,
+          "title": "38004346 - Managed Care Organization Pharmacy"
+        },
+        {
+          "const": 38004347,
+          "title": "38004347 - Nuclear Pharmacy"
+        },
+        {
+          "const": 38004348,
+          "title": "38004348 - Specialty Pharmacy"
+        },
+        {
+          "const": 38004349,
+          "title": "38004349 - Prosthetic/Orthotic Supplier"
+        },
+        {
+          "const": 38004350,
+          "title": "38004350 - Medical Foods Supplier"
+        },
+        {
+          "const": 38004351,
+          "title": "38004351 - Organ Procurement Organization"
+        },
+        {
+          "const": 38004352,
+          "title": "38004352 - Portable X-ray and/or Other Portable Diagnostic Imaging Supplier"
+        },
+        {
+          "const": 38004353,
+          "title": "38004353 - Ambulance"
+        },
+        {
+          "const": 38004354,
+          "title": "38004354 - Air Ambulance"
+        },
+        {
+          "const": 38004356,
+          "title": "38004356 - Water Ambulance"
+        },
+        {
+          "const": 38004357,
+          "title": "38004357 - Military/U.S. Coast Guard Transport,"
+        },
+        {
+          "const": 38004358,
+          "title": "38004358 - Military or U.S. Coast Guard Ground Transport Ambulance"
+        },
+        {
+          "const": 38004359,
+          "title": "38004359 - Military or U.S. Coast Guard Air Transport Ambulance"
+        },
+        {
+          "const": 38004360,
+          "title": "38004360 - Military or U.S. Coast Guard Water Transport Ambulance"
+        },
+        {
+          "const": 38004361,
+          "title": "38004361 - Secured Medical Transport (VAN)"
+        },
+        {
+          "const": 38004362,
+          "title": "38004362 - Non-emergency Medical Transport (VAN)"
+        },
+        {
+          "const": 38004363,
+          "title": "38004363 - Taxi"
+        },
+        {
+          "const": 38004364,
+          "title": "38004364 - Air Carrier"
+        },
+        {
+          "const": 38004365,
+          "title": "38004365 - Bus"
+        },
+        {
+          "const": 38004366,
+          "title": "38004366 - Private Vehicle"
+        },
+        {
+          "const": 38004367,
+          "title": "38004367 - Train"
+        },
+        {
+          "const": 38004368,
+          "title": "38004368 - Transportation Broker"
+        },
+        {
+          "const": 38004440,
+          "title": "38004440 - Respite Care"
+        },
+        {
+          "const": 38004441,
+          "title": "38004441 - Respite Care Camp"
+        },
+        {
+          "const": 38004442,
+          "title": "38004442 - Child Mental Illness Respite Care"
+        },
+        {
+          "const": 38004443,
+          "title": "38004443 - Child Intellectual and/or Developmental Disabilities Respite Care"
+        },
+        {
+          "const": 38004444,
+          "title": "38004444 - Child Physical Disabilities Respite Care"
+        },
+        {
+          "const": 38004453,
+          "title": "38004453 - Family Practice"
+        },
+        {
+          "const": 38004515,
+          "title": "38004515 - Hospital"
+        },
+        {
+          "const": 38004519,
+          "title": "38004519 - Home Health Agency"
+        },
+        {
+          "const": 38004521,
+          "title": "38004521 - Medical Supply Company with Respiratory Therapist"
+        },
+        {
+          "const": 38004522,
+          "title": "38004522 - Department Store"
+        },
+        {
+          "const": 38004523,
+          "title": "38004523 - Grocery Store"
+        },
+        {
+          "const": 38004525,
+          "title": "38004525 - Medical Supply Company with Pedorthic Personnel"
+        },
+        {
+          "const": 38004526,
+          "title": "38004526 - Rehabilitation Agency"
+        },
+        {
+          "const": 38004677,
+          "title": "38004677 - Mammography Center"
+        },
+        {
+          "const": 38004678,
+          "title": "38004678 - Independent Diagnostic Testing Facility"
+        },
+        {
+          "const": 38004680,
+          "title": "38004680 - Medical Supply Company with Orthotist"
+        },
+        {
+          "const": 38004681,
+          "title": "38004681 - Medical Supply Company with Prosthetist"
+        },
+        {
+          "const": 38004682,
+          "title": "38004682 - Medical Supply Company with Orthotist-Prosthetist"
+        },
+        {
+          "const": 38004683,
+          "title": "38004683 - Other Medical Supply Company"
+        },
+        {
+          "const": 38004687,
+          "title": "38004687 - Medical Supply Company with Pharmacist"
+        },
+        {
+          "const": 38004689,
+          "title": "38004689 - Public Health or Welfare Agency"
+        },
+        {
+          "const": 38004690,
+          "title": "38004690 - Voluntary Health or Charitable Agency"
+        },
+        {
+          "const": 38004691,
+          "title": "38004691 - Portable X-Ray Supplier"
+        },
+        {
+          "const": 38004693,
+          "title": "38004693 - Clinic or Group Practice"
+        },
+        {
+          "const": 38004696,
+          "title": "38004696 - Radiation Therapy Center"
+        },
+        {
+          "const": 38004697,
+          "title": "38004697 - Slide Preparation Facility"
+        },
+        {
+          "const": 38004698,
+          "title": "38004698 - Supplier"
+        },
+        {
+          "const": 38004700,
+          "title": "38004700 - Part B CAP Drug Vendor"
+        },
+        {
+          "const": 38004702,
+          "title": "38004702 - Indian Health Service facility"
+        },
+        {
+          "const": 38004703,
+          "title": "38004703 - Oxygen supplier"
+        },
+        {
+          "const": 42898160,
+          "title": "42898160 - Non-hospital institution Visit"
+        }
+      ]
+    },
+    "discharged_to_source_value": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "ETL Conventions: This information may be called something different in the source data but the field is meant to contain a value indicating where a person was discharged to after a visit, as in they went home or were moved to long-term care. Typically this applies only to visits that have a length of stay of a day or more."
+    },
+    "preceding_visit_occurrence_id": {
+      "type": "integer",
+      "description": "User Guidance: Use this field to find the visit that occurred for the person prior to the given visit. There could be a few days or a few years in between.\n\nETL Conventions: This field can be used to link a visit immediately preceding the current visit. Note this is not symmetrical, and there is no such thing as a \"following_visit_id\"."
+    }
+  },
+  "required": [
+    "visit_occurrence_id",
+    "person_id",
+    "visit_concept_id",
+    "visit_start_date",
+    "visit_end_date",
+    "visit_type_concept_id"
+  ],
+  "x-primaryKey": [
+    "visit_occurrence_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "person_id",
+      "table": "PERSON",
+      "fieldInTable": "PERSON_ID"
+    },
+    {
+      "field": "visit_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID",
+      "domain": "Visit"
+    },
+    {
+      "field": "visit_type_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID",
+      "domain": "Type Concept"
+    },
+    {
+      "field": "provider_id",
+      "table": "PROVIDER",
+      "fieldInTable": "PROVIDER_ID"
+    },
+    {
+      "field": "care_site_id",
+      "table": "CARE_SITE",
+      "fieldInTable": "CARE_SITE_ID"
+    },
+    {
+      "field": "visit_source_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "admitted_from_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID",
+      "domain": "Visit"
+    },
+    {
+      "field": "discharged_to_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID",
+      "domain": "Visit"
+    },
+    {
+      "field": "preceding_visit_occurrence_id",
+      "table": "VISIT_OCCURRENCE",
+      "fieldInTable": "VISIT_OCCURRENCE_ID"
+    }
+  ]
+}

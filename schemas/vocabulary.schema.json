@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Vocabulary",
+  "type": "object",
+  "properties": {
+    "vocabulary_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: A unique identifier for each Vocabulary, such\nas ICD9CM, SNOMED, Visit."
+    },
+    "vocabulary_name": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: The name describing the vocabulary, for\nexample, International Classification of\nDiseases, Ninth Revision, Clinical\nModification, Volume 1 and 2 (NCHS) etc."
+    },
+    "vocabulary_reference": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: External reference to documentation or\navailable download of the about the\nvocabulary."
+    },
+    "vocabulary_version": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: Version of the Vocabulary as indicated in\nthe source."
+    },
+    "vocabulary_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: A Concept that represents the Vocabulary the VOCABULARY record belongs to."
+    }
+  },
+  "required": [
+    "vocabulary_id",
+    "vocabulary_name",
+    "vocabulary_concept_id"
+  ],
+  "x-primaryKey": [
+    "vocabulary_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "vocabulary_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

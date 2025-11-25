@@ -1,0 +1,4655 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Observation",
+  "type": "object",
+  "properties": {
+    "observation_id": {
+      "type": "integer",
+      "description": "User Guidance: The unique key given to an Observation record for a Person. Refer to the ETL for how duplicate Observations during the same Visit were handled.\n\nETL Conventions: Each instance of an observation present in the source data should be assigned this unique key."
+    },
+    "person_id": {
+      "type": "integer",
+      "description": "User Guidance: The PERSON_ID of the Person for whom the Observation is recorded. This may be a system generated code."
+    },
+    "observation_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The OBSERVATION_CONCEPT_ID field is recommended for primary use in analyses, and must be used for network studies.\n\nETL Conventions: The CONCEPT_ID that the OBSERVATION_SOURCE_CONCEPT_ID maps to. There is no specified domain that the Concepts in this table must adhere to. The only rule is that records with Concepts in the Condition, Procedure, Drug, Measurement, or Device domains MUST go to the corresponding table."
+    },
+    "observation_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date of when the Observation was obtained. Depending on what the Observation represents this could be the date of a lab test, the date of a survey, or the date a patient's family history was taken.\n\nETL Conventions: For some observations the ETL may need to make a choice as to which date to choose."
+    },
+    "observation_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ETL Conventions: If no time is given set to midnight (00:00:00)."
+    },
+    "observation_type_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: This field can be used to determine the provenance of the Observation record, as in whether the measurement was from an EHR system, insurance claim, registry, or other sources.\n\nETL Conventions: Choose the OBSERVATION_TYPE_CONCEPT_ID that best represents the provenance of the record, for example whether it came from an EHR record or billing claim. [Accepted Concepts](https://athena.ohdsi.org/search-terms/terms?domain=Type+Concept&standardConcept=Standard&page=1&pageSize=15&query=). A more detailed explanation of each Type Concept can be found on the [vocabulary wiki](https://github.com/OHDSI/Vocabulary-v5.0/wiki/Vocab.-TYPE_CONCEPT).",
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "0 - No matching concept"
+        },
+        {
+          "const": 32809,
+          "title": "32809 - Case Report Form"
+        },
+        {
+          "const": 32810,
+          "title": "32810 - Claim"
+        },
+        {
+          "const": 32811,
+          "title": "32811 - Claim authorization"
+        },
+        {
+          "const": 32812,
+          "title": "32812 - Claim discharge record"
+        },
+        {
+          "const": 32813,
+          "title": "32813 - Claim enrolment record"
+        },
+        {
+          "const": 32814,
+          "title": "32814 - Cost record"
+        },
+        {
+          "const": 32815,
+          "title": "32815 - Death Certificate"
+        },
+        {
+          "const": 32816,
+          "title": "32816 - Dental claim"
+        },
+        {
+          "const": 32817,
+          "title": "32817 - EHR"
+        },
+        {
+          "const": 32818,
+          "title": "32818 - EHR administration record"
+        },
+        {
+          "const": 32819,
+          "title": "32819 - EHR admission note"
+        },
+        {
+          "const": 32820,
+          "title": "32820 - EHR ancillary report"
+        },
+        {
+          "const": 32821,
+          "title": "32821 - EHR billing record"
+        },
+        {
+          "const": 32822,
+          "title": "32822 - EHR chief complaint"
+        },
+        {
+          "const": 32823,
+          "title": "32823 - EHR discharge record"
+        },
+        {
+          "const": 32824,
+          "title": "32824 - EHR discharge summary"
+        },
+        {
+          "const": 32825,
+          "title": "32825 - EHR dispensing record"
+        },
+        {
+          "const": 32826,
+          "title": "32826 - EHR emergency room note"
+        },
+        {
+          "const": 32827,
+          "title": "32827 - EHR encounter record"
+        },
+        {
+          "const": 32828,
+          "title": "32828 - EHR episode record"
+        },
+        {
+          "const": 32829,
+          "title": "32829 - EHR inpatient note"
+        },
+        {
+          "const": 32830,
+          "title": "32830 - EHR medication list"
+        },
+        {
+          "const": 32831,
+          "title": "32831 - EHR note"
+        },
+        {
+          "const": 32832,
+          "title": "32832 - EHR nursing report"
+        },
+        {
+          "const": 32833,
+          "title": "32833 - EHR order"
+        },
+        {
+          "const": 32834,
+          "title": "32834 - EHR outpatient note"
+        },
+        {
+          "const": 32835,
+          "title": "32835 - EHR Pathology report"
+        },
+        {
+          "const": 32836,
+          "title": "32836 - EHR physical examination"
+        },
+        {
+          "const": 32837,
+          "title": "32837 - EHR planned dispensing record"
+        },
+        {
+          "const": 32838,
+          "title": "32838 - EHR prescription"
+        },
+        {
+          "const": 32839,
+          "title": "32839 - EHR prescription issue record"
+        },
+        {
+          "const": 32840,
+          "title": "32840 - EHR problem list"
+        },
+        {
+          "const": 32841,
+          "title": "32841 - EHR radiology report"
+        },
+        {
+          "const": 32842,
+          "title": "32842 - EHR referral record"
+        },
+        {
+          "const": 32843,
+          "title": "32843 - External CDM instance"
+        },
+        {
+          "const": 32844,
+          "title": "32844 - Facility claim"
+        },
+        {
+          "const": 32845,
+          "title": "32845 - Facility claim detail"
+        },
+        {
+          "const": 32846,
+          "title": "32846 - Facility claim header"
+        },
+        {
+          "const": 32847,
+          "title": "32847 - Geographic isolation record"
+        },
+        {
+          "const": 32848,
+          "title": "32848 - Government report"
+        },
+        {
+          "const": 32849,
+          "title": "32849 - Health Information Exchange record"
+        },
+        {
+          "const": 32850,
+          "title": "32850 - Health Risk Assessment"
+        },
+        {
+          "const": 32851,
+          "title": "32851 - Healthcare professional filled survey"
+        },
+        {
+          "const": 32852,
+          "title": "32852 - Hospital cost"
+        },
+        {
+          "const": 32853,
+          "title": "32853 - Inpatient claim"
+        },
+        {
+          "const": 32854,
+          "title": "32854 - Inpatient claim detail"
+        },
+        {
+          "const": 32855,
+          "title": "32855 - Inpatient claim header"
+        },
+        {
+          "const": 32856,
+          "title": "32856 - Lab"
+        },
+        {
+          "const": 32857,
+          "title": "32857 - Mail order record"
+        },
+        {
+          "const": 32858,
+          "title": "32858 - NLP"
+        },
+        {
+          "const": 32859,
+          "title": "32859 - Outpatient claim"
+        },
+        {
+          "const": 32860,
+          "title": "32860 - Outpatient claim detail"
+        },
+        {
+          "const": 32861,
+          "title": "32861 - Outpatient claim header"
+        },
+        {
+          "const": 32862,
+          "title": "32862 - Patient filled survey"
+        },
+        {
+          "const": 32863,
+          "title": "32863 - Patient or payer paid record"
+        },
+        {
+          "const": 32864,
+          "title": "32864 - Patient reported cost"
+        },
+        {
+          "const": 32865,
+          "title": "32865 - Patient self-report"
+        },
+        {
+          "const": 32866,
+          "title": "32866 - Payer system record (paid premium)"
+        },
+        {
+          "const": 32867,
+          "title": "32867 - Payer system record (primary payer)"
+        },
+        {
+          "const": 32868,
+          "title": "32868 - Payer system record (secondary payer)"
+        },
+        {
+          "const": 32869,
+          "title": "32869 - Pharmacy claim"
+        },
+        {
+          "const": 32870,
+          "title": "32870 - Pre-qualification time period"
+        },
+        {
+          "const": 32871,
+          "title": "32871 - Professional claim"
+        },
+        {
+          "const": 32872,
+          "title": "32872 - Professional claim detail"
+        },
+        {
+          "const": 32873,
+          "title": "32873 - Professional claim header"
+        },
+        {
+          "const": 32874,
+          "title": "32874 - Provider charge list price"
+        },
+        {
+          "const": 32875,
+          "title": "32875 - Provider financial system"
+        },
+        {
+          "const": 32876,
+          "title": "32876 - Provider incurred cost record"
+        },
+        {
+          "const": 32877,
+          "title": "32877 - Randomization record"
+        },
+        {
+          "const": 32878,
+          "title": "32878 - Reference lab"
+        },
+        {
+          "const": 32879,
+          "title": "32879 - Registry"
+        },
+        {
+          "const": 32880,
+          "title": "32880 - Standard algorithm"
+        },
+        {
+          "const": 32881,
+          "title": "32881 - Standard algorithm from claims"
+        },
+        {
+          "const": 32882,
+          "title": "32882 - Standard algorithm from EHR"
+        },
+        {
+          "const": 32883,
+          "title": "32883 - Survey"
+        },
+        {
+          "const": 32884,
+          "title": "32884 - Urgent lab"
+        },
+        {
+          "const": 32885,
+          "title": "32885 - US Social Security Death Master File"
+        },
+        {
+          "const": 32886,
+          "title": "32886 - Vision claim"
+        },
+        {
+          "const": 703249,
+          "title": "703249 - Point of care/express lab"
+        },
+        {
+          "const": 705183,
+          "title": "705183 - Patient self-tested"
+        }
+      ]
+    },
+    "value_as_number": {
+      "type": "number",
+      "description": "User Guidance: This is the numerical value of the Result of the Observation, if applicable and available. It is not expected that all Observations will have numeric results, rather, this field is here to house values should they exist."
+    },
+    "value_as_string": {
+      "type": "string",
+      "maxLength": 60,
+      "description": "User Guidance: This is the categorical value of the Result of the Observation, if applicable and available."
+    },
+    "value_as_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: It is possible that some records destined for the Observation table have two clinical ideas represented in one source code. This is common with ICD10 codes that describe a family history of some Condition, for example. In OMOP the Vocabulary breaks these two clinical ideas into two codes; one becomes the OBSERVATION_CONCEPT_ID and the other becomes the VALUE_AS_CONCEPT_ID. It is important when using the Observation table to keep this possibility in mind and to examine the VALUE_AS_CONCEPT_ID field for relevant information.\n\nETL Conventions: Note that the value of VALUE_AS_CONCEPT_ID may be provided through mapping from a source Concept which contains the content of the Observation. In those situations, the CONCEPT_RELATIONSHIP table in addition to the 'Maps to' record contains a second record with the relationship_id set to 'Maps to value'. For example, ICD10 [Z82.4](https://athena.ohdsi.org/search-terms/terms/45581076) 'Family history of ischaemic heart disease and other diseases of the circulatory system' has a 'Maps to' relationship to [4167217](https://athena.ohdsi.org/search-terms/terms/4167217) 'Family history of clinical finding' as well as a 'Maps to value' record to [134057](https://athena.ohdsi.org/search-terms/terms/134057) 'Disorder of cardiovascular system'. If there's no categorial result in a source_data, set value_as_concept_id to NULL, if there is a categorial result in a source_data but without mapping, set value_as_concept_id to 0."
+    },
+    "qualifier_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: This field contains all attributes specifying the clinical fact further, such as as degrees, severities, drug-drug interaction alerts etc.\n\nETL Conventions: Use your best judgement as to what Concepts to use here and if they are necessary to accurately represent the clinical record. There is no restriction on the domain of these Concepts, they just need to be Standard."
+    },
+    "unit_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: There is currently no recommended unit for individual observation concepts. UNIT_SOURCE_VALUES should be mapped to a Standard Concept in the Unit domain that best represents the unit as given in the source data.\n\nETL Conventions: There is no standardization requirement for units associated with OBSERVATION_CONCEPT_IDs, however, it is the responsibility of the ETL to choose the most plausible unit. If the source unit is NULL (applicable to cases when there's no numerical value or when it doesn't require a unit), keep unit_concept_id NULL as well. If there's no mapping of a source unit, populate unit_concept_id with 0.",
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "0 - No matching concept"
+        },
+        {
+          "const": 8478,
+          "title": "8478 - avidity index"
+        },
+        {
+          "const": 8479,
+          "title": "8479 - centipoise"
+        },
+        {
+          "const": 8480,
+          "title": "8480 - Ehrlich unit"
+        },
+        {
+          "const": 8482,
+          "title": "8482 - pH"
+        },
+        {
+          "const": 8483,
+          "title": "8483 - counts per minute"
+        },
+        {
+          "const": 8484,
+          "title": "8484 - CD59-deficient cells"
+        },
+        {
+          "const": 8487,
+          "title": "8487 - anti-phosphatidylserine IgG concentration (GPS) unit"
+        },
+        {
+          "const": 8488,
+          "title": "8488 - immune status ratio"
+        },
+        {
+          "const": 8494,
+          "title": "8494 - multiple of the median"
+        },
+        {
+          "const": 8495,
+          "title": "8495 - anti-phosphatidylserine IgM concentration (MPS) unit"
+        },
+        {
+          "const": 8496,
+          "title": "8496 - femtoliter platelet mean volume"
+        },
+        {
+          "const": 8504,
+          "title": "8504 - gram"
+        },
+        {
+          "const": 8505,
+          "title": "8505 - hour"
+        },
+        {
+          "const": 8506,
+          "title": "8506 - lytic unit 30 (number of cells to achieve 30% lysis of the target cells)"
+        },
+        {
+          "const": 8509,
+          "title": "8509 - risk"
+        },
+        {
+          "const": 8510,
+          "title": "8510 - unit"
+        },
+        {
+          "const": 8511,
+          "title": "8511 - week"
+        },
+        {
+          "const": 8512,
+          "title": "8512 - day"
+        },
+        {
+          "const": 8517,
+          "title": "8517 - Farad"
+        },
+        {
+          "const": 8518,
+          "title": "8518 - Henry"
+        },
+        {
+          "const": 8519,
+          "title": "8519 - liter"
+        },
+        {
+          "const": 8523,
+          "title": "8523 - ratio"
+        },
+        {
+          "const": 8524,
+          "title": "8524 - times"
+        },
+        {
+          "const": 8525,
+          "title": "8525 - titer"
+        },
+        {
+          "const": 8529,
+          "title": "8529 - index"
+        },
+        {
+          "const": 8541,
+          "title": "8541 - per minute"
+        },
+        {
+          "const": 8542,
+          "title": "8542 - anti-phosphatidylserine IgA concentration (APS) unit"
+        },
+        {
+          "const": 8543,
+          "title": "8543 - ampere"
+        },
+        {
+          "const": 8547,
+          "title": "8547 - M (anti-prothrombin IgG concentration) unit"
+        },
+        {
+          "const": 8549,
+          "title": "8549 - million"
+        },
+        {
+          "const": 8550,
+          "title": "8550 - minute"
+        },
+        {
+          "const": 8553,
+          "title": "8553 - percent of sperm with positive binding"
+        },
+        {
+          "const": 8554,
+          "title": "8554 - percent"
+        },
+        {
+          "const": 8555,
+          "title": "8555 - second"
+        },
+        {
+          "const": 8556,
+          "title": "8556 - EIA unit"
+        },
+        {
+          "const": 8560,
+          "title": "8560 - Juvenile Diabetes Foundation unit"
+        },
+        {
+          "const": 8564,
+          "title": "8564 - picogram"
+        },
+        {
+          "const": 8565,
+          "title": "8565 - streptozyme (STZ) agglutination titer unit"
+        },
+        {
+          "const": 8566,
+          "title": "8566 - thousand"
+        },
+        {
+          "const": 8568,
+          "title": "8568 - baseline"
+        },
+        {
+          "const": 8574,
+          "title": "8574 - G (anti-prothrombin IgG concentration) unit"
+        },
+        {
+          "const": 8576,
+          "title": "8576 - milligram"
+        },
+        {
+          "const": 8577,
+          "title": "8577 - nanometer"
+        },
+        {
+          "const": 8578,
+          "title": "8578 - of normal"
+        },
+        {
+          "const": 8581,
+          "title": "8581 - heartbeat"
+        },
+        {
+          "const": 8582,
+          "title": "8582 - centimeter"
+        },
+        {
+          "const": 8583,
+          "title": "8583 - femtoliter"
+        },
+        {
+          "const": 8586,
+          "title": "8586 - lymphocytes per 100 cells"
+        },
+        {
+          "const": 8587,
+          "title": "8587 - milliliter"
+        },
+        {
+          "const": 8588,
+          "title": "8588 - millimeter"
+        },
+        {
+          "const": 8589,
+          "title": "8589 - O.D. ratio"
+        },
+        {
+          "const": 8590,
+          "title": "8590 - O.D. unit"
+        },
+        {
+          "const": 8596,
+          "title": "8596 - calculated"
+        },
+        {
+          "const": 8598,
+          "title": "8598 - relative"
+        },
+        {
+          "const": 8600,
+          "title": "8600 - Elisa unit"
+        },
+        {
+          "const": 8604,
+          "title": "8604 - percent mean normal"
+        },
+        {
+          "const": 8605,
+          "title": "8605 - milliosmole"
+        },
+        {
+          "const": 8606,
+          "title": "8606 - ratio unit"
+        },
+        {
+          "const": 8609,
+          "title": "8609 - beta-2 GPI IgA Ab unit"
+        },
+        {
+          "const": 8610,
+          "title": "8610 - beta-2 GPI IgG Ab unit"
+        },
+        {
+          "const": 8611,
+          "title": "8611 - beta-2 GPI IgM Ab unit"
+        },
+        {
+          "const": 8613,
+          "title": "8613 - normal forms"
+        },
+        {
+          "const": 8616,
+          "title": "8616 - Panbio bacterial IgG and IgM unit"
+        },
+        {
+          "const": 8617,
+          "title": "8617 - square meter"
+        },
+        {
+          "const": 8621,
+          "title": "8621 - day per week"
+        },
+        {
+          "const": 8622,
+          "title": "8622 - gram per time"
+        },
+        {
+          "const": 8623,
+          "title": "8623 - log reduction"
+        },
+        {
+          "const": 8628,
+          "title": "8628 - times average"
+        },
+        {
+          "const": 8629,
+          "title": "8629 - unit per gram"
+        },
+        {
+          "const": 8630,
+          "title": "8630 - unit per hour"
+        },
+        {
+          "const": 8631,
+          "title": "8631 - sperm motility at 60 minutes"
+        },
+        {
+          "const": 8632,
+          "title": "8632 - percent total"
+        },
+        {
+          "const": 8636,
+          "title": "8636 - gram per liter"
+        },
+        {
+          "const": 8637,
+          "title": "8637 - negative count"
+        },
+        {
+          "const": 8641,
+          "title": "8641 - poise per gram"
+        },
+        {
+          "const": 8645,
+          "title": "8645 - unit per liter"
+        },
+        {
+          "const": 8647,
+          "title": "8647 - per microliter"
+        },
+        {
+          "const": 8648,
+          "title": "8648 - percent of normal"
+        },
+        {
+          "const": 8649,
+          "title": "8649 - percent uptake"
+        },
+        {
+          "const": 8655,
+          "title": "8655 - Farad per liter"
+        },
+        {
+          "const": 8659,
+          "title": "8659 - percent CD19+ cells"
+        },
+        {
+          "const": 8660,
+          "title": "8660 - percent in gate"
+        },
+        {
+          "const": 8662,
+          "title": "8662 - unit per 10"
+        },
+        {
+          "const": 8665,
+          "title": "8665 - nanomole of bone collagen equivalent"
+        },
+        {
+          "const": 8675,
+          "title": "8675 - milliliter per specimen"
+        },
+        {
+          "const": 8686,
+          "title": "8686 - cubic millimeter"
+        },
+        {
+          "const": 8687,
+          "title": "8687 - percent activity"
+        },
+        {
+          "const": 8688,
+          "title": "8688 - percent baseline"
+        },
+        {
+          "const": 8695,
+          "title": "8695 - Ehrlich unit per milliliter"
+        },
+        {
+          "const": 8698,
+          "title": "8698 - liter per minute"
+        },
+        {
+          "const": 8701,
+          "title": "8701 - nanogram per gram"
+        },
+        {
+          "const": 8703,
+          "title": "8703 - parts per billion"
+        },
+        {
+          "const": 8704,
+          "title": "8704 - picogram per cell"
+        },
+        {
+          "const": 8712,
+          "title": "8712 - erythrocytes per microliter"
+        },
+        {
+          "const": 8713,
+          "title": "8713 - gram per deciliter"
+        },
+        {
+          "const": 8718,
+          "title": "8718 - international unit"
+        },
+        {
+          "const": 8719,
+          "title": "8719 - milliunit per milliliter"
+        },
+        {
+          "const": 8720,
+          "title": "8720 - microgram per gram"
+        },
+        {
+          "const": 8722,
+          "title": "8722 - microgram per time"
+        },
+        {
+          "const": 8723,
+          "title": "8723 - milligram per gram"
+        },
+        {
+          "const": 8724,
+          "title": "8724 - milligram per time"
+        },
+        {
+          "const": 8725,
+          "title": "8725 - nanogram per liter"
+        },
+        {
+          "const": 8728,
+          "title": "8728 - percent saturation"
+        },
+        {
+          "const": 8729,
+          "title": "8729 - picomole per liter"
+        },
+        {
+          "const": 8734,
+          "title": "8734 - trillion per liter"
+        },
+        {
+          "const": 8736,
+          "title": "8736 - nanomole per liter"
+        },
+        {
+          "const": 8737,
+          "title": "8737 - percent hemoglobin"
+        },
+        {
+          "const": 8738,
+          "title": "8738 - percent inhibition"
+        },
+        {
+          "const": 8739,
+          "title": "8739 - pound (US)"
+        },
+        {
+          "const": 8745,
+          "title": "8745 - femtomole per liter"
+        },
+        {
+          "const": 8748,
+          "title": "8748 - microgram per liter"
+        },
+        {
+          "const": 8749,
+          "title": "8749 - micromole per liter"
+        },
+        {
+          "const": 8750,
+          "title": "8750 - microunit per liter"
+        },
+        {
+          "const": 8751,
+          "title": "8751 - milligram per liter"
+        },
+        {
+          "const": 8752,
+          "title": "8752 - millimeter per hour"
+        },
+        {
+          "const": 8753,
+          "title": "8753 - millimole per liter"
+        },
+        {
+          "const": 8763,
+          "title": "8763 - unit per milliliter"
+        },
+        {
+          "const": 8765,
+          "title": "8765 - per low powered field"
+        },
+        {
+          "const": 8774,
+          "title": "8774 - microgram per minute"
+        },
+        {
+          "const": 8775,
+          "title": "8775 - micrometer per liter"
+        },
+        {
+          "const": 8776,
+          "title": "8776 - milligram per sample"
+        },
+        {
+          "const": 8779,
+          "title": "8779 - signal to cutoff ratio"
+        },
+        {
+          "const": 8783,
+          "title": "8783 - unit per 10 cells"
+        },
+        {
+          "const": 8784,
+          "title": "8784 - cells per microliter"
+        },
+        {
+          "const": 8785,
+          "title": "8785 - per cubic millimeter"
+        },
+        {
+          "const": 8786,
+          "title": "8786 - per high power field"
+        },
+        {
+          "const": 8791,
+          "title": "8791 - gram per 5 hours"
+        },
+        {
+          "const": 8795,
+          "title": "8795 - milliliter per minute"
+        },
+        {
+          "const": 8798,
+          "title": "8798 - bushel per milliliter"
+        },
+        {
+          "const": 8799,
+          "title": "8799 - copies per milliliter"
+        },
+        {
+          "const": 8800,
+          "title": "8800 - percent at 60 minutes"
+        },
+        {
+          "const": 8807,
+          "title": "8807 - gram per 24 hours"
+        },
+        {
+          "const": 8810,
+          "title": "8810 - kilounit per liter"
+        },
+        {
+          "const": 8815,
+          "title": "8815 - million per microliter"
+        },
+        {
+          "const": 8816,
+          "title": "8816 - million per milliliter"
+        },
+        {
+          "const": 8817,
+          "title": "8817 - nanogram per deciliter"
+        },
+        {
+          "const": 8818,
+          "title": "8818 - nanogram per milligram"
+        },
+        {
+          "const": 8820,
+          "title": "8820 - picogram per deciliter"
+        },
+        {
+          "const": 8823,
+          "title": "8823 - anti-phosphatidylserine IgA concentration (APS) unit per milliter"
+        },
+        {
+          "const": 8829,
+          "title": "8829 - Ehrlich unit per deciliter"
+        },
+        {
+          "const": 8831,
+          "title": "8831 - anti-phosphatidylserine IgG concentration (GPS) unit per milliliter"
+        },
+        {
+          "const": 8836,
+          "title": "8836 - anti-phosphatidylserine IgM concentration (MPS) unit per milliliter"
+        },
+        {
+          "const": 8837,
+          "title": "8837 - microgram per deciliter"
+        },
+        {
+          "const": 8838,
+          "title": "8838 - microgram per milligram"
+        },
+        {
+          "const": 8839,
+          "title": "8839 - micromole per deciliter"
+        },
+        {
+          "const": 8840,
+          "title": "8840 - milligram per deciliter"
+        },
+        {
+          "const": 8842,
+          "title": "8842 - nanogram per milliliter"
+        },
+        {
+          "const": 8843,
+          "title": "8843 - nanomole per milliliter"
+        },
+        {
+          "const": 8845,
+          "title": "8845 - picogram per milliliter"
+        },
+        {
+          "const": 8848,
+          "title": "8848 - thousand per microliter"
+        },
+        {
+          "const": 8849,
+          "title": "8849 - percent enzyme activity"
+        },
+        {
+          "const": 8857,
+          "title": "8857 - liter per 24 hours"
+        },
+        {
+          "const": 8859,
+          "title": "8859 - microgram per milliliter"
+        },
+        {
+          "const": 8860,
+          "title": "8860 - microunit per milliliter"
+        },
+        {
+          "const": 8861,
+          "title": "8861 - milligram per milliliter"
+        },
+        {
+          "const": 8862,
+          "title": "8862 - milliosmole per kilogram"
+        },
+        {
+          "const": 8873,
+          "title": "8873 - log copies per milliliter"
+        },
+        {
+          "const": 8875,
+          "title": "8875 - microequivalent per liter"
+        },
+        {
+          "const": 8876,
+          "title": "8876 - millimeter mercury column"
+        },
+        {
+          "const": 8881,
+          "title": "8881 - nanomole of bone collagen equivalent per liter"
+        },
+        {
+          "const": 8888,
+          "title": "8888 - cells per cubic millimeter"
+        },
+        {
+          "const": 8889,
+          "title": "8889 - cells per high power field"
+        },
+        {
+          "const": 8906,
+          "title": "8906 - microgram per 24 hours"
+        },
+        {
+          "const": 8907,
+          "title": "8907 - micromole per 24 hours"
+        },
+        {
+          "const": 8908,
+          "title": "8908 - milligram per 12 hours"
+        },
+        {
+          "const": 8909,
+          "title": "8909 - milligram per 24 hours"
+        },
+        {
+          "const": 8910,
+          "title": "8910 - millimole per 24 hours"
+        },
+        {
+          "const": 8915,
+          "title": "8915 - unit per gram of creatinine"
+        },
+        {
+          "const": 8923,
+          "title": "8923 - international unit per liter"
+        },
+        {
+          "const": 8924,
+          "title": "8924 - kilounit per liter class"
+        },
+        {
+          "const": 8927,
+          "title": "8927 - meter per square kilogram"
+        },
+        {
+          "const": 8928,
+          "title": "8928 - microequivalent per 24 hours"
+        },
+        {
+          "const": 8929,
+          "title": "8929 - microequivalent per kilogram"
+        },
+        {
+          "const": 8930,
+          "title": "8930 - milliliter per 24 hours"
+        },
+        {
+          "const": 8931,
+          "title": "8931 - million per cubic millimeter"
+        },
+        {
+          "const": 8938,
+          "title": "8938 - thousandth per microliter"
+        },
+        {
+          "const": 8950,
+          "title": "8950 - gram per deciliter calculated"
+        },
+        {
+          "const": 8953,
+          "title": "8953 - microgram per milliequivalent"
+        },
+        {
+          "const": 8954,
+          "title": "8954 - milligram per deciliter adult"
+        },
+        {
+          "const": 8955,
+          "title": "8955 - nanomole per second and liter"
+        },
+        {
+          "const": 8961,
+          "title": "8961 - thousand per cubic millimeter"
+        },
+        {
+          "const": 8979,
+          "title": "8979 - unit per gram of total protein"
+        },
+        {
+          "const": 8980,
+          "title": "8980 - arbitrary unit per milliliter"
+        },
+        {
+          "const": 8985,
+          "title": "8985 - international unit per milliliter"
+        },
+        {
+          "const": 8989,
+          "title": "8989 - microgram of fibrinogen equivalent unit per milliliter"
+        },
+        {
+          "const": 8991,
+          "title": "8991 - milliosmole per kilogram of H20"
+        },
+        {
+          "const": 8992,
+          "title": "8992 - nanogram per deciliter per hour"
+        },
+        {
+          "const": 8993,
+          "title": "8993 - nanomole per hour and milligram"
+        },
+        {
+          "const": 8998,
+          "title": "8998 - complement activity enzyme unit"
+        },
+        {
+          "const": 9014,
+          "title": "9014 - microgram per gram of creatinine"
+        },
+        {
+          "const": 9015,
+          "title": "9015 - micromole per gram of creatinine"
+        },
+        {
+          "const": 9016,
+          "title": "9016 - microunit per gram of hemoglobin"
+        },
+        {
+          "const": 9017,
+          "title": "9017 - milligram per gram of creatinine"
+        },
+        {
+          "const": 9018,
+          "title": "9018 - millimole per gram of creatinine"
+        },
+        {
+          "const": 9019,
+          "title": "9019 - millimole per mole of creatinine"
+        },
+        {
+          "const": 9020,
+          "title": "9020 - nanogram per milliliter and hour"
+        },
+        {
+          "const": 9028,
+          "title": "9028 - milligram per deciliter calculated"
+        },
+        {
+          "const": 9031,
+          "title": "9031 - unit per billion red blood cells"
+        },
+        {
+          "const": 9032,
+          "title": "9032 - per 100 white blood cells"
+        },
+        {
+          "const": 9040,
+          "title": "9040 - milli-international unit per liter"
+        },
+        {
+          "const": 9046,
+          "title": "9046 - microgram equivalent per milliliter"
+        },
+        {
+          "const": 9058,
+          "title": "9058 - kilo-international unit per liter"
+        },
+        {
+          "const": 9061,
+          "title": "9061 - microgram per deciliter of thyroxine"
+        },
+        {
+          "const": 9063,
+          "title": "9063 - nanomole per millimole of creatinine"
+        },
+        {
+          "const": 9072,
+          "title": "9072 - microgram per milligram of creatinine"
+        },
+        {
+          "const": 9073,
+          "title": "9073 - micromole per millimole of creatinine"
+        },
+        {
+          "const": 9074,
+          "title": "9074 - milligram per milligram of creatinine"
+        },
+        {
+          "const": 9075,
+          "title": "9075 - milligram per millimole of creatinine"
+        },
+        {
+          "const": 9081,
+          "title": "9081 - nanogram per milliliter of trypsinogen"
+        },
+        {
+          "const": 9083,
+          "title": "9083 - unit per milliliter of red blood cells"
+        },
+        {
+          "const": 9084,
+          "title": "9084 - log international unit per milliliter"
+        },
+        {
+          "const": 9093,
+          "title": "9093 - micro-international unit per milliliter"
+        },
+        {
+          "const": 9098,
+          "title": "9098 - milligram per deciliter of phenylalanine"
+        },
+        {
+          "const": 9099,
+          "title": "9099 - IgA phospholipid unit"
+        },
+        {
+          "const": 9100,
+          "title": "9100 - IgG phospholipid unit"
+        },
+        {
+          "const": 9101,
+          "title": "9101 - IgM phospholipid unit"
+        },
+        {
+          "const": 9113,
+          "title": "9113 - nanogram per milliliter of red blood cells"
+        },
+        {
+          "const": 9114,
+          "title": "9114 - nanomole of bone collagen equivalent per millimole of creatinine"
+        },
+        {
+          "const": 9145,
+          "title": "9145 - nanogram per hour per milligram of total protein"
+        },
+        {
+          "const": 9148,
+          "title": "9148 - picomole per eight times 10 to the 8th red blood cells"
+        },
+        {
+          "const": 9154,
+          "title": "9154 - parts per thousand"
+        },
+        {
+          "const": 9155,
+          "title": "9155 - parts per trillion"
+        },
+        {
+          "const": 9156,
+          "title": "9156 - IgA phospholipid unit per milliliter"
+        },
+        {
+          "const": 9157,
+          "title": "9157 - IgG phospholipid unit per milliliter"
+        },
+        {
+          "const": 9158,
+          "title": "9158 - IgM phospholipid unit per milliliter"
+        },
+        {
+          "const": 9161,
+          "title": "9161 - Bethesda unit"
+        },
+        {
+          "const": 9163,
+          "title": "9163 - microunit per liter of thyroid stimulationg hormone (TSH)"
+        },
+        {
+          "const": 9211,
+          "title": "9211 - minute"
+        },
+        {
+          "const": 9212,
+          "title": "9212 - second"
+        },
+        {
+          "const": 9214,
+          "title": "9214 - percent slope"
+        },
+        {
+          "const": 9215,
+          "title": "9215 - percent 0 to 3 hours"
+        },
+        {
+          "const": 9216,
+          "title": "9216 - percent abnormal"
+        },
+        {
+          "const": 9217,
+          "title": "9217 - percent basal activity"
+        },
+        {
+          "const": 9218,
+          "title": "9218 - percent binding"
+        },
+        {
+          "const": 9219,
+          "title": "9219 - percent blockade"
+        },
+        {
+          "const": 9220,
+          "title": "9220 - percent bound"
+        },
+        {
+          "const": 9221,
+          "title": "9221 - percent carboxyhemoglobin"
+        },
+        {
+          "const": 9222,
+          "title": "9222 - percent eosinophils"
+        },
+        {
+          "const": 9223,
+          "title": "9223 - percent excretion"
+        },
+        {
+          "const": 9224,
+          "title": "9224 - percent fetal erythrocytes"
+        },
+        {
+          "const": 9225,
+          "title": "9225 - percent hemoglobin A1c"
+        },
+        {
+          "const": 9226,
+          "title": "9226 - percent hemolysis"
+        },
+        {
+          "const": 9227,
+          "title": "9227 - percent of bacteria"
+        },
+        {
+          "const": 9228,
+          "title": "9228 - percent of lymphocytes"
+        },
+        {
+          "const": 9229,
+          "title": "9229 - percent of white blood cells"
+        },
+        {
+          "const": 9230,
+          "title": "9230 - percent oxygen"
+        },
+        {
+          "const": 9231,
+          "title": "9231 - percent positive"
+        },
+        {
+          "const": 9232,
+          "title": "9232 - percent sperm motility"
+        },
+        {
+          "const": 9233,
+          "title": "9233 - percent total protein"
+        },
+        {
+          "const": 9234,
+          "title": "9234 - volume percent"
+        },
+        {
+          "const": 9235,
+          "title": "9235 - per arbitrary unit"
+        },
+        {
+          "const": 9236,
+          "title": "9236 - per entity"
+        },
+        {
+          "const": 9237,
+          "title": "9237 - per total count"
+        },
+        {
+          "const": 9238,
+          "title": "9238 - per ten billion"
+        },
+        {
+          "const": 9239,
+          "title": "9239 - per trillion"
+        },
+        {
+          "const": 9240,
+          "title": "9240 - per trillion red blood cells"
+        },
+        {
+          "const": 9241,
+          "title": "9241 - per million"
+        },
+        {
+          "const": 9242,
+          "title": "9242 - per billion"
+        },
+        {
+          "const": 9243,
+          "title": "9243 - per hundred"
+        },
+        {
+          "const": 9244,
+          "title": "9244 - per 100 spermatozoa"
+        },
+        {
+          "const": 9245,
+          "title": "9245 - per deciliter"
+        },
+        {
+          "const": 9246,
+          "title": "9246 - per gram"
+        },
+        {
+          "const": 9247,
+          "title": "9247 - per gram of creatinine"
+        },
+        {
+          "const": 9248,
+          "title": "9248 - per gram of hemoglobin"
+        },
+        {
+          "const": 9249,
+          "title": "9249 - per gram of total nitrogen"
+        },
+        {
+          "const": 9250,
+          "title": "9250 - per gram of total protein"
+        },
+        {
+          "const": 9251,
+          "title": "9251 - per gram of wet tissue"
+        },
+        {
+          "const": 9252,
+          "title": "9252 - per kilogram"
+        },
+        {
+          "const": 9253,
+          "title": "9253 - per kilogram body weight"
+        },
+        {
+          "const": 9254,
+          "title": "9254 - per liter"
+        },
+        {
+          "const": 9255,
+          "title": "9255 - per square meter"
+        },
+        {
+          "const": 9256,
+          "title": "9256 - per milligram"
+        },
+        {
+          "const": 9257,
+          "title": "9257 - per milliliter"
+        },
+        {
+          "const": 9260,
+          "title": "9260 - arbitrary unit"
+        },
+        {
+          "const": 9261,
+          "title": "9261 - barrel"
+        },
+        {
+          "const": 9262,
+          "title": "9262 - Bodansky unit"
+        },
+        {
+          "const": 9263,
+          "title": "9263 - board foot"
+        },
+        {
+          "const": 9264,
+          "title": "9264 - thermal unit (British)"
+        },
+        {
+          "const": 9265,
+          "title": "9265 - British thermal unit at 39 degrees Fahrenheit"
+        },
+        {
+          "const": 9266,
+          "title": "9266 - british thermal unit at 59 degrees Fahrenheit"
+        },
+        {
+          "const": 9267,
+          "title": "9267 - British thermal unit at 60 degrees Fahrenheit"
+        },
+        {
+          "const": 9268,
+          "title": "9268 - thermal unit (international)"
+        },
+        {
+          "const": 9269,
+          "title": "9269 - mean British Thermal Unit"
+        },
+        {
+          "const": 9270,
+          "title": "9270 - thermochemical British Thermal Unit"
+        },
+        {
+          "const": 9271,
+          "title": "9271 - bushel (US)"
+        },
+        {
+          "const": 9272,
+          "title": "9272 - velocity of light"
+        },
+        {
+          "const": 9273,
+          "title": "9273 - nutrition label calories"
+        },
+        {
+          "const": 9274,
+          "title": "9274 - carat of gold alloys"
+        },
+        {
+          "const": 9275,
+          "title": "9275 - metric carat"
+        },
+        {
+          "const": 9276,
+          "title": "9276 - 50% cell culture infectious dose"
+        },
+        {
+          "const": 9277,
+          "title": "9277 - cubic foot"
+        },
+        {
+          "const": 9278,
+          "title": "9278 - colony forming unit"
+        },
+        {
+          "const": 9279,
+          "title": "9279 - charriere french"
+        },
+        {
+          "const": 9280,
+          "title": "9280 - Gunter's chain (British)"
+        },
+        {
+          "const": 9281,
+          "title": "9281 - Gunter's chain (US)"
+        },
+        {
+          "const": 9282,
+          "title": "9282 - cicero didot's pica"
+        },
+        {
+          "const": 9283,
+          "title": "9283 - cubic inch"
+        },
+        {
+          "const": 9284,
+          "title": "9284 - circular mil"
+        },
+        {
+          "const": 9285,
+          "title": "9285 - cord (international)"
+        },
+        {
+          "const": 9286,
+          "title": "9286 - cord (US)"
+        },
+        {
+          "const": 9287,
+          "title": "9287 - cup"
+        },
+        {
+          "const": 9288,
+          "title": "9288 - cubic yard"
+        },
+        {
+          "const": 9289,
+          "title": "9289 - degree Fahrenheit"
+        },
+        {
+          "const": 9290,
+          "title": "9290 - Didot's point"
+        },
+        {
+          "const": 9291,
+          "title": "9291 - diopter"
+        },
+        {
+          "const": 9292,
+          "title": "9292 - dry pint"
+        },
+        {
+          "const": 9293,
+          "title": "9293 - dry quart"
+        },
+        {
+          "const": 9294,
+          "title": "9294 - dram (apothecary)"
+        },
+        {
+          "const": 9295,
+          "title": "9295 - dram (avoirdupois)"
+        },
+        {
+          "const": 9296,
+          "title": "9296 - drop"
+        },
+        {
+          "const": 9297,
+          "title": "9297 - dye unit"
+        },
+        {
+          "const": 9298,
+          "title": "9298 - elementary charge"
+        },
+        {
+          "const": 9299,
+          "title": "9299 - permittivity of vacuum"
+        },
+        {
+          "const": 9300,
+          "title": "9300 - fluid dram (British)"
+        },
+        {
+          "const": 9301,
+          "title": "9301 - fluid dram (US)"
+        },
+        {
+          "const": 9302,
+          "title": "9302 - focus forming unit"
+        },
+        {
+          "const": 9303,
+          "title": "9303 - fluid ounce (British)"
+        },
+        {
+          "const": 9304,
+          "title": "9304 - fluid ounce (US)"
+        },
+        {
+          "const": 9305,
+          "title": "9305 - foot (British)"
+        },
+        {
+          "const": 9306,
+          "title": "9306 - foot (international)"
+        },
+        {
+          "const": 9307,
+          "title": "9307 - foot (US)"
+        },
+        {
+          "const": 9308,
+          "title": "9308 - fathom (British)"
+        },
+        {
+          "const": 9309,
+          "title": "9309 - fathom (international)"
+        },
+        {
+          "const": 9310,
+          "title": "9310 - fathom (US)"
+        },
+        {
+          "const": 9311,
+          "title": "9311 - furlong"
+        },
+        {
+          "const": 9312,
+          "title": "9312 - Newtonian constant of gravitation"
+        },
+        {
+          "const": 9313,
+          "title": "9313 - standard acceleration of free fall"
+        },
+        {
+          "const": 9314,
+          "title": "9314 - gallon (British)"
+        },
+        {
+          "const": 9316,
+          "title": "9316 - winchester gallon"
+        },
+        {
+          "const": 9317,
+          "title": "9317 - gill (British)"
+        },
+        {
+          "const": 9318,
+          "title": "9318 - gill (US)"
+        },
+        {
+          "const": 9319,
+          "title": "9319 - grain"
+        },
+        {
+          "const": 9320,
+          "title": "9320 - planck constant"
+        },
+        {
+          "const": 9321,
+          "title": "9321 - hand"
+        },
+        {
+          "const": 9322,
+          "title": "9322 - Hounsfield unit"
+        },
+        {
+          "const": 9323,
+          "title": "9323 - horsepower"
+        },
+        {
+          "const": 9324,
+          "title": "9324 - homeopathic potency of centesimal series"
+        },
+        {
+          "const": 9325,
+          "title": "9325 - homeopathic potency of decimal series"
+        },
+        {
+          "const": 9326,
+          "title": "9326 - inch (British)"
+        },
+        {
+          "const": 9327,
+          "title": "9327 - inch (international)"
+        },
+        {
+          "const": 9328,
+          "title": "9328 - inch of water column"
+        },
+        {
+          "const": 9329,
+          "title": "9329 - inch of mercury column"
+        },
+        {
+          "const": 9330,
+          "title": "9330 - inch (US)"
+        },
+        {
+          "const": 9332,
+          "title": "9332 - international unit per deciliter"
+        },
+        {
+          "const": 9333,
+          "title": "9333 - international unit per gram"
+        },
+        {
+          "const": 9334,
+          "title": "9334 - international unit per gram of hemoglobin"
+        },
+        {
+          "const": 9335,
+          "title": "9335 - international unit per kilogram"
+        },
+        {
+          "const": 9338,
+          "title": "9338 - Boltzmann constant"
+        },
+        {
+          "const": 9339,
+          "title": "9339 - King-Armstrong unit"
+        },
+        {
+          "const": 9340,
+          "title": "9340 - knot (British)"
+        },
+        {
+          "const": 9341,
+          "title": "9341 - knot (international)"
+        },
+        {
+          "const": 9342,
+          "title": "9342 - Kunkel unit"
+        },
+        {
+          "const": 9343,
+          "title": "9343 - pound (apothecary)"
+        },
+        {
+          "const": 9345,
+          "title": "9345 - pound (troy system)"
+        },
+        {
+          "const": 9346,
+          "title": "9346 - pound force (avoirdupois)"
+        },
+        {
+          "const": 9347,
+          "title": "9347 - long hundredweight"
+        },
+        {
+          "const": 9348,
+          "title": "9348 - log10 unit per milliliter"
+        },
+        {
+          "const": 9349,
+          "title": "9349 - ligne french line"
+        },
+        {
+          "const": 9350,
+          "title": "9350 - link for Gunter's chain (British)"
+        },
+        {
+          "const": 9351,
+          "title": "9351 - link for Gunter's chain (US)"
+        },
+        {
+          "const": 9352,
+          "title": "9352 - line"
+        },
+        {
+          "const": 9354,
+          "title": "9354 - long ton (British)"
+        },
+        {
+          "const": 9355,
+          "title": "9355 - light-year"
+        },
+        {
+          "const": 9356,
+          "title": "9356 - electron mass"
+        },
+        {
+          "const": 9357,
+          "title": "9357 - proton mass"
+        },
+        {
+          "const": 9358,
+          "title": "9358 - mac lagan unit"
+        },
+        {
+          "const": 9359,
+          "title": "9359 - mesh"
+        },
+        {
+          "const": 9360,
+          "title": "9360 - metabolic equivalent"
+        },
+        {
+          "const": 9361,
+          "title": "9361 - mile (British)"
+        },
+        {
+          "const": 9362,
+          "title": "9362 - statute mile"
+        },
+        {
+          "const": 9363,
+          "title": "9363 - mile (US)"
+        },
+        {
+          "const": 9364,
+          "title": "9364 - mil (international)"
+        },
+        {
+          "const": 9365,
+          "title": "9365 - mil (US)"
+        },
+        {
+          "const": 9366,
+          "title": "9366 - minim (British)"
+        },
+        {
+          "const": 9367,
+          "title": "9367 - minim (US)"
+        },
+        {
+          "const": 9369,
+          "title": "9369 - permeability of vacuum"
+        },
+        {
+          "const": 9370,
+          "title": "9370 - nautical mile (British)"
+        },
+        {
+          "const": 9371,
+          "title": "9371 - nautical mile (international)"
+        },
+        {
+          "const": 9372,
+          "title": "9372 - ounce (apothecary)"
+        },
+        {
+          "const": 9373,
+          "title": "9373 - ounce (avoirdupois)"
+        },
+        {
+          "const": 9374,
+          "title": "9374 - ounce (troy system)"
+        },
+        {
+          "const": 9375,
+          "title": "9375 - pace"
+        },
+        {
+          "const": 9376,
+          "title": "9376 - pica"
+        },
+        {
+          "const": 9377,
+          "title": "9377 - printer's pica"
+        },
+        {
+          "const": 9378,
+          "title": "9378 - prism diopter"
+        },
+        {
+          "const": 9379,
+          "title": "9379 - plaque forming unit"
+        },
+        {
+          "const": 9380,
+          "title": "9380 - the number pi"
+        },
+        {
+          "const": 9381,
+          "title": "9381 - pied french foot"
+        },
+        {
+          "const": 9382,
+          "title": "9382 - peck (British)"
+        },
+        {
+          "const": 9383,
+          "title": "9383 - peck (US)"
+        },
+        {
+          "const": 9384,
+          "title": "9384 - point"
+        },
+        {
+          "const": 9385,
+          "title": "9385 - printer's point"
+        },
+        {
+          "const": 9386,
+          "title": "9386 - pouce french inch"
+        },
+        {
+          "const": 9387,
+          "title": "9387 - parts per million"
+        },
+        {
+          "const": 9388,
+          "title": "9388 - peripheral vascular resistance unit"
+        },
+        {
+          "const": 9389,
+          "title": "9389 - pound per sqare inch"
+        },
+        {
+          "const": 9390,
+          "title": "9390 - pint (British)"
+        },
+        {
+          "const": 9391,
+          "title": "9391 - pint (US)"
+        },
+        {
+          "const": 9392,
+          "title": "9392 - pennyweight"
+        },
+        {
+          "const": 9393,
+          "title": "9393 - quart (British)"
+        },
+        {
+          "const": 9394,
+          "title": "9394 - quart (US)"
+        },
+        {
+          "const": 9395,
+          "title": "9395 - Ramden's chain"
+        },
+        {
+          "const": 9396,
+          "title": "9396 - rod (British)"
+        },
+        {
+          "const": 9397,
+          "title": "9397 - rod (US)"
+        },
+        {
+          "const": 9398,
+          "title": "9398 - link for Ramden's chain"
+        },
+        {
+          "const": 9399,
+          "title": "9399 - Svedberg unit"
+        },
+        {
+          "const": 9400,
+          "title": "9400 - scruple"
+        },
+        {
+          "const": 9401,
+          "title": "9401 - section"
+        },
+        {
+          "const": 9402,
+          "title": "9402 - hundredweight (US)"
+        },
+        {
+          "const": 9403,
+          "title": "9403 - square foot"
+        },
+        {
+          "const": 9404,
+          "title": "9404 - square inch"
+        },
+        {
+          "const": 9405,
+          "title": "9405 - Somogyi unit"
+        },
+        {
+          "const": 9406,
+          "title": "9406 - square mile"
+        },
+        {
+          "const": 9407,
+          "title": "9407 - smoot"
+        },
+        {
+          "const": 9408,
+          "title": "9408 - square rod"
+        },
+        {
+          "const": 9409,
+          "title": "9409 - short ton (US)"
+        },
+        {
+          "const": 9410,
+          "title": "9410 - stone"
+        },
+        {
+          "const": 9411,
+          "title": "9411 - square yard"
+        },
+        {
+          "const": 9412,
+          "title": "9412 - tablespoon"
+        },
+        {
+          "const": 9413,
+          "title": "9413 - tuberculin unit"
+        },
+        {
+          "const": 9414,
+          "title": "9414 - 50% tissue culture infectious dose"
+        },
+        {
+          "const": 9415,
+          "title": "9415 - Todd unit"
+        },
+        {
+          "const": 9416,
+          "title": "9416 - teaspoon"
+        },
+        {
+          "const": 9417,
+          "title": "9417 - township"
+        },
+        {
+          "const": 9418,
+          "title": "9418 - US pharmacopeia unit"
+        },
+        {
+          "const": 9419,
+          "title": "9419 - yard (British)"
+        },
+        {
+          "const": 9420,
+          "title": "9420 - yard (international)"
+        },
+        {
+          "const": 9421,
+          "title": "9421 - yard (US)"
+        },
+        {
+          "const": 9422,
+          "title": "9422 - AHG-equivalent per milliliter"
+        },
+        {
+          "const": 9423,
+          "title": "9423 - colony forming unit per milliliter"
+        },
+        {
+          "const": 9424,
+          "title": "9424 - complement Ch50 unit per milliliter"
+        },
+        {
+          "const": 9425,
+          "title": "9425 - Ehrlich unit per 100 gram"
+        },
+        {
+          "const": 9426,
+          "title": "9426 - ELISA unit per milliliter"
+        },
+        {
+          "const": 9428,
+          "title": "9428 - red blood cells per microliter"
+        },
+        {
+          "const": 9430,
+          "title": "9430 - spermatozoa per milliliter"
+        },
+        {
+          "const": 9431,
+          "title": "9431 - tablet"
+        },
+        {
+          "const": 9433,
+          "title": "9433 - number ten"
+        },
+        {
+          "const": 9434,
+          "title": "9434 - thousand red blood cells"
+        },
+        {
+          "const": 9435,
+          "title": "9435 - thousand per liter"
+        },
+        {
+          "const": 9436,
+          "title": "9436 - thousand per milliliter"
+        },
+        {
+          "const": 9437,
+          "title": "9437 - thousand copies per milliliter"
+        },
+        {
+          "const": 9438,
+          "title": "9438 - hundred thousand"
+        },
+        {
+          "const": 9440,
+          "title": "9440 - megaequivalent per milliliter"
+        },
+        {
+          "const": 9441,
+          "title": "9441 - million per specimen"
+        },
+        {
+          "const": 9442,
+          "title": "9442 - million per liter"
+        },
+        {
+          "const": 9443,
+          "title": "9443 - hundred million"
+        },
+        {
+          "const": 9444,
+          "title": "9444 - billion per liter"
+        },
+        {
+          "const": 9445,
+          "title": "9445 - billion per milliliter"
+        },
+        {
+          "const": 9446,
+          "title": "9446 - billion per microliter"
+        },
+        {
+          "const": 9447,
+          "title": "9447 - the number ten"
+        },
+        {
+          "const": 9448,
+          "title": "9448 - year"
+        },
+        {
+          "const": 9449,
+          "title": "9449 - mean gregorian year"
+        },
+        {
+          "const": 9450,
+          "title": "9450 - mean julian year"
+        },
+        {
+          "const": 9451,
+          "title": "9451 - tropical year"
+        },
+        {
+          "const": 9452,
+          "title": "9452 - Angstrom"
+        },
+        {
+          "const": 9453,
+          "title": "9453 - are"
+        },
+        {
+          "const": 9454,
+          "title": "9454 - standard atmosphere"
+        },
+        {
+          "const": 9455,
+          "title": "9455 - technical atmosphere"
+        },
+        {
+          "const": 9456,
+          "title": "9456 - barn"
+        },
+        {
+          "const": 9457,
+          "title": "9457 - bel"
+        },
+        {
+          "const": 9458,
+          "title": "9458 - bel kilowatt"
+        },
+        {
+          "const": 9459,
+          "title": "9459 - bel millivolt"
+        },
+        {
+          "const": 9460,
+          "title": "9460 - bel sound pressure"
+        },
+        {
+          "const": 9461,
+          "title": "9461 - bel microvolt"
+        },
+        {
+          "const": 9462,
+          "title": "9462 - bel volt"
+        },
+        {
+          "const": 9463,
+          "title": "9463 - bel watt"
+        },
+        {
+          "const": 9464,
+          "title": "9464 - bar"
+        },
+        {
+          "const": 9465,
+          "title": "9465 - baud"
+        },
+        {
+          "const": 9466,
+          "title": "9466 - biot"
+        },
+        {
+          "const": 9467,
+          "title": "9467 - bit"
+        },
+        {
+          "const": 9469,
+          "title": "9469 - becquerel"
+        },
+        {
+          "const": 9470,
+          "title": "9470 - byte"
+        },
+        {
+          "const": 9471,
+          "title": "9471 - coulomb"
+        },
+        {
+          "const": 9472,
+          "title": "9472 - calorie"
+        },
+        {
+          "const": 9473,
+          "title": "9473 - calorie at 15 degrees Celsius"
+        },
+        {
+          "const": 9474,
+          "title": "9474 - calorie at 20 degrees Celsius"
+        },
+        {
+          "const": 9475,
+          "title": "9475 - calorie (international table)"
+        },
+        {
+          "const": 9476,
+          "title": "9476 - mean calorie"
+        },
+        {
+          "const": 9477,
+          "title": "9477 - thermochemical calorie"
+        },
+        {
+          "const": 9478,
+          "title": "9478 - candela"
+        },
+        {
+          "const": 9479,
+          "title": "9479 - centigram"
+        },
+        {
+          "const": 9480,
+          "title": "9480 - curie"
+        },
+        {
+          "const": 9481,
+          "title": "9481 - circle"
+        },
+        {
+          "const": 9482,
+          "title": "9482 - centiliter"
+        },
+        {
+          "const": 9483,
+          "title": "9483 - square centimeter"
+        },
+        {
+          "const": 9484,
+          "title": "9484 - degree"
+        },
+        {
+          "const": 9485,
+          "title": "9485 - decigram"
+        },
+        {
+          "const": 9486,
+          "title": "9486 - deciliter"
+        },
+        {
+          "const": 9487,
+          "title": "9487 - decimeter"
+        },
+        {
+          "const": 9488,
+          "title": "9488 - dyne"
+        },
+        {
+          "const": 9489,
+          "title": "9489 - equivalent"
+        },
+        {
+          "const": 9490,
+          "title": "9490 - equivalent per liter"
+        },
+        {
+          "const": 9491,
+          "title": "9491 - equivalent per milliliter"
+        },
+        {
+          "const": 9492,
+          "title": "9492 - equivalent per millimole"
+        },
+        {
+          "const": 9493,
+          "title": "9493 - equivalent per micromole"
+        },
+        {
+          "const": 9494,
+          "title": "9494 - erg"
+        },
+        {
+          "const": 9495,
+          "title": "9495 - electronvolt"
+        },
+        {
+          "const": 9496,
+          "title": "9496 - femtogram"
+        },
+        {
+          "const": 9497,
+          "title": "9497 - femtometer"
+        },
+        {
+          "const": 9498,
+          "title": "9498 - femtomole"
+        },
+        {
+          "const": 9499,
+          "title": "9499 - femtomole per gram"
+        },
+        {
+          "const": 9500,
+          "title": "9500 - femtomole per milligram"
+        },
+        {
+          "const": 9501,
+          "title": "9501 - femtomole per milliliter"
+        },
+        {
+          "const": 9502,
+          "title": "9502 - Gauss"
+        },
+        {
+          "const": 9503,
+          "title": "9503 - gram percent"
+        },
+        {
+          "const": 9504,
+          "title": "9504 - gram-meter"
+        },
+        {
+          "const": 9505,
+          "title": "9505 - gram-meter per heart beat per square meter"
+        },
+        {
+          "const": 9507,
+          "title": "9507 - gram-meter per heart beat"
+        },
+        {
+          "const": 9508,
+          "title": "9508 - gram per 100 gram"
+        },
+        {
+          "const": 9509,
+          "title": "9509 - gram per total weight"
+        },
+        {
+          "const": 9510,
+          "title": "9510 - gram per gram"
+        },
+        {
+          "const": 9511,
+          "title": "9511 - gram per gram of creatinine"
+        },
+        {
+          "const": 9512,
+          "title": "9512 - gram per kilogram"
+        },
+        {
+          "const": 9513,
+          "title": "9513 - gram per square meter"
+        },
+        {
+          "const": 9514,
+          "title": "9514 - gram per milliliter"
+        },
+        {
+          "const": 9515,
+          "title": "9515 - gallon (US)"
+        },
+        {
+          "const": 9516,
+          "title": "9516 - gilbert"
+        },
+        {
+          "const": 9517,
+          "title": "9517 - gram-force"
+        },
+        {
+          "const": 9518,
+          "title": "9518 - gon grade"
+        },
+        {
+          "const": 9519,
+          "title": "9519 - gray"
+        },
+        {
+          "const": 9520,
+          "title": "9520 - hectoliter"
+        },
+        {
+          "const": 9521,
+          "title": "9521 - Hertz"
+        },
+        {
+          "const": 9522,
+          "title": "9522 - joule"
+        },
+        {
+          "const": 9523,
+          "title": "9523 - kelvin"
+        },
+        {
+          "const": 9524,
+          "title": "9524 - kelvin per watt"
+        },
+        {
+          "const": 9525,
+          "title": "9525 - kilo-international unit per milliliter"
+        },
+        {
+          "const": 9526,
+          "title": "9526 - katal"
+        },
+        {
+          "const": 9527,
+          "title": "9527 - katal per kilogram"
+        },
+        {
+          "const": 9528,
+          "title": "9528 - kilocalories per ounce"
+        },
+        {
+          "const": 9529,
+          "title": "9529 - kilogram"
+        },
+        {
+          "const": 9530,
+          "title": "9530 - kilogram per liter"
+        },
+        {
+          "const": 9531,
+          "title": "9531 - kilogram per square meter"
+        },
+        {
+          "const": 9532,
+          "title": "9532 - kilogram per cubic meter"
+        },
+        {
+          "const": 9533,
+          "title": "9533 - kilogram per mole"
+        },
+        {
+          "const": 9534,
+          "title": "9534 - kilogram of wet tissue"
+        },
+        {
+          "const": 9535,
+          "title": "9535 - kiloliter"
+        },
+        {
+          "const": 9536,
+          "title": "9536 - kilometer"
+        },
+        {
+          "const": 9537,
+          "title": "9537 - kilosecond"
+        },
+        {
+          "const": 9538,
+          "title": "9538 - kilounit per gram"
+        },
+        {
+          "const": 9539,
+          "title": "9539 - kayser"
+        },
+        {
+          "const": 9541,
+          "title": "9541 - liter-square second per second"
+        },
+        {
+          "const": 9542,
+          "title": "9542 - liter per kilogram"
+        },
+        {
+          "const": 9543,
+          "title": "9543 - lumen"
+        },
+        {
+          "const": 9544,
+          "title": "9544 - lambert"
+        },
+        {
+          "const": 9545,
+          "title": "9545 - lux"
+        },
+        {
+          "const": 9546,
+          "title": "9546 - meter"
+        },
+        {
+          "const": 9547,
+          "title": "9547 - meter of water column"
+        },
+        {
+          "const": 9548,
+          "title": "9548 - meter of mercury column"
+        },
+        {
+          "const": 9550,
+          "title": "9550 - milli-international unit per milliliter"
+        },
+        {
+          "const": 9551,
+          "title": "9551 - milliequivalent"
+        },
+        {
+          "const": 9552,
+          "title": "9552 - milliequivalent per specimen"
+        },
+        {
+          "const": 9553,
+          "title": "9553 - milliequivalent per deciliter"
+        },
+        {
+          "const": 9554,
+          "title": "9554 - milliequivalent per gram"
+        },
+        {
+          "const": 9555,
+          "title": "9555 - milliequivalent per gram of creatinine"
+        },
+        {
+          "const": 9556,
+          "title": "9556 - milliequivalent per kilogram"
+        },
+        {
+          "const": 9557,
+          "title": "9557 - milliequivalent per liter"
+        },
+        {
+          "const": 9558,
+          "title": "9558 - milliequivalent per square meter"
+        },
+        {
+          "const": 9559,
+          "title": "9559 - milliequivalent per milliliter"
+        },
+        {
+          "const": 9560,
+          "title": "9560 - milligram per total volume"
+        },
+        {
+          "const": 9561,
+          "title": "9561 - milligram per volume"
+        },
+        {
+          "const": 9562,
+          "title": "9562 - milligram per kilogram"
+        },
+        {
+          "const": 9563,
+          "title": "9563 - milligram per square meter"
+        },
+        {
+          "const": 9564,
+          "title": "9564 - milligram per cubic meter"
+        },
+        {
+          "const": 9565,
+          "title": "9565 - milligram per milligram"
+        },
+        {
+          "const": 9566,
+          "title": "9566 - milligram of creatinine"
+        },
+        {
+          "const": 9567,
+          "title": "9567 - milligram of phenylketones per deciliter"
+        },
+        {
+          "const": 9568,
+          "title": "9568 - mho"
+        },
+        {
+          "const": 9569,
+          "title": "9569 - milliliter per heart beat"
+        },
+        {
+          "const": 9570,
+          "title": "9570 - milliliter per deciliter"
+        },
+        {
+          "const": 9571,
+          "title": "9571 - milliliter per kilogram"
+        },
+        {
+          "const": 9572,
+          "title": "9572 - square millimeter"
+        },
+        {
+          "const": 9573,
+          "title": "9573 - millimole"
+        },
+        {
+          "const": 9574,
+          "title": "9574 - millimole per total volume"
+        },
+        {
+          "const": 9575,
+          "title": "9575 - millimole per deciliter"
+        },
+        {
+          "const": 9576,
+          "title": "9576 - millimole per gram"
+        },
+        {
+          "const": 9577,
+          "title": "9577 - millimole per kilogram"
+        },
+        {
+          "const": 9578,
+          "title": "9578 - millimole per square meter"
+        },
+        {
+          "const": 9579,
+          "title": "9579 - millimole per mole"
+        },
+        {
+          "const": 9580,
+          "title": "9580 - month"
+        },
+        {
+          "const": 9581,
+          "title": "9581 - mean gregorian month"
+        },
+        {
+          "const": 9582,
+          "title": "9582 - mean julian month"
+        },
+        {
+          "const": 9583,
+          "title": "9583 - synodal month"
+        },
+        {
+          "const": 9584,
+          "title": "9584 - mole"
+        },
+        {
+          "const": 9585,
+          "title": "9585 - mole per kilogram"
+        },
+        {
+          "const": 9586,
+          "title": "9586 - mole per liter"
+        },
+        {
+          "const": 9587,
+          "title": "9587 - mole per cubic meter"
+        },
+        {
+          "const": 9588,
+          "title": "9588 - mole per milliliter"
+        },
+        {
+          "const": 9591,
+          "title": "9591 - milliosmole per liter"
+        },
+        {
+          "const": 9592,
+          "title": "9592 - megasecond"
+        },
+        {
+          "const": 9593,
+          "title": "9593 - millisecond"
+        },
+        {
+          "const": 9594,
+          "title": "9594 - milliunit per gram"
+        },
+        {
+          "const": 9595,
+          "title": "9595 - milliunit per gram of hemoglobin"
+        },
+        {
+          "const": 9596,
+          "title": "9596 - milliunit per milligram"
+        },
+        {
+          "const": 9597,
+          "title": "9597 - milliunit per milligram of creatinine"
+        },
+        {
+          "const": 9598,
+          "title": "9598 - maxwell"
+        },
+        {
+          "const": 9599,
+          "title": "9599 - newton"
+        },
+        {
+          "const": 9600,
+          "title": "9600 - nanogram"
+        },
+        {
+          "const": 9601,
+          "title": "9601 - nanogram per gram of creatinine"
+        },
+        {
+          "const": 9602,
+          "title": "9602 - nanogram per kilogram"
+        },
+        {
+          "const": 9603,
+          "title": "9603 - nanogram per square meter"
+        },
+        {
+          "const": 9604,
+          "title": "9604 - nanogram per milligram of protein"
+        },
+        {
+          "const": 9606,
+          "title": "9606 - nanoliter"
+        },
+        {
+          "const": 9607,
+          "title": "9607 - nanomole"
+        },
+        {
+          "const": 9608,
+          "title": "9608 - nanomole per deciliter"
+        },
+        {
+          "const": 9609,
+          "title": "9609 - nanomole per gram"
+        },
+        {
+          "const": 9610,
+          "title": "9610 - nanomole per gram of creatinine"
+        },
+        {
+          "const": 9611,
+          "title": "9611 - nanomole per milligram"
+        },
+        {
+          "const": 9612,
+          "title": "9612 - nanomole per millimole"
+        },
+        {
+          "const": 9614,
+          "title": "9614 - nanomole per mole"
+        },
+        {
+          "const": 9615,
+          "title": "9615 - neper"
+        },
+        {
+          "const": 9616,
+          "title": "9616 - nanosecond"
+        },
+        {
+          "const": 9617,
+          "title": "9617 - oersted"
+        },
+        {
+          "const": 9618,
+          "title": "9618 - ohm"
+        },
+        {
+          "const": 9619,
+          "title": "9619 - osmole"
+        },
+        {
+          "const": 9620,
+          "title": "9620 - osmole per kilogram"
+        },
+        {
+          "const": 9621,
+          "title": "9621 - osmole per liter"
+        },
+        {
+          "const": 9622,
+          "title": "9622 - poise"
+        },
+        {
+          "const": 9623,
+          "title": "9623 - pascal"
+        },
+        {
+          "const": 9624,
+          "title": "9624 - parsec"
+        },
+        {
+          "const": 9625,
+          "title": "9625 - picogram per liter"
+        },
+        {
+          "const": 9626,
+          "title": "9626 - picogram per millimeter"
+        },
+        {
+          "const": 9627,
+          "title": "9627 - phot"
+        },
+        {
+          "const": 9628,
+          "title": "9628 - picoliter"
+        },
+        {
+          "const": 9629,
+          "title": "9629 - picometer"
+        },
+        {
+          "const": 9630,
+          "title": "9630 - picomole"
+        },
+        {
+          "const": 9631,
+          "title": "9631 - picomole per deciliter"
+        },
+        {
+          "const": 9632,
+          "title": "9632 - picomole per milliliter"
+        },
+        {
+          "const": 9633,
+          "title": "9633 - picomole per micromole"
+        },
+        {
+          "const": 9634,
+          "title": "9634 - picosecond"
+        },
+        {
+          "const": 9635,
+          "title": "9635 - roentgen"
+        },
+        {
+          "const": 9636,
+          "title": "9636 - radian"
+        },
+        {
+          "const": 9637,
+          "title": "9637 - radiation absorbed dose"
+        },
+        {
+          "const": 9638,
+          "title": "9638 - radiation equivalent man"
+        },
+        {
+          "const": 9639,
+          "title": "9639 - siemens"
+        },
+        {
+          "const": 9640,
+          "title": "9640 - stilb"
+        },
+        {
+          "const": 9641,
+          "title": "9641 - sphere"
+        },
+        {
+          "const": 9642,
+          "title": "9642 - steradian"
+        },
+        {
+          "const": 9643,
+          "title": "9643 - stere"
+        },
+        {
+          "const": 9644,
+          "title": "9644 - stokes"
+        },
+        {
+          "const": 9645,
+          "title": "9645 - sievert"
+        },
+        {
+          "const": 9646,
+          "title": "9646 - tesla"
+        },
+        {
+          "const": 9647,
+          "title": "9647 - tonne"
+        },
+        {
+          "const": 9648,
+          "title": "9648 - unified atomic mass unit"
+        },
+        {
+          "const": 9651,
+          "title": "9651 - unit per gram of hemoglobin"
+        },
+        {
+          "const": 9652,
+          "title": "9652 - micro-international unit"
+        },
+        {
+          "const": 9653,
+          "title": "9653 - microequivalent"
+        },
+        {
+          "const": 9654,
+          "title": "9654 - microequivalent per milliliter"
+        },
+        {
+          "const": 9655,
+          "title": "9655 - microgram"
+        },
+        {
+          "const": 9656,
+          "title": "9656 - microgram per 100 gram"
+        },
+        {
+          "const": 9657,
+          "title": "9657 - microgram per specimen"
+        },
+        {
+          "const": 9658,
+          "title": "9658 - microgram per total volume"
+        },
+        {
+          "const": 9659,
+          "title": "9659 - microgram per deciliter of red blood cells"
+        },
+        {
+          "const": 9660,
+          "title": "9660 - microgram per gram dry weight"
+        },
+        {
+          "const": 9661,
+          "title": "9661 - microgram per gram of hemoglobin"
+        },
+        {
+          "const": 9662,
+          "title": "9662 - microgram per kilogram"
+        },
+        {
+          "const": 9663,
+          "title": "9663 - microgram per square meter"
+        },
+        {
+          "const": 9664,
+          "title": "9664 - microgram per nanogram"
+        },
+        {
+          "const": 9665,
+          "title": "9665 - microliter"
+        },
+        {
+          "const": 9666,
+          "title": "9666 - micrometer"
+        },
+        {
+          "const": 9667,
+          "title": "9667 - micromole"
+        },
+        {
+          "const": 9668,
+          "title": "9668 - micromole per gram"
+        },
+        {
+          "const": 9669,
+          "title": "9669 - micromole per gram of hemoglobin"
+        },
+        {
+          "const": 9670,
+          "title": "9670 - micromole per milligram"
+        },
+        {
+          "const": 9671,
+          "title": "9671 - micromole per milligram of creatinine"
+        },
+        {
+          "const": 9672,
+          "title": "9672 - micromole per minute and gram"
+        },
+        {
+          "const": 9673,
+          "title": "9673 - micromole per milliliter"
+        },
+        {
+          "const": 9674,
+          "title": "9674 - micromole per mole"
+        },
+        {
+          "const": 9675,
+          "title": "9675 - micromole per mole of creatinine"
+        },
+        {
+          "const": 9676,
+          "title": "9676 - microsecond"
+        },
+        {
+          "const": 9677,
+          "title": "9677 - volt"
+        },
+        {
+          "const": 9678,
+          "title": "9678 - watt"
+        },
+        {
+          "const": 9679,
+          "title": "9679 - Weber"
+        },
+        {
+          "const": 9681,
+          "title": "9681 - percent normal pooled plasma"
+        },
+        {
+          "const": 9682,
+          "title": "9682 - bone collagen equivalent per millimole of creatinine"
+        },
+        {
+          "const": 9683,
+          "title": "9683 - bone collagen equivalent per micromole of creatinine"
+        },
+        {
+          "const": 9687,
+          "title": "9687 - international unit per hour"
+        },
+        {
+          "const": 9688,
+          "title": "9688 - microgram per kilogram per minute"
+        },
+        {
+          "const": 9689,
+          "title": "9689 - Million unit"
+        },
+        {
+          "const": 9690,
+          "title": "9690 - microgram per kilogram per hour"
+        },
+        {
+          "const": 9691,
+          "title": "9691 - milligram per kilogram per hour"
+        },
+        {
+          "const": 9692,
+          "title": "9692 - milligram per kilogram per minute"
+        },
+        {
+          "const": 9693,
+          "title": "9693 - index of reactivity"
+        },
+        {
+          "const": 32018,
+          "title": "32018 - Vector-genome"
+        },
+        {
+          "const": 32407,
+          "title": "32407 - standardized quality unit"
+        },
+        {
+          "const": 32408,
+          "title": "32408 - microgram per millimole"
+        },
+        {
+          "const": 32608,
+          "title": "32608 - mutations per megabase"
+        },
+        {
+          "const": 32660,
+          "title": "32660 - mitoses per 10 high power field"
+        },
+        {
+          "const": 32661,
+          "title": "32661 - mitoses per 40 high power field"
+        },
+        {
+          "const": 32662,
+          "title": "32662 - mitoses per 50 high power field"
+        },
+        {
+          "const": 32666,
+          "title": "32666 - centigray"
+        },
+        {
+          "const": 32667,
+          "title": "32667 - mitoses per square millimeter"
+        },
+        {
+          "const": 32695,
+          "title": "32695 - attogram per cell"
+        },
+        {
+          "const": 32696,
+          "title": "32696 - picomole per milligram"
+        },
+        {
+          "const": 32697,
+          "title": "32697 - dalton"
+        },
+        {
+          "const": 32698,
+          "title": "32698 - kilodalton"
+        },
+        {
+          "const": 32699,
+          "title": "32699 - milliliter per minute per millimeter mercury column"
+        },
+        {
+          "const": 32700,
+          "title": "32700 - liter per second"
+        },
+        {
+          "const": 32701,
+          "title": "32701 - gram per square centimeter"
+        },
+        {
+          "const": 32702,
+          "title": "32702 - gram per millimole"
+        },
+        {
+          "const": 32703,
+          "title": "32703 - dyne-second per centimeter to the fifth power"
+        },
+        {
+          "const": 32704,
+          "title": "32704 - millimeter mercury column-minute per liter"
+        },
+        {
+          "const": 32705,
+          "title": "32705 - wood unit"
+        },
+        {
+          "const": 32706,
+          "title": "32706 - ten thousand per microliter"
+        },
+        {
+          "const": 32707,
+          "title": "32707 - nanogram of fibrinogen equivalent unit per milliliter"
+        },
+        {
+          "const": 32708,
+          "title": "32708 - trillion copies per milliliter"
+        },
+        {
+          "const": 32709,
+          "title": "32709 - million copies per milliliter"
+        },
+        {
+          "const": 32710,
+          "title": "32710 - liter per minute per square meter"
+        },
+        {
+          "const": 32738,
+          "title": "32738 - centimeter per second"
+        },
+        {
+          "const": 32739,
+          "title": "32739 - milliliter per square meter"
+        },
+        {
+          "const": 32912,
+          "title": "32912 - Generic unit for indivisible thing"
+        },
+        {
+          "const": 32959,
+          "title": "32959 - per meter"
+        },
+        {
+          "const": 32960,
+          "title": "32960 - Decibel per megahertz"
+        },
+        {
+          "const": 32961,
+          "title": "32961 - decisecond"
+        },
+        {
+          "const": 32962,
+          "title": "32962 - kilojoule"
+        },
+        {
+          "const": 32963,
+          "title": "32963 - liter per square meter"
+        },
+        {
+          "const": 32964,
+          "title": "32964 - microgram per cubic meter"
+        },
+        {
+          "const": 32965,
+          "title": "32965 - nanogram per microliter"
+        },
+        {
+          "const": 32995,
+          "title": "32995 - microkatal per liter"
+        },
+        {
+          "const": 32996,
+          "title": "32996 - milligravity unit"
+        },
+        {
+          "const": 33013,
+          "title": "33013 - nanokatal per liter"
+        },
+        {
+          "const": 33014,
+          "title": "33014 - milliliter per kilogram per 24 hours"
+        },
+        {
+          "const": 33049,
+          "title": "33049 - acre (British)"
+        },
+        {
+          "const": 33050,
+          "title": "33050 - acre (US)"
+        },
+        {
+          "const": 33097,
+          "title": "33097 - Viral-particle"
+        },
+        {
+          "const": 33098,
+          "title": "33098 - Equivalent islet number"
+        },
+        {
+          "const": 33111,
+          "title": "33111 - cigar dosing unit"
+        },
+        {
+          "const": 33112,
+          "title": "33112 - cigarette dosing unit"
+        },
+        {
+          "const": 33113,
+          "title": "33113 - per kiloohm"
+        },
+        {
+          "const": 33114,
+          "title": "33114 - hectopascal"
+        },
+        {
+          "const": 33115,
+          "title": "33115 - millimole per 48 hours"
+        },
+        {
+          "const": 33117,
+          "title": "33117 - per nanoliter"
+        },
+        {
+          "const": 33118,
+          "title": "33118 - per picoliter"
+        },
+        {
+          "const": 33138,
+          "title": "33138 - relative units per milliliter"
+        },
+        {
+          "const": 586323,
+          "title": "586323 - degree Celsius"
+        },
+        {
+          "const": 705179,
+          "title": "705179 - per square centimeter"
+        },
+        {
+          "const": 710189,
+          "title": "710189 - attomole"
+        },
+        {
+          "const": 710190,
+          "title": "710190 - millikatal"
+        },
+        {
+          "const": 710191,
+          "title": "710191 - femtokatal"
+        },
+        {
+          "const": 710192,
+          "title": "710192 - attokatal"
+        },
+        {
+          "const": 710193,
+          "title": "710193 - megajoule"
+        },
+        {
+          "const": 710194,
+          "title": "710194 - kilocalorie"
+        },
+        {
+          "const": 710195,
+          "title": "710195 - femtogram per milliliter"
+        },
+        {
+          "const": 710196,
+          "title": "710196 - femtomole per kilogram"
+        },
+        {
+          "const": 710197,
+          "title": "710197 - femtokatal per liter"
+        },
+        {
+          "const": 710198,
+          "title": "710198 - femtokatal per kilogram"
+        },
+        {
+          "const": 710199,
+          "title": "710199 - kilogram per 24 hours"
+        },
+        {
+          "const": 710200,
+          "title": "710200 - millimole per minute"
+        },
+        {
+          "const": 710201,
+          "title": "710201 - millimole per hour"
+        },
+        {
+          "const": 710202,
+          "title": "710202 - micromole per hour"
+        },
+        {
+          "const": 710203,
+          "title": "710203 - nanomole per hour"
+        },
+        {
+          "const": 710204,
+          "title": "710204 - femtomole per 24 hours"
+        },
+        {
+          "const": 710205,
+          "title": "710205 - milliequivalent per minute"
+        },
+        {
+          "const": 710206,
+          "title": "710206 - milligram per gram of hemoglobin"
+        },
+        {
+          "const": 710207,
+          "title": "710207 - milliliter per second per square meter"
+        },
+        {
+          "const": 710208,
+          "title": "710208 - milliliter per minute per square meter"
+        },
+        {
+          "const": 710209,
+          "title": "710209 - milliliter per minute per kilogram"
+        },
+        {
+          "const": 710210,
+          "title": "710210 - kilo-international unit"
+        },
+        {
+          "const": 710211,
+          "title": "710211 - milli-international unit per kilogram"
+        },
+        {
+          "const": 710212,
+          "title": "710212 - kilocalorie per 24 hours"
+        },
+        {
+          "const": 710213,
+          "title": "710213 - kilocalorie per hour"
+        },
+        {
+          "const": 710214,
+          "title": "710214 - kilojoule per 24 hours"
+        },
+        {
+          "const": 710215,
+          "title": "710215 - liter per centimeter of water column"
+        },
+        {
+          "const": 710216,
+          "title": "710216 - liter per kilopascal"
+        },
+        {
+          "const": 710217,
+          "title": "710217 - Ehrlich unit per 24 hours"
+        },
+        {
+          "const": 710218,
+          "title": "710218 - kilocalorie per kilogram per 24 hours"
+        },
+        {
+          "const": 710219,
+          "title": "710219 - milliliter per kilogram per minute"
+        },
+        {
+          "const": 710220,
+          "title": "710220 - milliampere"
+        },
+        {
+          "const": 710221,
+          "title": "710221 - megavolt"
+        },
+        {
+          "const": 710222,
+          "title": "710222 - centigray per hour"
+        },
+        {
+          "const": 710223,
+          "title": "710223 - centigray per minute"
+        },
+        {
+          "const": 710224,
+          "title": "710224 - milligram radium equivalent"
+        },
+        {
+          "const": 710225,
+          "title": "710225 - microgray per hour"
+        },
+        {
+          "const": 710226,
+          "title": "710226 - microgray per minute"
+        },
+        {
+          "const": 710227,
+          "title": "710227 - degree per second"
+        },
+        {
+          "const": 710228,
+          "title": "710228 - gigahertz"
+        },
+        {
+          "const": 710229,
+          "title": "710229 - megahertz"
+        },
+        {
+          "const": 710230,
+          "title": "710230 - watt per square centimeter"
+        },
+        {
+          "const": 710231,
+          "title": "710231 - kilohertz"
+        },
+        {
+          "const": 710232,
+          "title": "710232 - milliwatt"
+        },
+        {
+          "const": 710233,
+          "title": "710233 - day per month"
+        },
+        {
+          "const": 710234,
+          "title": "710234 - day per year"
+        },
+        {
+          "const": 710235,
+          "title": "710235 - alcohol unit"
+        },
+        {
+          "const": 710236,
+          "title": "710236 - alcohol unit per 24 hours"
+        },
+        {
+          "const": 710237,
+          "title": "710237 - alcohol unit per week"
+        },
+        {
+          "const": 710238,
+          "title": "710238 - unit per week"
+        },
+        {
+          "const": 710239,
+          "title": "710239 - gray per hour"
+        },
+        {
+          "const": 710240,
+          "title": "710240 - gray per minute"
+        },
+        {
+          "const": 710241,
+          "title": "710241 - megaelectronvolt"
+        },
+        {
+          "const": 710242,
+          "title": "710242 - microgray"
+        },
+        {
+          "const": 710243,
+          "title": "710243 - roentgen per hour"
+        },
+        {
+          "const": 710244,
+          "title": "710244 - roentgen per minute"
+        },
+        {
+          "const": 710245,
+          "title": "710245 - radiation absorbed dose per minute"
+        },
+        {
+          "const": 710246,
+          "title": "710246 - joule per milliliter"
+        },
+        {
+          "const": 710247,
+          "title": "710247 - kilocalorie per milliliter"
+        },
+        {
+          "const": 710248,
+          "title": "710248 - megajoule per hour"
+        },
+        {
+          "const": 710249,
+          "title": "710249 - megajoule per 24 hours"
+        },
+        {
+          "const": 710250,
+          "title": "710250 - megajoule per 12 hours"
+        },
+        {
+          "const": 710251,
+          "title": "710251 - kilocalorie per kilogram"
+        },
+        {
+          "const": 710252,
+          "title": "710252 - megajoule per kilogram"
+        },
+        {
+          "const": 710253,
+          "title": "710253 - joule per kilogram"
+        },
+        {
+          "const": 710254,
+          "title": "710254 - standardized quality unit per milliliter"
+        },
+        {
+          "const": 710255,
+          "title": "710255 - milligray"
+        },
+        {
+          "const": 710256,
+          "title": "710256 - kilounit"
+        },
+        {
+          "const": 710257,
+          "title": "710257 - hundred"
+        },
+        {
+          "const": 710258,
+          "title": "710258 - ten thousand"
+        },
+        {
+          "const": 710259,
+          "title": "710259 - ten million"
+        },
+        {
+          "const": 710260,
+          "title": "710260 - trillion"
+        },
+        {
+          "const": 710261,
+          "title": "710261 - trillion per milliliter"
+        },
+        {
+          "const": 720839,
+          "title": "720839 - nanogram per kilogram per minute"
+        },
+        {
+          "const": 720840,
+          "title": "720840 - wood unit per square meter"
+        },
+        {
+          "const": 720841,
+          "title": "720841 - dyne-second per centimeter to the fifth power per square meter"
+        },
+        {
+          "const": 720842,
+          "title": "720842 - million per kilogram"
+        },
+        {
+          "const": 720843,
+          "title": "720843 - millivolt"
+        },
+        {
+          "const": 720844,
+          "title": "720844 - gram per 72 hour"
+        },
+        {
+          "const": 720845,
+          "title": "720845 - kilojoule per mole"
+        },
+        {
+          "const": 720846,
+          "title": "720846 - kiloarbitary unit per liter"
+        },
+        {
+          "const": 720847,
+          "title": "720847 - gram per 48 hours"
+        },
+        {
+          "const": 720848,
+          "title": "720848 - unit per 10 to the 10th power cells"
+        },
+        {
+          "const": 720849,
+          "title": "720849 - micrometer per second"
+        },
+        {
+          "const": 720850,
+          "title": "720850 - picogram per gram of creatinine"
+        },
+        {
+          "const": 720851,
+          "title": "720851 - nanomole per minute per mg of protein"
+        },
+        {
+          "const": 720852,
+          "title": "720852 - cells per 7.5 mililiters"
+        },
+        {
+          "const": 720853,
+          "title": "720853 - femtoliter per nanoliter"
+        },
+        {
+          "const": 720854,
+          "title": "720854 - unit per kilogram of hemoglobin"
+        },
+        {
+          "const": 720855,
+          "title": "720855 - unit per 2 hours"
+        },
+        {
+          "const": 720856,
+          "title": "720856 - cycle threshold value"
+        },
+        {
+          "const": 720857,
+          "title": "720857 - milliliter per pound (US)"
+        },
+        {
+          "const": 720858,
+          "title": "720858 - millibar"
+        },
+        {
+          "const": 720859,
+          "title": "720859 - nanogram per nanogram"
+        },
+        {
+          "const": 720860,
+          "title": "720860 - free thyroxine index"
+        },
+        {
+          "const": 720861,
+          "title": "720861 - milligram per deciliter per 24 hours"
+        },
+        {
+          "const": 720862,
+          "title": "720862 - picogram per milligram of creatinine"
+        },
+        {
+          "const": 720863,
+          "title": "720863 - picomole per hour per microliter"
+        },
+        {
+          "const": 720864,
+          "title": "720864 - nanomole per 24 hours per milligram"
+        },
+        {
+          "const": 720865,
+          "title": "720865 - milliliter per millibar"
+        },
+        {
+          "const": 720866,
+          "title": "720866 - milliliter per centimeter of water"
+        },
+        {
+          "const": 720867,
+          "title": "720867 - millibar per liter"
+        },
+        {
+          "const": 720868,
+          "title": "720868 - fraction"
+        },
+        {
+          "const": 720869,
+          "title": "720869 - milliliter per second per 1.73 square meter"
+        },
+        {
+          "const": 720870,
+          "title": "720870 - milliliter per minute per 1.73 square meter"
+        },
+        {
+          "const": 720871,
+          "title": "720871 - milliliter per square meter per beat"
+        },
+        {
+          "const": 44777519,
+          "title": "44777519 - per gram (10*3 per kilogram)"
+        },
+        {
+          "const": 44777520,
+          "title": "44777520 - per cubical meter"
+        },
+        {
+          "const": 44777521,
+          "title": "44777521 - per second"
+        },
+        {
+          "const": 44777522,
+          "title": "44777522 - meter per second"
+        },
+        {
+          "const": 44777523,
+          "title": "44777523 - cubical meter per second"
+        },
+        {
+          "const": 44777524,
+          "title": "44777524 - gram per cubical meter and cubical meter and second (10*-3 newton second per meter and square meter)"
+        },
+        {
+          "const": 44777525,
+          "title": "44777525 - gram per meter and cubical meter and second (10*-3 newton second per meter)"
+        },
+        {
+          "const": 44777526,
+          "title": "44777526 - coulomb per meter and second (ampere per meter)"
+        },
+        {
+          "const": 44777527,
+          "title": "44777527 - gram per meter and square second (10*-3 pascal)"
+        },
+        {
+          "const": 44777528,
+          "title": "44777528 - gram per square meter and cubical second (10*-3 pascal per second and meter)"
+        },
+        {
+          "const": 44777529,
+          "title": "44777529 - scquare meter per second"
+        },
+        {
+          "const": 44777530,
+          "title": "44777530 - square meter pre square second"
+        },
+        {
+          "const": 44777531,
+          "title": "44777531 - cubical meter"
+        },
+        {
+          "const": 44777532,
+          "title": "44777532 - gram meter (10*-3 kilogram meter)"
+        },
+        {
+          "const": 44777533,
+          "title": "44777533 - gram per square second (10*-3 kilogram per square second)"
+        },
+        {
+          "const": 44777534,
+          "title": "44777534 - gram per second (10*-3 kilogram per second)"
+        },
+        {
+          "const": 44777535,
+          "title": "44777535 - gram per cubical meter (10*-3 kilogram per cubical meter)"
+        },
+        {
+          "const": 44777536,
+          "title": "44777536 - gram per square meter (10*-3 kilogram per square meter)"
+        },
+        {
+          "const": 44777537,
+          "title": "44777537 - cubical second and kelvin per square meter and gram (10*3 kelvin per watt)"
+        },
+        {
+          "const": 44777538,
+          "title": "44777538 - per gram and second"
+        },
+        {
+          "const": 44777539,
+          "title": "44777539 - per cubical meter and second"
+        },
+        {
+          "const": 44777540,
+          "title": "44777540 - square meter gram per square second (10*-3 joule)"
+        },
+        {
+          "const": 44777541,
+          "title": "44777541 - square meter gram per cubical second (10*-3 watt)"
+        },
+        {
+          "const": 44777542,
+          "title": "44777542 - gram meter per second (10*-3 kilogram meter per second)"
+        },
+        {
+          "const": 44777543,
+          "title": "44777543 - gram per square meter and second (10*-3 kilogram per square meter and second)"
+        },
+        {
+          "const": 44777544,
+          "title": "44777544 - cubical meter second"
+        },
+        {
+          "const": 44777545,
+          "title": "44777545 - cubical meter per gram (10*3 cubical meter per kilogram)"
+        },
+        {
+          "const": 44777546,
+          "title": "44777546 - candela radiant per square meter (lux)"
+        },
+        {
+          "const": 44777547,
+          "title": "44777547 - meter per square second"
+        },
+        {
+          "const": 44777549,
+          "title": "44777549 - per square meter"
+        },
+        {
+          "const": 44777550,
+          "title": "44777550 - cubical meter per gram and second (10*3 cubical meter per kg and second)"
+        },
+        {
+          "const": 44777551,
+          "title": "44777551 - meter cubical meter square second per gram (10*3 cubical meter per pascal)"
+        },
+        {
+          "const": 44777552,
+          "title": "44777552 - square meter gram per square second and coulomb (10*-3 volt)"
+        },
+        {
+          "const": 44777553,
+          "title": "44777553 - cubical meter gram per second and square coulomb (10*-3 ohm meter)"
+        },
+        {
+          "const": 44777554,
+          "title": "44777554 - coulomb per second (ampere)"
+        },
+        {
+          "const": 44777555,
+          "title": "44777555 - percent calculated"
+        },
+        {
+          "const": 44777556,
+          "title": "44777556 - per 24 hours"
+        },
+        {
+          "const": 44777557,
+          "title": "44777557 - per hour"
+        },
+        {
+          "const": 44777558,
+          "title": "44777558 - per cubic meter"
+        },
+        {
+          "const": 44777559,
+          "title": "44777559 - per week"
+        },
+        {
+          "const": 44777560,
+          "title": "44777560 - per year"
+        },
+        {
+          "const": 44777561,
+          "title": "44777561 - arbitrary unit per liter"
+        },
+        {
+          "const": 44777562,
+          "title": "44777562 - Bethesda unit per milliliter"
+        },
+        {
+          "const": 44777563,
+          "title": "44777563 - fluorescence intensity unit"
+        },
+        {
+          "const": 44777564,
+          "title": "44777564 - international unit per 24 hours"
+        },
+        {
+          "const": 44777565,
+          "title": "44777565 - lyme index value"
+        },
+        {
+          "const": 44777566,
+          "title": "44777566 - score"
+        },
+        {
+          "const": 44777567,
+          "title": "44777567 - unit per 24 hours"
+        },
+        {
+          "const": 44777568,
+          "title": "44777568 - unit per deciliter"
+        },
+        {
+          "const": 44777569,
+          "title": "44777569 - cells per liter"
+        },
+        {
+          "const": 44777570,
+          "title": "44777570 - copies per liter"
+        },
+        {
+          "const": 44777571,
+          "title": "44777571 - red blood cells per high power field"
+        },
+        {
+          "const": 44777572,
+          "title": "44777572 - relative to H2O"
+        },
+        {
+          "const": 44777573,
+          "title": "44777573 - relative to saline"
+        },
+        {
+          "const": 44777574,
+          "title": "44777574 - white blood cells per high power field"
+        },
+        {
+          "const": 44777575,
+          "title": "44777575 - trillion cells per liter"
+        },
+        {
+          "const": 44777576,
+          "title": "44777576 - thousand red blood cells"
+        },
+        {
+          "const": 44777577,
+          "title": "44777577 - milli-international unit"
+        },
+        {
+          "const": 44777578,
+          "title": "44777578 - milliunit per liter"
+        },
+        {
+          "const": 44777579,
+          "title": "44777579 - thousand allergen-specific IgE antibody units per liter"
+        },
+        {
+          "const": 44777580,
+          "title": "44777580 - thousand cells per liter"
+        },
+        {
+          "const": 44777581,
+          "title": "44777581 - thousand copies per liter"
+        },
+        {
+          "const": 44777582,
+          "title": "44777582 - milliequivalent per 24 hours"
+        },
+        {
+          "const": 44777583,
+          "title": "44777583 - micro-international unit per liter"
+        },
+        {
+          "const": 44777584,
+          "title": "44777584 - microunit per specimen"
+        },
+        {
+          "const": 44777585,
+          "title": "44777585 - million allergen-specific IgE antibody units per liter"
+        },
+        {
+          "const": 44777586,
+          "title": "44777586 - million cells per liter"
+        },
+        {
+          "const": 44777587,
+          "title": "44777587 - million copies per liter"
+        },
+        {
+          "const": 44777588,
+          "title": "44777588 - billion cells per liter"
+        },
+        {
+          "const": 44777589,
+          "title": "44777589 - billion copies per liter"
+        },
+        {
+          "const": 44777590,
+          "title": "44777590 - centimeter watercolumn"
+        },
+        {
+          "const": 44777591,
+          "title": "44777591 - Decibel"
+        },
+        {
+          "const": 44777592,
+          "title": "44777592 - femtogram per liter"
+        },
+        {
+          "const": 44777593,
+          "title": "44777593 - gram per 12 hours"
+        },
+        {
+          "const": 44777594,
+          "title": "44777594 - gram per hour"
+        },
+        {
+          "const": 44777595,
+          "title": "44777595 - gram per mole"
+        },
+        {
+          "const": 44777596,
+          "title": "44777596 - gram of creatinine"
+        },
+        {
+          "const": 44777597,
+          "title": "44777597 - gram of hemoglobin"
+        },
+        {
+          "const": 44777598,
+          "title": "44777598 - gram of total nitrate"
+        },
+        {
+          "const": 44777599,
+          "title": "44777599 - gram of total protein"
+        },
+        {
+          "const": 44777600,
+          "title": "44777600 - gram or wet tissue"
+        },
+        {
+          "const": 44777601,
+          "title": "44777601 - katal per liter"
+        },
+        {
+          "const": 44777602,
+          "title": "44777602 - kilopascal"
+        },
+        {
+          "const": 44777603,
+          "title": "44777603 - liter per hour"
+        },
+        {
+          "const": 44777604,
+          "title": "44777604 - liter per liter"
+        },
+        {
+          "const": 44777605,
+          "title": "44777605 - log cells per milliliter"
+        },
+        {
+          "const": 44777606,
+          "title": "44777606 - meter per second"
+        },
+        {
+          "const": 44777607,
+          "title": "44777607 - meter per square second"
+        },
+        {
+          "const": 44777608,
+          "title": "44777608 - milligram per gram dry weight"
+        },
+        {
+          "const": 44777609,
+          "title": "44777609 - milligram per gram wet weight"
+        },
+        {
+          "const": 44777610,
+          "title": "44777610 - milligram per hour"
+        },
+        {
+          "const": 44777611,
+          "title": "44777611 - milligram per minute"
+        },
+        {
+          "const": 44777612,
+          "title": "44777612 - milligram per millimole"
+        },
+        {
+          "const": 44777613,
+          "title": "44777613 - milliliter per hour"
+        },
+        {
+          "const": 44777614,
+          "title": "44777614 - milliliter per second"
+        },
+        {
+          "const": 44777615,
+          "title": "44777615 - millimole per specimen"
+        },
+        {
+          "const": 44777616,
+          "title": "44777616 - millimole per gram of wet weight"
+        },
+        {
+          "const": 44777617,
+          "title": "44777617 - millimole per gram of dry weight"
+        },
+        {
+          "const": 44777618,
+          "title": "44777618 - millimole per millimole"
+        },
+        {
+          "const": 44777619,
+          "title": "44777619 - millimole per millimole of creatinine"
+        },
+        {
+          "const": 44777620,
+          "title": "44777620 - millimole per mole of hemoglobin"
+        },
+        {
+          "const": 44777621,
+          "title": "44777621 - mole per second"
+        },
+        {
+          "const": 44777622,
+          "title": "44777622 - millipascal second"
+        },
+        {
+          "const": 44777623,
+          "title": "44777623 - millipascal"
+        },
+        {
+          "const": 44777624,
+          "title": "44777624 - nanogram per 24 hours"
+        },
+        {
+          "const": 44777625,
+          "title": "44777625 - nanogram per milligram of creatinine"
+        },
+        {
+          "const": 44777626,
+          "title": "44777626 - nanokatal"
+        },
+        {
+          "const": 44777627,
+          "title": "44777627 - nanomole per 24 hours"
+        },
+        {
+          "const": 44777628,
+          "title": "44777628 - nanomole per billion platelets"
+        },
+        {
+          "const": 44777629,
+          "title": "44777629 - nanomole per hour and gram"
+        },
+        {
+          "const": 44777630,
+          "title": "44777630 - nanomole per hour and liter"
+        },
+        {
+          "const": 44777631,
+          "title": "44777631 - nanomole per hour and milliliter"
+        },
+        {
+          "const": 44777632,
+          "title": "44777632 - nanomole per hour and milliliter red blood cells"
+        },
+        {
+          "const": 44777633,
+          "title": "44777633 - nanomole per kilogram"
+        },
+        {
+          "const": 44777634,
+          "title": "44777634 - nanomole per milligram of creatinine"
+        },
+        {
+          "const": 44777635,
+          "title": "44777635 - nanomole per minute and milliliter"
+        },
+        {
+          "const": 44777636,
+          "title": "44777636 - nanomole per mole of creatinine"
+        },
+        {
+          "const": 44777637,
+          "title": "44777637 - nanomole per second"
+        },
+        {
+          "const": 44777638,
+          "title": "44777638 - picogram per microliter"
+        },
+        {
+          "const": 44777639,
+          "title": "44777639 - picokatal"
+        },
+        {
+          "const": 44777640,
+          "title": "44777640 - picomole per 24 hours"
+        },
+        {
+          "const": 44777641,
+          "title": "44777641 - picomole per gram hemoglobin"
+        },
+        {
+          "const": 44777642,
+          "title": "44777642 - picomole per hour and milligram of hemoglobin"
+        },
+        {
+          "const": 44777643,
+          "title": "44777643 - picomole per kilogram"
+        },
+        {
+          "const": 44777644,
+          "title": "44777644 - microgram per gram wet weight"
+        },
+        {
+          "const": 44777645,
+          "title": "44777645 - microgram per hour"
+        },
+        {
+          "const": 44777646,
+          "title": "44777646 - microgram per millimole of creatinine"
+        },
+        {
+          "const": 44777647,
+          "title": "44777647 - microkatal"
+        },
+        {
+          "const": 44777648,
+          "title": "44777648 - micromole per gram of dry weight"
+        },
+        {
+          "const": 44777649,
+          "title": "44777649 - micromole per gram of wet weight"
+        },
+        {
+          "const": 44777650,
+          "title": "44777650 - micromole per hour and gram of hemoglobin"
+        },
+        {
+          "const": 44777651,
+          "title": "44777651 - micromole per hour and gram of protein"
+        },
+        {
+          "const": 44777652,
+          "title": "44777652 - micromole per hour and liter"
+        },
+        {
+          "const": 44777653,
+          "title": "44777653 - micromole per hour and milliliter"
+        },
+        {
+          "const": 44777654,
+          "title": "44777654 - micromole per kilogram"
+        },
+        {
+          "const": 44777655,
+          "title": "44777655 - micromole per minute"
+        },
+        {
+          "const": 44777656,
+          "title": "44777656 - micromole per millimole"
+        },
+        {
+          "const": 44777657,
+          "title": "44777657 - micromole per mole of hemoglobin"
+        },
+        {
+          "const": 44777658,
+          "title": "44777658 - per month"
+        },
+        {
+          "const": 44777659,
+          "title": "44777659 - per second"
+        },
+        {
+          "const": 44777660,
+          "title": "44777660 - billion"
+        },
+        {
+          "const": 44777661,
+          "title": "44777661 - trimester"
+        },
+        {
+          "const": 44777662,
+          "title": "44777662 - cubic centimeter"
+        },
+        {
+          "const": 44777663,
+          "title": "44777663 - milligram of fibrinogen equivalent unit per liter"
+        },
+        {
+          "const": 44777664,
+          "title": "44777664 - milliliter per 12 hours"
+        },
+        {
+          "const": 44819154,
+          "title": "44819154 - millicurie"
+        },
+        {
+          "const": 45744809,
+          "title": "45744809 - Actuation"
+        },
+        {
+          "const": 45744810,
+          "title": "45744810 - bioequivalent allergenic unit"
+        },
+        {
+          "const": 45744811,
+          "title": "45744811 - allergenic unit"
+        },
+        {
+          "const": 45744812,
+          "title": "45744812 - cells"
+        },
+        {
+          "const": 45744813,
+          "title": "45744813 - clinical unit"
+        },
+        {
+          "const": 45744814,
+          "title": "45744814 - limit of flocculation unit"
+        },
+        {
+          "const": 45744815,
+          "title": "45744815 - bacteria"
+        },
+        {
+          "const": 45744816,
+          "title": "45744816 - protein nitrogen unit"
+        },
+        {
+          "const": 45890995,
+          "title": "45890995 - Million unit per milliliter"
+        },
+        {
+          "const": 45890996,
+          "title": "45890996 - gram per dose"
+        },
+        {
+          "const": 45890997,
+          "title": "45890997 - milligram per dose"
+        },
+        {
+          "const": 45890998,
+          "title": "45890998 - microgram per dose"
+        },
+        {
+          "const": 45890999,
+          "title": "45890999 - unit per dose"
+        },
+        {
+          "const": 45891000,
+          "title": "45891000 - application"
+        },
+        {
+          "const": 45891001,
+          "title": "45891001 - gram per application"
+        },
+        {
+          "const": 45891002,
+          "title": "45891002 - milligram per application"
+        },
+        {
+          "const": 45891003,
+          "title": "45891003 - tuberculin unit per milliliter"
+        },
+        {
+          "const": 45891004,
+          "title": "45891004 - month supply"
+        },
+        {
+          "const": 45891005,
+          "title": "45891005 - week supply"
+        },
+        {
+          "const": 45891006,
+          "title": "45891006 - unit per drop"
+        },
+        {
+          "const": 45891007,
+          "title": "45891007 - Megabecquerel"
+        },
+        {
+          "const": 45891008,
+          "title": "45891008 - kilobecquerel"
+        },
+        {
+          "const": 45891009,
+          "title": "45891009 - weight percent volume"
+        },
+        {
+          "const": 45891010,
+          "title": "45891010 - volume percent volume"
+        },
+        {
+          "const": 45891011,
+          "title": "45891011 - weight percent weight"
+        },
+        {
+          "const": 45891012,
+          "title": "45891012 - volume percent weight"
+        },
+        {
+          "const": 45891013,
+          "title": "45891013 - milliliter per liter"
+        },
+        {
+          "const": 45891014,
+          "title": "45891014 - millimole per milliliter"
+        },
+        {
+          "const": 45891015,
+          "title": "45891015 - microgram per actuation"
+        },
+        {
+          "const": 45891016,
+          "title": "45891016 - milligram per actuation"
+        },
+        {
+          "const": 45891017,
+          "title": "45891017 - unit per actuation"
+        },
+        {
+          "const": 45891018,
+          "title": "45891018 - gram per actuation"
+        },
+        {
+          "const": 45891019,
+          "title": "45891019 - international unit per milligram"
+        },
+        {
+          "const": 45891021,
+          "title": "45891021 - milligram per 16 hours"
+        },
+        {
+          "const": 45891022,
+          "title": "45891022 - milligram per 72 hours"
+        },
+        {
+          "const": 45891023,
+          "title": "45891023 - microgram per 72 hours"
+        },
+        {
+          "const": 45891024,
+          "title": "45891024 - Kallikrein inactivator unit"
+        },
+        {
+          "const": 45891025,
+          "title": "45891025 - nanoliter per milliliter"
+        },
+        {
+          "const": 45891026,
+          "title": "45891026 - Kallikrein inactivator unit per milliliter"
+        },
+        {
+          "const": 45891027,
+          "title": "45891027 - microgram per square centimeter"
+        },
+        {
+          "const": 45891028,
+          "title": "45891028 - Gigabecquerel per milliliter"
+        },
+        {
+          "const": 45891029,
+          "title": "45891029 - microliter per milliliter"
+        },
+        {
+          "const": 45891030,
+          "title": "45891030 - unit per milligram"
+        },
+        {
+          "const": 45891031,
+          "title": "45891031 - Gigabecquerel"
+        },
+        {
+          "const": 45891032,
+          "title": "45891032 - Megabecquerel per milliliter"
+        },
+        {
+          "const": 45891033,
+          "title": "45891033 - milliliter per milliliter"
+        },
+        {
+          "const": 45891034,
+          "title": "45891034 - unit per square centimeter"
+        },
+        {
+          "const": 45891035,
+          "title": "45891035 - milliliter per gram"
+        },
+        {
+          "const": 45891036,
+          "title": "45891036 - milligram per square centimeter"
+        },
+        {
+          "const": 45891037,
+          "title": "45891037 - microliter per gram"
+        },
+        {
+          "const": 45891038,
+          "title": "45891038 - kilobecquerel per milliliter"
+        },
+        {
+          "const": 45956701,
+          "title": "45956701 - gram per cubical centimeter"
+        }
+      ]
+    },
+    "provider_id": {
+      "type": "integer",
+      "description": "User Guidance: The provider associated with the observation record, e.g. the provider who ordered the test or the provider who recorded the result.\n\nETL Conventions: The ETL may need to make a choice as to which PROVIDER_ID to put here. Based on what is available this may or may not be different than the provider associated with the overall VISIT_OCCURRENCE record. For example the admitting vs attending physician on an EHR record."
+    },
+    "visit_occurrence_id": {
+      "type": "integer",
+      "description": "User Guidance: The visit during which the Observation occurred.\n\nETL Conventions: Depending on the structure of the source data, this may have to be determined based on dates. If an OBSERVATION_DATE occurs within the start and end date of a Visit it is a valid ETL choice to choose the VISIT_OCCURRENCE_ID from the visit that subsumes it, even if not explicitly stated in the data. While not required, an attempt should be made to locate the VISIT_OCCURRENCE_ID of the observation record. If an observation is related to a visit explicitly in the source data, it is possible that the result date of the Observation falls outside of the bounds of the Visit dates."
+    },
+    "visit_detail_id": {
+      "type": "integer",
+      "description": "User Guidance: The VISIT_DETAIL record during which the Observation occurred. For example, if the Person was in the ICU at the time the VISIT_OCCURRENCE record would reflect the overall hospital stay and the VISIT_DETAIL record would reflect the ICU stay during the hospital visit.\n\nETL Conventions: Same rules apply as for the VISIT_OCCURRENCE_ID."
+    },
+    "observation_source_value": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "User Guidance: This field houses the verbatim value from the source data representing the Observation that occurred. For example, this could be an ICD10 or Read code.\n\nETL Conventions: This code is mapped to a Standard Concept in the Standardized Vocabularies and the original code is stored here for reference."
+    },
+    "observation_source_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: This is the concept representing the OBSERVATION_SOURCE_VALUE and may not necessarily be standard. This field is discouraged from use in analysis because it is not required to contain Standard Concepts that are used across the OHDSI community, and should only be used when Standard Concepts do not adequately represent the source detail for the Observation necessary for a given analytic use case. Consider using OBSERVATION_CONCEPT_ID instead to enable standardized analytics that can be consistent across the network.\n\nETL Conventions: If the OBSERVATION_SOURCE_VALUE is coded in the source data using an OMOP supported vocabulary put the concept id representing the source value here."
+    },
+    "unit_source_value": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "User Guidance: This field houses the verbatim value from the source data representing the unit of the Observation that occurred.\n\nETL Conventions: This code is mapped to a Standard Condition Concept in the Standardized Vocabularies and the original code is stored here for reference."
+    },
+    "qualifier_source_value": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "User Guidance: This field houses the verbatim value from the source data representing the qualifier of the Observation that occurred.\n\nETL Conventions: This code is mapped to a Standard Condition Concept in the Standardized Vocabularies and the original code is stored here for reference."
+    },
+    "value_source_value": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "User Guidance: This field houses the verbatim result value of the Observation from the source data.  Do not get confused with the Observation_source_value which captures source value of the observation mapped to observation_concept_id. This field is the observation result value from the source.\n\nETL Conventions: If the observation_source_value was a question, for example,  or an observation that requires a result then this field is the answer/ result from the source data. Store the verbatim value that represents the result of the observation_source_value."
+    },
+    "observation_event_id": {
+      "type": "integer",
+      "description": "User Guidance: If the Observation record is related to another record in the database, this field is the primary key of the linked record.\n\nETL Conventions: Put the primary key of the linked record, if applicable, here. See the [ETL Conventions for the OBSERVATION](https://ohdsi.github.io/CommonDataModel/cdm54.html#observation) table for more details."
+    },
+    "obs_event_field_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: If the Observation record is related to another record in the database, this field is the CONCEPT_ID that identifies which table the primary key of the linked record came from.\n\nETL Conventions: Put the CONCEPT_ID that identifies which table and field the OBSERVATION_EVENT_ID came from."
+    }
+  },
+  "required": [
+    "observation_id",
+    "person_id",
+    "observation_concept_id",
+    "observation_date",
+    "observation_type_concept_id"
+  ],
+  "x-primaryKey": [
+    "observation_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "person_id",
+      "table": "PERSON",
+      "fieldInTable": "PERSON_ID"
+    },
+    {
+      "field": "observation_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "observation_type_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID",
+      "domain": "Type Concept"
+    },
+    {
+      "field": "value_as_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "qualifier_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "unit_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID",
+      "domain": "Unit"
+    },
+    {
+      "field": "provider_id",
+      "table": "PROVIDER",
+      "fieldInTable": "PROVIDER_ID"
+    },
+    {
+      "field": "visit_occurrence_id",
+      "table": "VISIT_OCCURRENCE",
+      "fieldInTable": "VISIT_OCCURRENCE_ID"
+    },
+    {
+      "field": "visit_detail_id",
+      "table": "VISIT_DETAIL",
+      "fieldInTable": "VISIT_DETAIL_ID"
+    },
+    {
+      "field": "observation_source_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "obs_event_field_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Domain",
+  "type": "object",
+  "properties": {
+    "domain_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: A unique key for each domain."
+    },
+    "domain_name": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: The name describing the Domain, e.g.\nCondition, Procedure, Measurement\netc."
+    },
+    "domain_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: A Concept representing the Domain Concept the DOMAIN record belongs to."
+    }
+  },
+  "required": [
+    "domain_id",
+    "domain_name",
+    "domain_concept_id"
+  ],
+  "x-primaryKey": [
+    "domain_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "domain_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

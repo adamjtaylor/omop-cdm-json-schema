@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Source To Concept Map",
+  "type": "object",
+  "properties": {
+    "source_code": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "User Guidance: The source code being translated\ninto a Standard Concept."
+    },
+    "source_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: A foreign key to the Source\nConcept that is being translated\ninto a Standard Concept.\n\nETL Conventions: This is either 0 or should be a number above 2 billion, which are the Concepts reserved for site-specific codes and mappings."
+    },
+    "source_vocabulary_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: A foreign key to the\nVOCABULARY table defining the\nvocabulary of the source code that\nis being translated to a Standard\nConcept."
+    },
+    "source_code_description": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: An optional description for the\nsource code. This is included as a\nconvenience to compare the\ndescription of the source code to\nthe name of the concept."
+    },
+    "target_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The target Concept\nto which the source code is being\nmapped."
+    },
+    "target_vocabulary_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: The Vocabulary of the target Concept."
+    },
+    "valid_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date when the mapping\ninstance was first recorded."
+    },
+    "valid_end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date when the mapping\ninstance became invalid because it\nwas deleted or superseded\n(updated) by a new relationship.\nDefault value is 31-Dec-2099."
+    },
+    "invalid_reason": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "User Guidance: Reason the mapping instance was invalidated. Possible values are D (deleted), U (replaced with an update) or NULL when valid_end_date has the default value."
+    }
+  },
+  "required": [
+    "source_code",
+    "source_concept_id",
+    "source_vocabulary_id",
+    "target_concept_id",
+    "target_vocabulary_id",
+    "valid_start_date",
+    "valid_end_date"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "source_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "target_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "target_vocabulary_id",
+      "table": "VOCABULARY",
+      "fieldInTable": "VOCABULARY_ID"
+    }
+  ]
+}

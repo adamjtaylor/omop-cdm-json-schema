@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Drug Strength",
+  "type": "object",
+  "properties": {
+    "drug_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The Concept representing the Branded Drug or Clinical Drug Product."
+    },
+    "ingredient_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The Concept representing the active ingredient contained within the drug product.\n\nETL Conventions: Combination Drugs will have more than one record in this table, one for each active Ingredient."
+    },
+    "amount_value": {
+      "type": "number",
+      "description": "User Guidance: The numeric value or the amount of active ingredient contained within the drug product."
+    },
+    "amount_unit_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The Concept representing the Unit of measure for the amount of active ingredient contained within the drug product."
+    },
+    "numerator_value": {
+      "type": "number",
+      "description": "User Guidance: The concentration of the active ingredient contained within the drug product."
+    },
+    "numerator_unit_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The Concept representing the Unit of measure for the concentration of active ingredient."
+    },
+    "denominator_value": {
+      "type": "number",
+      "description": "User Guidance: The amount of total liquid (or other divisible product, such as ointment, gel, spray, etc.)."
+    },
+    "denominator_unit_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The Concept representing the denominator unit for the concentration of active ingredient."
+    },
+    "box_size": {
+      "type": "integer",
+      "description": "User Guidance: The number of units of Clinical Branded Drug or Quantified Clinical or Branded Drug contained in a box as dispensed to the patient."
+    },
+    "valid_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date when the Concept was first\nrecorded. The default value is\n1-Jan-1970."
+    },
+    "valid_end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date when then Concept became invalid."
+    },
+    "invalid_reason": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "User Guidance: Reason the concept was invalidated. Possible values are D (deleted), U (replaced with an update) or NULL when valid_end_date has the default value."
+    }
+  },
+  "required": [
+    "drug_concept_id",
+    "ingredient_concept_id",
+    "valid_start_date",
+    "valid_end_date"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "drug_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "ingredient_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "amount_unit_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "numerator_unit_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "denominator_unit_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

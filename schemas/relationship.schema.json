@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Relationship",
+  "type": "object",
+  "properties": {
+    "relationship_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: The type of relationship captured by the\nrelationship record."
+    },
+    "relationship_name": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "is_hierarchical": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "User Guidance: Defines whether a relationship defines\nconcepts into classes or hierarchies. Values\nare 1 for hierarchical relationship or 0 if not."
+    },
+    "defines_ancestry": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "User Guidance: Defines whether a hierarchical relationship\ncontributes to the concept_ancestor table.\nThese are subsets of the hierarchical\nrelationships. Valid values are 1 or 0."
+    },
+    "reverse_relationship_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: The identifier for the relationship used to\ndefine the reverse relationship between two\nconcepts."
+    },
+    "relationship_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: A foreign key that refers to an identifier in\nthe [CONCEPT](https://ohdsi.github.io/CommonDataModel/cdm54.html#concept) table for the unique\nrelationship concept."
+    }
+  },
+  "required": [
+    "relationship_id",
+    "relationship_name",
+    "is_hierarchical",
+    "defines_ancestry",
+    "reverse_relationship_id",
+    "relationship_concept_id"
+  ],
+  "x-primaryKey": [
+    "relationship_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "relationship_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

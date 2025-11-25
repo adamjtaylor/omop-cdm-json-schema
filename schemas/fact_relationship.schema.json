@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Fact Relationship",
+  "type": "object",
+  "properties": {
+    "domain_concept_id_1": {
+      "type": "integer"
+    },
+    "fact_id_1": {
+      "type": "integer"
+    },
+    "domain_concept_id_2": {
+      "type": "integer"
+    },
+    "fact_id_2": {
+      "type": "integer"
+    },
+    "relationship_concept_id": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "domain_concept_id_1",
+    "fact_id_1",
+    "domain_concept_id_2",
+    "fact_id_2",
+    "relationship_concept_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "domain_concept_id_1",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "domain_concept_id_2",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "relationship_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

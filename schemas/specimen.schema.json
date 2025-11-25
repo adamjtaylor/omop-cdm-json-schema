@@ -1,0 +1,439 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Specimen",
+  "type": "object",
+  "properties": {
+    "specimen_id": {
+      "type": "integer",
+      "description": "User Guidance: Unique identifier for each specimen."
+    },
+    "person_id": {
+      "type": "integer",
+      "description": "User Guidance: The person from whom the specimen is collected."
+    },
+    "specimen_concept_id": {
+      "type": "integer",
+      "description": "ETL Conventions: The standard CONCEPT_ID that the SPECIMEN_SOURCE_VALUE maps to in the specimen domain. [Accepted Concepts](https://athena.ohdsi.org/search-terms/terms?domain=Specimen&standardConcept=Standard&page=1&pageSize=15&query=)"
+    },
+    "specimen_type_concept_id": {
+      "type": "integer",
+      "description": "ETL Conventions: Put the source of the specimen record, as in an EHR system. [Accepted Concepts](https://athena.ohdsi.org/search-terms/terms?standardConcept=Standard&domain=Type+Concept&page=1&pageSize=15&query=). A more detailed explanation of each Type Concept can be found on the [vocabulary wiki](https://github.com/OHDSI/Vocabulary-v5.0/wiki/Vocab.-TYPE_CONCEPT).",
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "0 - No matching concept"
+        },
+        {
+          "const": 32809,
+          "title": "32809 - Case Report Form"
+        },
+        {
+          "const": 32810,
+          "title": "32810 - Claim"
+        },
+        {
+          "const": 32811,
+          "title": "32811 - Claim authorization"
+        },
+        {
+          "const": 32812,
+          "title": "32812 - Claim discharge record"
+        },
+        {
+          "const": 32813,
+          "title": "32813 - Claim enrolment record"
+        },
+        {
+          "const": 32814,
+          "title": "32814 - Cost record"
+        },
+        {
+          "const": 32815,
+          "title": "32815 - Death Certificate"
+        },
+        {
+          "const": 32816,
+          "title": "32816 - Dental claim"
+        },
+        {
+          "const": 32817,
+          "title": "32817 - EHR"
+        },
+        {
+          "const": 32818,
+          "title": "32818 - EHR administration record"
+        },
+        {
+          "const": 32819,
+          "title": "32819 - EHR admission note"
+        },
+        {
+          "const": 32820,
+          "title": "32820 - EHR ancillary report"
+        },
+        {
+          "const": 32821,
+          "title": "32821 - EHR billing record"
+        },
+        {
+          "const": 32822,
+          "title": "32822 - EHR chief complaint"
+        },
+        {
+          "const": 32823,
+          "title": "32823 - EHR discharge record"
+        },
+        {
+          "const": 32824,
+          "title": "32824 - EHR discharge summary"
+        },
+        {
+          "const": 32825,
+          "title": "32825 - EHR dispensing record"
+        },
+        {
+          "const": 32826,
+          "title": "32826 - EHR emergency room note"
+        },
+        {
+          "const": 32827,
+          "title": "32827 - EHR encounter record"
+        },
+        {
+          "const": 32828,
+          "title": "32828 - EHR episode record"
+        },
+        {
+          "const": 32829,
+          "title": "32829 - EHR inpatient note"
+        },
+        {
+          "const": 32830,
+          "title": "32830 - EHR medication list"
+        },
+        {
+          "const": 32831,
+          "title": "32831 - EHR note"
+        },
+        {
+          "const": 32832,
+          "title": "32832 - EHR nursing report"
+        },
+        {
+          "const": 32833,
+          "title": "32833 - EHR order"
+        },
+        {
+          "const": 32834,
+          "title": "32834 - EHR outpatient note"
+        },
+        {
+          "const": 32835,
+          "title": "32835 - EHR Pathology report"
+        },
+        {
+          "const": 32836,
+          "title": "32836 - EHR physical examination"
+        },
+        {
+          "const": 32837,
+          "title": "32837 - EHR planned dispensing record"
+        },
+        {
+          "const": 32838,
+          "title": "32838 - EHR prescription"
+        },
+        {
+          "const": 32839,
+          "title": "32839 - EHR prescription issue record"
+        },
+        {
+          "const": 32840,
+          "title": "32840 - EHR problem list"
+        },
+        {
+          "const": 32841,
+          "title": "32841 - EHR radiology report"
+        },
+        {
+          "const": 32842,
+          "title": "32842 - EHR referral record"
+        },
+        {
+          "const": 32843,
+          "title": "32843 - External CDM instance"
+        },
+        {
+          "const": 32844,
+          "title": "32844 - Facility claim"
+        },
+        {
+          "const": 32845,
+          "title": "32845 - Facility claim detail"
+        },
+        {
+          "const": 32846,
+          "title": "32846 - Facility claim header"
+        },
+        {
+          "const": 32847,
+          "title": "32847 - Geographic isolation record"
+        },
+        {
+          "const": 32848,
+          "title": "32848 - Government report"
+        },
+        {
+          "const": 32849,
+          "title": "32849 - Health Information Exchange record"
+        },
+        {
+          "const": 32850,
+          "title": "32850 - Health Risk Assessment"
+        },
+        {
+          "const": 32851,
+          "title": "32851 - Healthcare professional filled survey"
+        },
+        {
+          "const": 32852,
+          "title": "32852 - Hospital cost"
+        },
+        {
+          "const": 32853,
+          "title": "32853 - Inpatient claim"
+        },
+        {
+          "const": 32854,
+          "title": "32854 - Inpatient claim detail"
+        },
+        {
+          "const": 32855,
+          "title": "32855 - Inpatient claim header"
+        },
+        {
+          "const": 32856,
+          "title": "32856 - Lab"
+        },
+        {
+          "const": 32857,
+          "title": "32857 - Mail order record"
+        },
+        {
+          "const": 32858,
+          "title": "32858 - NLP"
+        },
+        {
+          "const": 32859,
+          "title": "32859 - Outpatient claim"
+        },
+        {
+          "const": 32860,
+          "title": "32860 - Outpatient claim detail"
+        },
+        {
+          "const": 32861,
+          "title": "32861 - Outpatient claim header"
+        },
+        {
+          "const": 32862,
+          "title": "32862 - Patient filled survey"
+        },
+        {
+          "const": 32863,
+          "title": "32863 - Patient or payer paid record"
+        },
+        {
+          "const": 32864,
+          "title": "32864 - Patient reported cost"
+        },
+        {
+          "const": 32865,
+          "title": "32865 - Patient self-report"
+        },
+        {
+          "const": 32866,
+          "title": "32866 - Payer system record (paid premium)"
+        },
+        {
+          "const": 32867,
+          "title": "32867 - Payer system record (primary payer)"
+        },
+        {
+          "const": 32868,
+          "title": "32868 - Payer system record (secondary payer)"
+        },
+        {
+          "const": 32869,
+          "title": "32869 - Pharmacy claim"
+        },
+        {
+          "const": 32870,
+          "title": "32870 - Pre-qualification time period"
+        },
+        {
+          "const": 32871,
+          "title": "32871 - Professional claim"
+        },
+        {
+          "const": 32872,
+          "title": "32872 - Professional claim detail"
+        },
+        {
+          "const": 32873,
+          "title": "32873 - Professional claim header"
+        },
+        {
+          "const": 32874,
+          "title": "32874 - Provider charge list price"
+        },
+        {
+          "const": 32875,
+          "title": "32875 - Provider financial system"
+        },
+        {
+          "const": 32876,
+          "title": "32876 - Provider incurred cost record"
+        },
+        {
+          "const": 32877,
+          "title": "32877 - Randomization record"
+        },
+        {
+          "const": 32878,
+          "title": "32878 - Reference lab"
+        },
+        {
+          "const": 32879,
+          "title": "32879 - Registry"
+        },
+        {
+          "const": 32880,
+          "title": "32880 - Standard algorithm"
+        },
+        {
+          "const": 32881,
+          "title": "32881 - Standard algorithm from claims"
+        },
+        {
+          "const": 32882,
+          "title": "32882 - Standard algorithm from EHR"
+        },
+        {
+          "const": 32883,
+          "title": "32883 - Survey"
+        },
+        {
+          "const": 32884,
+          "title": "32884 - Urgent lab"
+        },
+        {
+          "const": 32885,
+          "title": "32885 - US Social Security Death Master File"
+        },
+        {
+          "const": 32886,
+          "title": "32886 - Vision claim"
+        },
+        {
+          "const": 703249,
+          "title": "703249 - Point of care/express lab"
+        },
+        {
+          "const": 705183,
+          "title": "705183 - Patient self-tested"
+        }
+      ]
+    },
+    "specimen_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date the specimen was collected."
+    },
+    "specimen_datetime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "User Guidance: The amount of specimen collected from the person."
+    },
+    "unit_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The unit for the quantity of the specimen.\n\nETL Conventions: Map the UNIT_SOURCE_VALUE to a Standard Concept in the Unit domain. [Accepted Concepts](https://athena.ohdsi.org/search-terms/terms?domain=Unit&standardConcept=Standard&page=1&pageSize=15&query=). If the source unit is NULL (applicable to cases when there's no numerical value or when it doesn't require a unit), keep unit_concept_id NULL as well. If there's no mapping of a source unit, populate unit_concept_id with 0."
+    },
+    "anatomic_site_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: This is the site on the body where the specimen is from.\n\nETL Conventions: Map the ANATOMIC_SITE_SOURCE_VALUE to a Standard Concept in the Spec Anatomic Site domain. This should be coded at the lowest level of granularity [Accepted Concepts](https://athena.ohdsi.org/search-terms/terms?standardConcept=Standard&domain=Spec+Anatomic+Site&conceptClass=Body+Structure&page=4&pageSize=15&query=)"
+    },
+    "disease_status_concept_id": {
+      "type": "integer"
+    },
+    "specimen_source_id": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "User Guidance: This is the identifier for the specimen from the source system."
+    },
+    "specimen_source_value": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "unit_source_value": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "ETL Conventions: This unit for the quantity of the specimen, as represented in the source."
+    },
+    "anatomic_site_source_value": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "ETL Conventions: This is the site on the body where the specimen was taken from, as represented in the source."
+    },
+    "disease_status_source_value": {
+      "type": "string",
+      "maxLength": 50
+    }
+  },
+  "required": [
+    "specimen_id",
+    "person_id",
+    "specimen_concept_id",
+    "specimen_type_concept_id",
+    "specimen_date"
+  ],
+  "x-primaryKey": [
+    "specimen_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "person_id",
+      "table": "PERSON",
+      "fieldInTable": "PERSON_ID"
+    },
+    {
+      "field": "specimen_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "specimen_type_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID",
+      "domain": "Type Concept"
+    },
+    {
+      "field": "unit_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "anatomic_site_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "disease_status_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

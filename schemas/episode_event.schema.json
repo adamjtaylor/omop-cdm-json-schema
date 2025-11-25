@@ -1,0 +1,4291 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Episode Event",
+  "type": "object",
+  "properties": {
+    "episode_id": {
+      "type": "integer",
+      "description": "User Guidance: Use this field to link the EPISODE_EVENT record to its EPISODE.\n\nETL Conventions: Put the EPISODE_ID that subsumes the EPISODE_EVENT record here."
+    },
+    "event_id": {
+      "type": "integer",
+      "description": "User Guidance: This field is the primary key of the linked record in the database. For example, if the Episode Event is a Condition Occurrence, then the CONDITION_OCCURRENCE_ID of the linked record goes in this field.\n\nETL Conventions: Put the primary key of the linked record here."
+    },
+    "episode_event_field_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: This field is the CONCEPT_ID that identifies which table the primary key of the linked record came from.\n\nETL Conventions: Put the CONCEPT_ID that identifies which table and field the EVENT_ID came from. [Accepted Concepts](https://athena.ohdsi.org/search-terms/terms?vocabulary=CDM&conceptClass=Field&page=1&pageSize=15&query=)",
+      "oneOf": [
+        {
+          "const": 0,
+          "title": "0 - No matching concept"
+        },
+        {
+          "const": 32678,
+          "title": "32678 - UTF-8"
+        },
+        {
+          "const": 705800,
+          "title": "705800 - OMOP CDM Version 5.4.2"
+        },
+        {
+          "const": 756265,
+          "title": "756265 - OMOP CDM Version 5.4.0"
+        },
+        {
+          "const": 756266,
+          "title": "756266 - cdm_source.cdm_holder"
+        },
+        {
+          "const": 756267,
+          "title": "756267 - cdm_source.cdm_release_date"
+        },
+        {
+          "const": 756268,
+          "title": "756268 - cdm_source.cdm_source_abbreviation"
+        },
+        {
+          "const": 756269,
+          "title": "756269 - cdm_source.cdm_version_concept_id"
+        },
+        {
+          "const": 756270,
+          "title": "756270 - cdm_source.source_release_date"
+        },
+        {
+          "const": 756271,
+          "title": "756271 - cdm_source.vocabulary_version"
+        },
+        {
+          "const": 756272,
+          "title": "756272 - cohort.cohort_definition_id"
+        },
+        {
+          "const": 756273,
+          "title": "756273 - cohort.cohort_end_date"
+        },
+        {
+          "const": 756274,
+          "title": "756274 - cohort.cohort_start_date"
+        },
+        {
+          "const": 756275,
+          "title": "756275 - cohort.subject_id"
+        },
+        {
+          "const": 756276,
+          "title": "756276 - device_exposure.device_source_concept_id"
+        },
+        {
+          "const": 756277,
+          "title": "756277 - device_exposure.device_source_value"
+        },
+        {
+          "const": 756278,
+          "title": "756278 - device_exposure.production_id"
+        },
+        {
+          "const": 756279,
+          "title": "756279 - device_exposure.provider_id"
+        },
+        {
+          "const": 756280,
+          "title": "756280 - device_exposure.quantity"
+        },
+        {
+          "const": 756281,
+          "title": "756281 - device_exposure.unique_device_id"
+        },
+        {
+          "const": 756282,
+          "title": "756282 - device_exposure.unit_concept_id"
+        },
+        {
+          "const": 756283,
+          "title": "756283 - device_exposure.unit_source_concept_id"
+        },
+        {
+          "const": 756284,
+          "title": "756284 - device_exposure.unit_source_value"
+        },
+        {
+          "const": 756285,
+          "title": "756285 - device_exposure.visit_detail_id"
+        },
+        {
+          "const": 756286,
+          "title": "756286 - device_exposure.visit_occurrence_id"
+        },
+        {
+          "const": 756287,
+          "title": "756287 - episode.episode_concept_id"
+        },
+        {
+          "const": 756288,
+          "title": "756288 - episode.episode_end_date"
+        },
+        {
+          "const": 756289,
+          "title": "756289 - episode.episode_end_datetime"
+        },
+        {
+          "const": 756290,
+          "title": "756290 - episode.episode_id"
+        },
+        {
+          "const": 756291,
+          "title": "756291 - episode.episode_number"
+        },
+        {
+          "const": 756292,
+          "title": "756292 - episode.episode_object_concept_id"
+        },
+        {
+          "const": 756293,
+          "title": "756293 - episode.episode_parent_id"
+        },
+        {
+          "const": 756294,
+          "title": "756294 - episode.episode_source_concept_id"
+        },
+        {
+          "const": 756295,
+          "title": "756295 - episode.episode_source_value"
+        },
+        {
+          "const": 756296,
+          "title": "756296 - episode.episode_start_date"
+        },
+        {
+          "const": 756297,
+          "title": "756297 - episode.episode_start_datetime"
+        },
+        {
+          "const": 756298,
+          "title": "756298 - episode.episode_type_concept_id"
+        },
+        {
+          "const": 756299,
+          "title": "756299 - episode.person_id"
+        },
+        {
+          "const": 756300,
+          "title": "756300 - episode_event.episode_event_field_concept_id"
+        },
+        {
+          "const": 756301,
+          "title": "756301 - episode_event.episode_id"
+        },
+        {
+          "const": 756302,
+          "title": "756302 - episode_event.event_id"
+        },
+        {
+          "const": 756303,
+          "title": "756303 - location.country_concept_id"
+        },
+        {
+          "const": 756304,
+          "title": "756304 - location.country_source_value"
+        },
+        {
+          "const": 756305,
+          "title": "756305 - location.latitude"
+        },
+        {
+          "const": 756306,
+          "title": "756306 - location.longitude"
+        },
+        {
+          "const": 756307,
+          "title": "756307 - measurement.meas_event_field_concept_id"
+        },
+        {
+          "const": 756308,
+          "title": "756308 - measurement.measurement_event_id"
+        },
+        {
+          "const": 756309,
+          "title": "756309 - measurement.unit_source_concept_id"
+        },
+        {
+          "const": 756310,
+          "title": "756310 - measurement.value_source_value"
+        },
+        {
+          "const": 756311,
+          "title": "756311 - metadata.metadata_concept_id"
+        },
+        {
+          "const": 756312,
+          "title": "756312 - metadata.metadata_date"
+        },
+        {
+          "const": 756313,
+          "title": "756313 - metadata.metadata_datetime"
+        },
+        {
+          "const": 756314,
+          "title": "756314 - metadata.metadata_id"
+        },
+        {
+          "const": 756315,
+          "title": "756315 - metadata.metadata_type_concept_id"
+        },
+        {
+          "const": 756316,
+          "title": "756316 - metadata.name"
+        },
+        {
+          "const": 756317,
+          "title": "756317 - metadata.value_as_concept_id"
+        },
+        {
+          "const": 756318,
+          "title": "756318 - metadata.value_as_number"
+        },
+        {
+          "const": 756319,
+          "title": "756319 - metadata.value_as_string"
+        },
+        {
+          "const": 756320,
+          "title": "756320 - note.note_event_field_concept_id"
+        },
+        {
+          "const": 756321,
+          "title": "756321 - note.note_event_id"
+        },
+        {
+          "const": 756322,
+          "title": "756322 - observation.observation_event_id"
+        },
+        {
+          "const": 756323,
+          "title": "756323 - observation.obs_event_field_concept_id"
+        },
+        {
+          "const": 756324,
+          "title": "756324 - observation.value_source_value"
+        },
+        {
+          "const": 756325,
+          "title": "756325 - procedure_occurrence.modifier_concept_id"
+        },
+        {
+          "const": 756326,
+          "title": "756326 - procedure_occurrence.modifier_source_value"
+        },
+        {
+          "const": 756327,
+          "title": "756327 - procedure_occurrence.procedure_end_date"
+        },
+        {
+          "const": 756328,
+          "title": "756328 - procedure_occurrence.procedure_end_datetime"
+        },
+        {
+          "const": 756329,
+          "title": "756329 - procedure_occurrence.procedure_source_concept_id"
+        },
+        {
+          "const": 756330,
+          "title": "756330 - procedure_occurrence.procedure_source_value"
+        },
+        {
+          "const": 756331,
+          "title": "756331 - procedure_occurrence.procedure_type_concept_id"
+        },
+        {
+          "const": 756332,
+          "title": "756332 - procedure_occurrence.provider_id"
+        },
+        {
+          "const": 756333,
+          "title": "756333 - procedure_occurrence.quantity"
+        },
+        {
+          "const": 756334,
+          "title": "756334 - procedure_occurrence.visit_detail_id"
+        },
+        {
+          "const": 756335,
+          "title": "756335 - procedure_occurrence.visit_occurrence_id"
+        },
+        {
+          "const": 756336,
+          "title": "756336 - visit_detail.admitted_from_concept_id"
+        },
+        {
+          "const": 756337,
+          "title": "756337 - visit_detail.admitted_from_source_value"
+        },
+        {
+          "const": 756338,
+          "title": "756338 - visit_detail.discharged_to_concept_id"
+        },
+        {
+          "const": 756339,
+          "title": "756339 - visit_detail.discharged_to_source_value"
+        },
+        {
+          "const": 756340,
+          "title": "756340 - visit_detail.parent_visit_detail_id"
+        },
+        {
+          "const": 756341,
+          "title": "756341 - visit_occurrence.admitted_from_concept_id"
+        },
+        {
+          "const": 756342,
+          "title": "756342 - visit_occurrence.admitted_from_source_value"
+        },
+        {
+          "const": 756343,
+          "title": "756343 - visit_occurrence.discharged_to_concept_id"
+        },
+        {
+          "const": 756344,
+          "title": "756344 - visit_occurrence.discharged_to_source_value"
+        },
+        {
+          "const": 756345,
+          "title": "756345 - vocabulary.vocabulary_reference"
+        },
+        {
+          "const": 756346,
+          "title": "756346 - cohort"
+        },
+        {
+          "const": 756347,
+          "title": "756347 - episode"
+        },
+        {
+          "const": 756348,
+          "title": "756348 - episode_event"
+        },
+        {
+          "const": 798878,
+          "title": "798878 - OMOP CDM Version 5.4.1"
+        },
+        {
+          "const": 798879,
+          "title": "798879 - condition_era.condition_era_end_date"
+        },
+        {
+          "const": 798880,
+          "title": "798880 - condition_era.condition_era_start_date"
+        },
+        {
+          "const": 798881,
+          "title": "798881 - dose_era.dose_era_end_date"
+        },
+        {
+          "const": 798882,
+          "title": "798882 - dose_era.dose_era_start_date"
+        },
+        {
+          "const": 798883,
+          "title": "798883 - drug_era.drug_era_end_date"
+        },
+        {
+          "const": 798884,
+          "title": "798884 - drug_era.drug_era_start_date"
+        },
+        {
+          "const": 798885,
+          "title": "798885 - episode.episode_id"
+        },
+        {
+          "const": 798886,
+          "title": "798886 - episode.episode_parent_id"
+        },
+        {
+          "const": 798887,
+          "title": "798887 - episode.person_id"
+        },
+        {
+          "const": 798888,
+          "title": "798888 - episode_event.episode_id"
+        },
+        {
+          "const": 798889,
+          "title": "798889 - episode_event.event_id"
+        },
+        {
+          "const": 798890,
+          "title": "798890 - measurement.measurement_event_id"
+        },
+        {
+          "const": 798891,
+          "title": "798891 - note.note_event_id"
+        },
+        {
+          "const": 798892,
+          "title": "798892 - observation.observation_event_id"
+        },
+        {
+          "const": 902376,
+          "title": "902376 - OMOP CDM Version 5.3.2"
+        },
+        {
+          "const": 902377,
+          "title": "902377 - condition_era.condition_era_end_date"
+        },
+        {
+          "const": 902378,
+          "title": "902378 - condition_era.condition_era_start_date"
+        },
+        {
+          "const": 902379,
+          "title": "902379 - condition_occurrence.condition_source_concept_id"
+        },
+        {
+          "const": 902380,
+          "title": "902380 - condition_occurrence.condition_source_value"
+        },
+        {
+          "const": 902381,
+          "title": "902381 - condition_occurrence.condition_status_concept_id"
+        },
+        {
+          "const": 902382,
+          "title": "902382 - condition_occurrence.condition_status_source_value"
+        },
+        {
+          "const": 902383,
+          "title": "902383 - condition_occurrence.provider_id"
+        },
+        {
+          "const": 902384,
+          "title": "902384 - condition_occurrence.stop_reason"
+        },
+        {
+          "const": 902385,
+          "title": "902385 - condition_occurrence.visit_detail_id"
+        },
+        {
+          "const": 902386,
+          "title": "902386 - condition_occurrence.visit_occurrence_id"
+        },
+        {
+          "const": 902387,
+          "title": "902387 - cost.revenue_code_source_value"
+        },
+        {
+          "const": 902388,
+          "title": "902388 - death.death_type_concept_id"
+        },
+        {
+          "const": 902389,
+          "title": "902389 - device_exposure.device_source_value"
+        },
+        {
+          "const": 902390,
+          "title": "902390 - dose_era.dose_era_end_date"
+        },
+        {
+          "const": 902391,
+          "title": "902391 - dose_era.dose_era_start_date"
+        },
+        {
+          "const": 902392,
+          "title": "902392 - drug_era.drug_era_end_date"
+        },
+        {
+          "const": 902393,
+          "title": "902393 - drug_era.drug_era_start_date"
+        },
+        {
+          "const": 902394,
+          "title": "902394 - metadata.value_as_string"
+        },
+        {
+          "const": 902395,
+          "title": "902395 - note.note_text"
+        },
+        {
+          "const": 902396,
+          "title": "902396 - note_nlp.offset"
+        },
+        {
+          "const": 902397,
+          "title": "902397 - visit_detail.admitting_source_concept_id"
+        },
+        {
+          "const": 902398,
+          "title": "902398 - visit_detail.admitting_source_value"
+        },
+        {
+          "const": 902399,
+          "title": "902399 - visit_detail.discharge_to_concept_id"
+        },
+        {
+          "const": 902400,
+          "title": "902400 - visit_detail.discharge_to_source_value"
+        },
+        {
+          "const": 902401,
+          "title": "902401 - visit_detail.preceding_visit_detail_id"
+        },
+        {
+          "const": 902402,
+          "title": "902402 - visit_detail.visit_detail_source_concept_id"
+        },
+        {
+          "const": 902403,
+          "title": "902403 - visit_detail.visit_detail_source_value"
+        },
+        {
+          "const": 902404,
+          "title": "902404 - vocabulary.vocabulary_version"
+        },
+        {
+          "const": 1146944,
+          "title": "1146944 - OMOP CDM Version 5.0.0"
+        },
+        {
+          "const": 1146945,
+          "title": "1146945 - concept.concept_id"
+        },
+        {
+          "const": 1146946,
+          "title": "1146946 - concept.concept_name"
+        },
+        {
+          "const": 1146947,
+          "title": "1146947 - concept.domain_id"
+        },
+        {
+          "const": 1146948,
+          "title": "1146948 - concept.vocabulary_id"
+        },
+        {
+          "const": 1146949,
+          "title": "1146949 - concept.concept_class_id"
+        },
+        {
+          "const": 1146950,
+          "title": "1146950 - concept.standard_concept"
+        },
+        {
+          "const": 1146951,
+          "title": "1146951 - concept.concept_code"
+        },
+        {
+          "const": 1146952,
+          "title": "1146952 - concept.valid_start_date"
+        },
+        {
+          "const": 1146953,
+          "title": "1146953 - concept.valid_end_date"
+        },
+        {
+          "const": 1146954,
+          "title": "1146954 - concept.invalid_reason"
+        },
+        {
+          "const": 1146955,
+          "title": "1146955 - vocabulary.vocabulary_id"
+        },
+        {
+          "const": 1146956,
+          "title": "1146956 - vocabulary.vocabulary_name"
+        },
+        {
+          "const": 1146957,
+          "title": "1146957 - vocabulary.vocabulary_reference"
+        },
+        {
+          "const": 1146958,
+          "title": "1146958 - vocabulary.vocabulary_version"
+        },
+        {
+          "const": 1146959,
+          "title": "1146959 - vocabulary.vocabulary_concept_id"
+        },
+        {
+          "const": 1146960,
+          "title": "1146960 - domain.domain_id"
+        },
+        {
+          "const": 1146961,
+          "title": "1146961 - domain.domain_name"
+        },
+        {
+          "const": 1146962,
+          "title": "1146962 - domain.domain_concept_id"
+        },
+        {
+          "const": 1146963,
+          "title": "1146963 - concept_class.concept_class_id"
+        },
+        {
+          "const": 1146964,
+          "title": "1146964 - concept_class.concept_class_name"
+        },
+        {
+          "const": 1146965,
+          "title": "1146965 - concept_class.concept_class_concept_id"
+        },
+        {
+          "const": 1146966,
+          "title": "1146966 - concept_relationship.concept_id_1"
+        },
+        {
+          "const": 1146967,
+          "title": "1146967 - concept_relationship.concept_id_2"
+        },
+        {
+          "const": 1146968,
+          "title": "1146968 - concept_relationship.relationship_id"
+        },
+        {
+          "const": 1146969,
+          "title": "1146969 - concept_relationship.valid_start_date"
+        },
+        {
+          "const": 1146970,
+          "title": "1146970 - concept_relationship.valid_end_date"
+        },
+        {
+          "const": 1146971,
+          "title": "1146971 - concept_relationship.invalid_reason"
+        },
+        {
+          "const": 1146972,
+          "title": "1146972 - relationship.relationship_id"
+        },
+        {
+          "const": 1146973,
+          "title": "1146973 - relationship.relationship_name"
+        },
+        {
+          "const": 1146974,
+          "title": "1146974 - relationship.is_hierarchical"
+        },
+        {
+          "const": 1146975,
+          "title": "1146975 - relationship.defines_ancestry"
+        },
+        {
+          "const": 1146976,
+          "title": "1146976 - relationship.reverse_relationship_id"
+        },
+        {
+          "const": 1146977,
+          "title": "1146977 - relationship.relationship_concept_id"
+        },
+        {
+          "const": 1146978,
+          "title": "1146978 - concept_synonym.concept_id"
+        },
+        {
+          "const": 1146979,
+          "title": "1146979 - concept_synonym.concept_synonym_name"
+        },
+        {
+          "const": 1146980,
+          "title": "1146980 - concept_synonym.language_concept_id"
+        },
+        {
+          "const": 1146981,
+          "title": "1146981 - concept_ancestor.ancestor_concept_id"
+        },
+        {
+          "const": 1146982,
+          "title": "1146982 - concept_ancestor.descendant_concept_id"
+        },
+        {
+          "const": 1146983,
+          "title": "1146983 - concept_ancestor.min_levels_of_separation"
+        },
+        {
+          "const": 1146984,
+          "title": "1146984 - concept_ancestor.max_levels_of_separation"
+        },
+        {
+          "const": 1146985,
+          "title": "1146985 - source_to_concept_map.source_code"
+        },
+        {
+          "const": 1146986,
+          "title": "1146986 - source_to_concept_map.source_concept_id"
+        },
+        {
+          "const": 1146987,
+          "title": "1146987 - source_to_concept_map.source_vocabulary_id"
+        },
+        {
+          "const": 1146988,
+          "title": "1146988 - source_to_concept_map.source_code_description"
+        },
+        {
+          "const": 1146989,
+          "title": "1146989 - source_to_concept_map.target_concept_id"
+        },
+        {
+          "const": 1146990,
+          "title": "1146990 - source_to_concept_map.target_vocabulary_id"
+        },
+        {
+          "const": 1146991,
+          "title": "1146991 - source_to_concept_map.valid_start_date"
+        },
+        {
+          "const": 1146992,
+          "title": "1146992 - source_to_concept_map.valid_end_date"
+        },
+        {
+          "const": 1146993,
+          "title": "1146993 - source_to_concept_map.invalid_reason"
+        },
+        {
+          "const": 1146994,
+          "title": "1146994 - drug_strength.drug_concept_id"
+        },
+        {
+          "const": 1146995,
+          "title": "1146995 - drug_strength.ingredient_concept_id"
+        },
+        {
+          "const": 1146996,
+          "title": "1146996 - drug_strength.amount_value"
+        },
+        {
+          "const": 1146997,
+          "title": "1146997 - drug_strength.amount_unit_concept_id"
+        },
+        {
+          "const": 1146998,
+          "title": "1146998 - drug_strength.numerator_value"
+        },
+        {
+          "const": 1146999,
+          "title": "1146999 - drug_strength.numerator_unit_concept_id"
+        },
+        {
+          "const": 1147000,
+          "title": "1147000 - drug_strength.denominator_unit_concept_id"
+        },
+        {
+          "const": 1147001,
+          "title": "1147001 - drug_strength.valid_start_date"
+        },
+        {
+          "const": 1147002,
+          "title": "1147002 - drug_strength.valid_end_date"
+        },
+        {
+          "const": 1147003,
+          "title": "1147003 - drug_strength.invalid_reason"
+        },
+        {
+          "const": 1147004,
+          "title": "1147004 - cohort_definition.cohort_definition_id"
+        },
+        {
+          "const": 1147005,
+          "title": "1147005 - cohort_definition.cohort_definition_name"
+        },
+        {
+          "const": 1147006,
+          "title": "1147006 - cohort_definition.cohort_definition_description"
+        },
+        {
+          "const": 1147007,
+          "title": "1147007 - cohort_definition.definition_type_concept_id"
+        },
+        {
+          "const": 1147008,
+          "title": "1147008 - cohort_definition.cohort_definition_syntax"
+        },
+        {
+          "const": 1147009,
+          "title": "1147009 - cohort_definition.subject_concept_id"
+        },
+        {
+          "const": 1147010,
+          "title": "1147010 - cohort_definition.cohort_initiation_date"
+        },
+        {
+          "const": 1147011,
+          "title": "1147011 - attribute_definition.attribute_definition_id"
+        },
+        {
+          "const": 1147012,
+          "title": "1147012 - attribute_definition.attribute_name"
+        },
+        {
+          "const": 1147013,
+          "title": "1147013 - attribute_definition.attribute_description"
+        },
+        {
+          "const": 1147014,
+          "title": "1147014 - attribute_definition.attribute_type_concept_id"
+        },
+        {
+          "const": 1147015,
+          "title": "1147015 - attribute_definition.attribute_syntax"
+        },
+        {
+          "const": 1147016,
+          "title": "1147016 - cdm_source.cdm_source_name"
+        },
+        {
+          "const": 1147017,
+          "title": "1147017 - cdm_source.cdm_source_abbreviation"
+        },
+        {
+          "const": 1147018,
+          "title": "1147018 - cdm_source.cdm_holder"
+        },
+        {
+          "const": 1147019,
+          "title": "1147019 - cdm_source.source_description"
+        },
+        {
+          "const": 1147020,
+          "title": "1147020 - cdm_source.source_documentation_reference"
+        },
+        {
+          "const": 1147021,
+          "title": "1147021 - cdm_source.cdm_etl_reference"
+        },
+        {
+          "const": 1147022,
+          "title": "1147022 - cdm_source.source_release_date"
+        },
+        {
+          "const": 1147023,
+          "title": "1147023 - cdm_source.cdm_release_date"
+        },
+        {
+          "const": 1147024,
+          "title": "1147024 - cdm_source.cdm_version"
+        },
+        {
+          "const": 1147025,
+          "title": "1147025 - cdm_source.vocabulary_version"
+        },
+        {
+          "const": 1147026,
+          "title": "1147026 - person.person_id"
+        },
+        {
+          "const": 1147027,
+          "title": "1147027 - person.gender_concept_id"
+        },
+        {
+          "const": 1147028,
+          "title": "1147028 - person.year_of_birth"
+        },
+        {
+          "const": 1147029,
+          "title": "1147029 - person.month_of_birth"
+        },
+        {
+          "const": 1147030,
+          "title": "1147030 - person.day_of_birth"
+        },
+        {
+          "const": 1147031,
+          "title": "1147031 - person.time_of_birth"
+        },
+        {
+          "const": 1147032,
+          "title": "1147032 - person.race_concept_id"
+        },
+        {
+          "const": 1147033,
+          "title": "1147033 - person.ethnicity_concept_id"
+        },
+        {
+          "const": 1147034,
+          "title": "1147034 - person.location_id"
+        },
+        {
+          "const": 1147035,
+          "title": "1147035 - person.provider_id"
+        },
+        {
+          "const": 1147036,
+          "title": "1147036 - person.care_site_id"
+        },
+        {
+          "const": 1147037,
+          "title": "1147037 - person.person_source_value"
+        },
+        {
+          "const": 1147038,
+          "title": "1147038 - person.gender_source_value"
+        },
+        {
+          "const": 1147039,
+          "title": "1147039 - person.gender_source_concept_id"
+        },
+        {
+          "const": 1147040,
+          "title": "1147040 - person.race_source_value"
+        },
+        {
+          "const": 1147041,
+          "title": "1147041 - person.race_source_concept_id"
+        },
+        {
+          "const": 1147042,
+          "title": "1147042 - person.ethnicity_source_value"
+        },
+        {
+          "const": 1147043,
+          "title": "1147043 - person.ethnicity_source_concept_id"
+        },
+        {
+          "const": 1147044,
+          "title": "1147044 - observation_period.observation_period_id"
+        },
+        {
+          "const": 1147045,
+          "title": "1147045 - observation_period.person_id"
+        },
+        {
+          "const": 1147046,
+          "title": "1147046 - observation_period.observation_period_start_date"
+        },
+        {
+          "const": 1147047,
+          "title": "1147047 - observation_period.observation_period_end_date"
+        },
+        {
+          "const": 1147048,
+          "title": "1147048 - observation_period.period_type_concept_id"
+        },
+        {
+          "const": 1147049,
+          "title": "1147049 - specimen.specimen_id"
+        },
+        {
+          "const": 1147050,
+          "title": "1147050 - specimen.person_id"
+        },
+        {
+          "const": 1147051,
+          "title": "1147051 - specimen.specimen_concept_id"
+        },
+        {
+          "const": 1147052,
+          "title": "1147052 - specimen.specimen_type_concept_id"
+        },
+        {
+          "const": 1147053,
+          "title": "1147053 - specimen.specimen_date"
+        },
+        {
+          "const": 1147054,
+          "title": "1147054 - specimen.specimen_time"
+        },
+        {
+          "const": 1147055,
+          "title": "1147055 - specimen.quantity"
+        },
+        {
+          "const": 1147056,
+          "title": "1147056 - specimen.unit_concept_id"
+        },
+        {
+          "const": 1147057,
+          "title": "1147057 - specimen.anatomic_site_concept_id"
+        },
+        {
+          "const": 1147058,
+          "title": "1147058 - specimen.disease_status_concept_id"
+        },
+        {
+          "const": 1147059,
+          "title": "1147059 - specimen.specimen_source_id"
+        },
+        {
+          "const": 1147060,
+          "title": "1147060 - specimen.specimen_source_value"
+        },
+        {
+          "const": 1147061,
+          "title": "1147061 - specimen.unit_source_value"
+        },
+        {
+          "const": 1147062,
+          "title": "1147062 - specimen.anatomic_site_source_value"
+        },
+        {
+          "const": 1147063,
+          "title": "1147063 - specimen.disease_status_source_value"
+        },
+        {
+          "const": 1147064,
+          "title": "1147064 - death.person_id"
+        },
+        {
+          "const": 1147065,
+          "title": "1147065 - death.death_date"
+        },
+        {
+          "const": 1147066,
+          "title": "1147066 - death.death_type_concept_id"
+        },
+        {
+          "const": 1147067,
+          "title": "1147067 - death.cause_concept_id"
+        },
+        {
+          "const": 1147068,
+          "title": "1147068 - death.cause_source_value"
+        },
+        {
+          "const": 1147069,
+          "title": "1147069 - death.cause_source_concept_id"
+        },
+        {
+          "const": 1147070,
+          "title": "1147070 - visit_occurrence.visit_occurrence_id"
+        },
+        {
+          "const": 1147071,
+          "title": "1147071 - visit_occurrence.person_id"
+        },
+        {
+          "const": 1147072,
+          "title": "1147072 - visit_occurrence.visit_concept_id"
+        },
+        {
+          "const": 1147073,
+          "title": "1147073 - visit_occurrence.visit_start_date"
+        },
+        {
+          "const": 1147074,
+          "title": "1147074 - visit_occurrence.visit_start_time"
+        },
+        {
+          "const": 1147075,
+          "title": "1147075 - visit_occurrence.visit_end_date"
+        },
+        {
+          "const": 1147076,
+          "title": "1147076 - visit_occurrence.visit_end_time"
+        },
+        {
+          "const": 1147077,
+          "title": "1147077 - visit_occurrence.visit_type_concept_id"
+        },
+        {
+          "const": 1147078,
+          "title": "1147078 - visit_occurrence.provider_id"
+        },
+        {
+          "const": 1147079,
+          "title": "1147079 - visit_occurrence.care_site_id"
+        },
+        {
+          "const": 1147080,
+          "title": "1147080 - visit_occurrence.visit_source_value"
+        },
+        {
+          "const": 1147081,
+          "title": "1147081 - visit_occurrence.visit_source_concept_id"
+        },
+        {
+          "const": 1147082,
+          "title": "1147082 - procedure_occurrence.procedure_occurrence_id"
+        },
+        {
+          "const": 1147083,
+          "title": "1147083 - procedure_occurrence.person_id"
+        },
+        {
+          "const": 1147084,
+          "title": "1147084 - procedure_occurrence.procedure_concept_id"
+        },
+        {
+          "const": 1147085,
+          "title": "1147085 - procedure_occurrence.procedure_date"
+        },
+        {
+          "const": 1147086,
+          "title": "1147086 - procedure_occurrence.procedure_type_concept_id"
+        },
+        {
+          "const": 1147087,
+          "title": "1147087 - procedure_occurrence.modifier_concept_id"
+        },
+        {
+          "const": 1147088,
+          "title": "1147088 - procedure_occurrence.quantity"
+        },
+        {
+          "const": 1147089,
+          "title": "1147089 - procedure_occurrence.provider_id"
+        },
+        {
+          "const": 1147090,
+          "title": "1147090 - procedure_occurrence.visit_occurrence_id"
+        },
+        {
+          "const": 1147091,
+          "title": "1147091 - procedure_occurrence.procedure_source_value"
+        },
+        {
+          "const": 1147092,
+          "title": "1147092 - procedure_occurrence.procedure_source_concept_id"
+        },
+        {
+          "const": 1147093,
+          "title": "1147093 - procedure_occurrence.qualifier_source_value"
+        },
+        {
+          "const": 1147094,
+          "title": "1147094 - drug_exposure.drug_exposure_id"
+        },
+        {
+          "const": 1147095,
+          "title": "1147095 - drug_exposure.person_id"
+        },
+        {
+          "const": 1147096,
+          "title": "1147096 - drug_exposure.drug_concept_id"
+        },
+        {
+          "const": 1147097,
+          "title": "1147097 - drug_exposure.drug_exposure_start_date"
+        },
+        {
+          "const": 1147098,
+          "title": "1147098 - drug_exposure.drug_exposure_end_date"
+        },
+        {
+          "const": 1147099,
+          "title": "1147099 - drug_exposure.drug_type_concept_id"
+        },
+        {
+          "const": 1147100,
+          "title": "1147100 - drug_exposure.stop_reason"
+        },
+        {
+          "const": 1147101,
+          "title": "1147101 - drug_exposure.refills"
+        },
+        {
+          "const": 1147102,
+          "title": "1147102 - drug_exposure.quantity"
+        },
+        {
+          "const": 1147103,
+          "title": "1147103 - drug_exposure.days_supply"
+        },
+        {
+          "const": 1147104,
+          "title": "1147104 - drug_exposure.sig"
+        },
+        {
+          "const": 1147105,
+          "title": "1147105 - drug_exposure.route_concept_id"
+        },
+        {
+          "const": 1147106,
+          "title": "1147106 - drug_exposure.effective_drug_dose"
+        },
+        {
+          "const": 1147107,
+          "title": "1147107 - drug_exposure.dose_unit_concept_id"
+        },
+        {
+          "const": 1147108,
+          "title": "1147108 - drug_exposure.lot_number"
+        },
+        {
+          "const": 1147109,
+          "title": "1147109 - drug_exposure.provider_id"
+        },
+        {
+          "const": 1147110,
+          "title": "1147110 - drug_exposure.visit_occurrence_id"
+        },
+        {
+          "const": 1147111,
+          "title": "1147111 - drug_exposure.drug_source_value"
+        },
+        {
+          "const": 1147112,
+          "title": "1147112 - drug_exposure.drug_source_concept_id"
+        },
+        {
+          "const": 1147113,
+          "title": "1147113 - drug_exposure.route_source_value"
+        },
+        {
+          "const": 1147114,
+          "title": "1147114 - drug_exposure.dose_unit_source_value"
+        },
+        {
+          "const": 1147115,
+          "title": "1147115 - device_exposure.device_exposure_id"
+        },
+        {
+          "const": 1147116,
+          "title": "1147116 - device_exposure.person_id"
+        },
+        {
+          "const": 1147117,
+          "title": "1147117 - device_exposure.device_concept_id"
+        },
+        {
+          "const": 1147118,
+          "title": "1147118 - device_exposure.device_exposure_start_date"
+        },
+        {
+          "const": 1147119,
+          "title": "1147119 - device_exposure.device_exposure_end_date"
+        },
+        {
+          "const": 1147120,
+          "title": "1147120 - device_exposure.device_type_concept_id"
+        },
+        {
+          "const": 1147121,
+          "title": "1147121 - device_exposure.unique_device_id"
+        },
+        {
+          "const": 1147122,
+          "title": "1147122 - device_exposure.quantity"
+        },
+        {
+          "const": 1147123,
+          "title": "1147123 - device_exposure.provider_id"
+        },
+        {
+          "const": 1147124,
+          "title": "1147124 - device_exposure.visit_occurrence_id"
+        },
+        {
+          "const": 1147125,
+          "title": "1147125 - device_exposure.device_source_value"
+        },
+        {
+          "const": 1147126,
+          "title": "1147126 - device_exposure.device_source_concept_id"
+        },
+        {
+          "const": 1147127,
+          "title": "1147127 - condition_occurrence.condition_occurrence_id"
+        },
+        {
+          "const": 1147128,
+          "title": "1147128 - condition_occurrence.person_id"
+        },
+        {
+          "const": 1147129,
+          "title": "1147129 - condition_occurrence.condition_concept_id"
+        },
+        {
+          "const": 1147130,
+          "title": "1147130 - condition_occurrence.condition_start_date"
+        },
+        {
+          "const": 1147131,
+          "title": "1147131 - condition_occurrence.condition_end_date"
+        },
+        {
+          "const": 1147132,
+          "title": "1147132 - condition_occurrence.condition_type_concept_id"
+        },
+        {
+          "const": 1147133,
+          "title": "1147133 - condition_occurrence.stop_reason"
+        },
+        {
+          "const": 1147134,
+          "title": "1147134 - condition_occurrence.provider_id"
+        },
+        {
+          "const": 1147135,
+          "title": "1147135 - condition_occurrence.visit_occurrence_id"
+        },
+        {
+          "const": 1147136,
+          "title": "1147136 - condition_occurrence.condition_source_value"
+        },
+        {
+          "const": 1147137,
+          "title": "1147137 - condition_occurrence.condition_source_concept_id"
+        },
+        {
+          "const": 1147138,
+          "title": "1147138 - measurement.measurement_id"
+        },
+        {
+          "const": 1147139,
+          "title": "1147139 - measurement.person_id"
+        },
+        {
+          "const": 1147140,
+          "title": "1147140 - measurement.measurement_concept_id"
+        },
+        {
+          "const": 1147141,
+          "title": "1147141 - measurement.measurement_date"
+        },
+        {
+          "const": 1147142,
+          "title": "1147142 - measurement.measurement_time"
+        },
+        {
+          "const": 1147143,
+          "title": "1147143 - measurement.measurement_type_concept_id"
+        },
+        {
+          "const": 1147144,
+          "title": "1147144 - measurement.operator_concept_id"
+        },
+        {
+          "const": 1147145,
+          "title": "1147145 - measurement.value_as_number"
+        },
+        {
+          "const": 1147146,
+          "title": "1147146 - measurement.value_as_concept_id"
+        },
+        {
+          "const": 1147147,
+          "title": "1147147 - measurement.unit_concept_id"
+        },
+        {
+          "const": 1147148,
+          "title": "1147148 - measurement.range_low"
+        },
+        {
+          "const": 1147149,
+          "title": "1147149 - measurement.range_high"
+        },
+        {
+          "const": 1147150,
+          "title": "1147150 - measurement.provider_id"
+        },
+        {
+          "const": 1147151,
+          "title": "1147151 - measurement.visit_occurrence_id"
+        },
+        {
+          "const": 1147152,
+          "title": "1147152 - measurement.measurement_source_value"
+        },
+        {
+          "const": 1147153,
+          "title": "1147153 - measurement.measurement_source_concept_id"
+        },
+        {
+          "const": 1147154,
+          "title": "1147154 - measurement.unit_source_value"
+        },
+        {
+          "const": 1147155,
+          "title": "1147155 - measurement.value_source_value"
+        },
+        {
+          "const": 1147156,
+          "title": "1147156 - note.note_id"
+        },
+        {
+          "const": 1147157,
+          "title": "1147157 - note.person_id"
+        },
+        {
+          "const": 1147158,
+          "title": "1147158 - note.note_date"
+        },
+        {
+          "const": 1147159,
+          "title": "1147159 - note.note_time"
+        },
+        {
+          "const": 1147160,
+          "title": "1147160 - note.note_type_concept_id"
+        },
+        {
+          "const": 1147161,
+          "title": "1147161 - note.note_text"
+        },
+        {
+          "const": 1147162,
+          "title": "1147162 - note.provider_id"
+        },
+        {
+          "const": 1147163,
+          "title": "1147163 - note.visit_occurrence_id"
+        },
+        {
+          "const": 1147164,
+          "title": "1147164 - note.note_source_value"
+        },
+        {
+          "const": 1147165,
+          "title": "1147165 - observation.observation_id"
+        },
+        {
+          "const": 1147166,
+          "title": "1147166 - observation.person_id"
+        },
+        {
+          "const": 1147167,
+          "title": "1147167 - observation.observation_concept_id"
+        },
+        {
+          "const": 1147168,
+          "title": "1147168 - observation.observation_date"
+        },
+        {
+          "const": 1147169,
+          "title": "1147169 - observation.observation_time"
+        },
+        {
+          "const": 1147170,
+          "title": "1147170 - observation.observation_type_concept_id"
+        },
+        {
+          "const": 1147171,
+          "title": "1147171 - observation.value_as_number"
+        },
+        {
+          "const": 1147172,
+          "title": "1147172 - observation.value_as_string"
+        },
+        {
+          "const": 1147173,
+          "title": "1147173 - observation.value_as_concept_id"
+        },
+        {
+          "const": 1147174,
+          "title": "1147174 - observation.qualifier_concept_id"
+        },
+        {
+          "const": 1147175,
+          "title": "1147175 - observation.unit_concept_id"
+        },
+        {
+          "const": 1147176,
+          "title": "1147176 - observation.provider_id"
+        },
+        {
+          "const": 1147177,
+          "title": "1147177 - observation.visit_occurrence_id"
+        },
+        {
+          "const": 1147178,
+          "title": "1147178 - observation.observation_source_value"
+        },
+        {
+          "const": 1147179,
+          "title": "1147179 - observation.observation_source_concept_id"
+        },
+        {
+          "const": 1147180,
+          "title": "1147180 - observation.unit_source_value"
+        },
+        {
+          "const": 1147181,
+          "title": "1147181 - observation.qualifier_source_value"
+        },
+        {
+          "const": 1147182,
+          "title": "1147182 - fact_relationship.domain_concept_id_1"
+        },
+        {
+          "const": 1147183,
+          "title": "1147183 - fact_relationship.fact_id_1"
+        },
+        {
+          "const": 1147184,
+          "title": "1147184 - fact_relationship.domain_concept_id_2"
+        },
+        {
+          "const": 1147185,
+          "title": "1147185 - fact_relationship.fact_id_2"
+        },
+        {
+          "const": 1147186,
+          "title": "1147186 - fact_relationship.relationship_concept_id"
+        },
+        {
+          "const": 1147187,
+          "title": "1147187 - location.location_id"
+        },
+        {
+          "const": 1147188,
+          "title": "1147188 - location.address_1"
+        },
+        {
+          "const": 1147189,
+          "title": "1147189 - location.address_2"
+        },
+        {
+          "const": 1147190,
+          "title": "1147190 - location.city"
+        },
+        {
+          "const": 1147191,
+          "title": "1147191 - location.state"
+        },
+        {
+          "const": 1147192,
+          "title": "1147192 - location.zip"
+        },
+        {
+          "const": 1147193,
+          "title": "1147193 - location.county"
+        },
+        {
+          "const": 1147194,
+          "title": "1147194 - location.location_source_value"
+        },
+        {
+          "const": 1147195,
+          "title": "1147195 - care_site.care_site_id"
+        },
+        {
+          "const": 1147196,
+          "title": "1147196 - care_site.care_site_name"
+        },
+        {
+          "const": 1147197,
+          "title": "1147197 - care_site.place_of_service_concept_id"
+        },
+        {
+          "const": 1147198,
+          "title": "1147198 - care_site.location_id"
+        },
+        {
+          "const": 1147199,
+          "title": "1147199 - care_site.care_site_source_value"
+        },
+        {
+          "const": 1147200,
+          "title": "1147200 - care_site.place_of_service_source_value"
+        },
+        {
+          "const": 1147201,
+          "title": "1147201 - provider.provider_id"
+        },
+        {
+          "const": 1147202,
+          "title": "1147202 - provider.provider_name"
+        },
+        {
+          "const": 1147203,
+          "title": "1147203 - provider.npi"
+        },
+        {
+          "const": 1147204,
+          "title": "1147204 - provider.dea"
+        },
+        {
+          "const": 1147205,
+          "title": "1147205 - provider.specialty_concept_id"
+        },
+        {
+          "const": 1147206,
+          "title": "1147206 - provider.care_site_id"
+        },
+        {
+          "const": 1147207,
+          "title": "1147207 - provider.year_of_birth"
+        },
+        {
+          "const": 1147208,
+          "title": "1147208 - provider.gender_concept_id"
+        },
+        {
+          "const": 1147209,
+          "title": "1147209 - provider.provider_source_value"
+        },
+        {
+          "const": 1147210,
+          "title": "1147210 - provider.specialty_source_value"
+        },
+        {
+          "const": 1147211,
+          "title": "1147211 - provider.specialty_source_concept_id"
+        },
+        {
+          "const": 1147212,
+          "title": "1147212 - provider.gender_source_value"
+        },
+        {
+          "const": 1147213,
+          "title": "1147213 - provider.gender_source_concept_id"
+        },
+        {
+          "const": 1147214,
+          "title": "1147214 - payer_plan_period.payer_plan_period_id"
+        },
+        {
+          "const": 1147215,
+          "title": "1147215 - payer_plan_period.person_id"
+        },
+        {
+          "const": 1147216,
+          "title": "1147216 - payer_plan_period.payer_plan_period_start_date"
+        },
+        {
+          "const": 1147217,
+          "title": "1147217 - payer_plan_period.payer_plan_period_end_date"
+        },
+        {
+          "const": 1147218,
+          "title": "1147218 - payer_plan_period.payer_source_value"
+        },
+        {
+          "const": 1147219,
+          "title": "1147219 - payer_plan_period.plan_source_value"
+        },
+        {
+          "const": 1147220,
+          "title": "1147220 - payer_plan_period.family_source_value"
+        },
+        {
+          "const": 1147221,
+          "title": "1147221 - visit_cost.visit_cost_id"
+        },
+        {
+          "const": 1147222,
+          "title": "1147222 - visit_cost.visit_occurrence_id"
+        },
+        {
+          "const": 1147223,
+          "title": "1147223 - visit_cost.currency_concept_id"
+        },
+        {
+          "const": 1147224,
+          "title": "1147224 - visit_cost.paid_copay"
+        },
+        {
+          "const": 1147225,
+          "title": "1147225 - visit_cost.paid_coinsurance"
+        },
+        {
+          "const": 1147226,
+          "title": "1147226 - visit_cost.paid_toward_deductible"
+        },
+        {
+          "const": 1147227,
+          "title": "1147227 - visit_cost.paid_by_payer"
+        },
+        {
+          "const": 1147228,
+          "title": "1147228 - visit_cost.paid_by_coordination_benefits"
+        },
+        {
+          "const": 1147229,
+          "title": "1147229 - visit_cost.total_out_of_pocket"
+        },
+        {
+          "const": 1147230,
+          "title": "1147230 - visit_cost.total_paid"
+        },
+        {
+          "const": 1147231,
+          "title": "1147231 - visit_cost.payer_plan_period_id"
+        },
+        {
+          "const": 1147232,
+          "title": "1147232 - procedure_cost.procedure_cost_id"
+        },
+        {
+          "const": 1147233,
+          "title": "1147233 - procedure_cost.procedure_occurrence_id"
+        },
+        {
+          "const": 1147234,
+          "title": "1147234 - procedure_cost.currency_concept_id"
+        },
+        {
+          "const": 1147235,
+          "title": "1147235 - procedure_cost.paid_copay"
+        },
+        {
+          "const": 1147236,
+          "title": "1147236 - procedure_cost.paid_coinsurance"
+        },
+        {
+          "const": 1147237,
+          "title": "1147237 - procedure_cost.paid_toward_deductible"
+        },
+        {
+          "const": 1147238,
+          "title": "1147238 - procedure_cost.paid_by_payer"
+        },
+        {
+          "const": 1147239,
+          "title": "1147239 - procedure_cost.paid_by_coordination_benefits"
+        },
+        {
+          "const": 1147240,
+          "title": "1147240 - procedure_cost.total_out_of_pocket"
+        },
+        {
+          "const": 1147241,
+          "title": "1147241 - procedure_cost.total_paid"
+        },
+        {
+          "const": 1147242,
+          "title": "1147242 - procedure_cost.revenue_code_concept_id"
+        },
+        {
+          "const": 1147243,
+          "title": "1147243 - procedure_cost.payer_plan_period_id"
+        },
+        {
+          "const": 1147244,
+          "title": "1147244 - procedure_cost.revenue_code_source_value"
+        },
+        {
+          "const": 1147245,
+          "title": "1147245 - drug_cost.drug_cost_id"
+        },
+        {
+          "const": 1147246,
+          "title": "1147246 - drug_cost.drug_exposure_id"
+        },
+        {
+          "const": 1147247,
+          "title": "1147247 - drug_cost.currency_concept_id"
+        },
+        {
+          "const": 1147248,
+          "title": "1147248 - drug_cost.paid_copay"
+        },
+        {
+          "const": 1147249,
+          "title": "1147249 - drug_cost.paid_coinsurance"
+        },
+        {
+          "const": 1147250,
+          "title": "1147250 - drug_cost.paid_toward_deductible"
+        },
+        {
+          "const": 1147251,
+          "title": "1147251 - drug_cost.paid_by_payer"
+        },
+        {
+          "const": 1147252,
+          "title": "1147252 - drug_cost.paid_by_coordination_benefits"
+        },
+        {
+          "const": 1147253,
+          "title": "1147253 - drug_cost.total_out_of_pocket"
+        },
+        {
+          "const": 1147254,
+          "title": "1147254 - drug_cost.total_paid"
+        },
+        {
+          "const": 1147255,
+          "title": "1147255 - drug_cost.ingredient_cost"
+        },
+        {
+          "const": 1147256,
+          "title": "1147256 - drug_cost.dispensing_fee"
+        },
+        {
+          "const": 1147257,
+          "title": "1147257 - drug_cost.average_wholesale_price"
+        },
+        {
+          "const": 1147258,
+          "title": "1147258 - drug_cost.payer_plan_period_id"
+        },
+        {
+          "const": 1147259,
+          "title": "1147259 - device_cost.device_cost_id"
+        },
+        {
+          "const": 1147260,
+          "title": "1147260 - device_cost.device_exposure_id"
+        },
+        {
+          "const": 1147261,
+          "title": "1147261 - device_cost.currency_concept_id"
+        },
+        {
+          "const": 1147262,
+          "title": "1147262 - device_cost.paid_copay"
+        },
+        {
+          "const": 1147263,
+          "title": "1147263 - device_cost.paid_coinsurance"
+        },
+        {
+          "const": 1147264,
+          "title": "1147264 - device_cost.paid_toward_deductible"
+        },
+        {
+          "const": 1147265,
+          "title": "1147265 - device_cost.paid_by_payer"
+        },
+        {
+          "const": 1147266,
+          "title": "1147266 - device_cost.paid_by_coordination_benefits"
+        },
+        {
+          "const": 1147267,
+          "title": "1147267 - device_cost.total_out_of_pocket"
+        },
+        {
+          "const": 1147268,
+          "title": "1147268 - device_cost.total_paid"
+        },
+        {
+          "const": 1147269,
+          "title": "1147269 - device_cost.payer_plan_period_id"
+        },
+        {
+          "const": 1147270,
+          "title": "1147270 - cohort.cohort_definition_id"
+        },
+        {
+          "const": 1147271,
+          "title": "1147271 - cohort.subject_id"
+        },
+        {
+          "const": 1147272,
+          "title": "1147272 - cohort.cohort_start_date"
+        },
+        {
+          "const": 1147273,
+          "title": "1147273 - cohort.cohort_end_date"
+        },
+        {
+          "const": 1147274,
+          "title": "1147274 - cohort_attribute.cohort_definition_id"
+        },
+        {
+          "const": 1147275,
+          "title": "1147275 - cohort_attribute.cohort_start_date"
+        },
+        {
+          "const": 1147276,
+          "title": "1147276 - cohort_attribute.cohort_end_date"
+        },
+        {
+          "const": 1147277,
+          "title": "1147277 - cohort_attribute.subject_id"
+        },
+        {
+          "const": 1147278,
+          "title": "1147278 - cohort_attribute.attribute_definition_id"
+        },
+        {
+          "const": 1147279,
+          "title": "1147279 - cohort_attribute.value_as_number"
+        },
+        {
+          "const": 1147280,
+          "title": "1147280 - cohort_attribute.value_as_concept_id"
+        },
+        {
+          "const": 1147281,
+          "title": "1147281 - drug_era.drug_era_id"
+        },
+        {
+          "const": 1147282,
+          "title": "1147282 - drug_era.person_id"
+        },
+        {
+          "const": 1147283,
+          "title": "1147283 - drug_era.drug_concept_id"
+        },
+        {
+          "const": 1147284,
+          "title": "1147284 - drug_era.drug_era_start_date"
+        },
+        {
+          "const": 1147285,
+          "title": "1147285 - drug_era.drug_era_end_date"
+        },
+        {
+          "const": 1147286,
+          "title": "1147286 - drug_era.drug_exposure_count"
+        },
+        {
+          "const": 1147287,
+          "title": "1147287 - drug_era.gap_days"
+        },
+        {
+          "const": 1147288,
+          "title": "1147288 - dose_era.dose_era_id"
+        },
+        {
+          "const": 1147289,
+          "title": "1147289 - dose_era.person_id"
+        },
+        {
+          "const": 1147290,
+          "title": "1147290 - dose_era.drug_concept_id"
+        },
+        {
+          "const": 1147291,
+          "title": "1147291 - dose_era.unit_concept_id"
+        },
+        {
+          "const": 1147292,
+          "title": "1147292 - dose_era.dose_value"
+        },
+        {
+          "const": 1147293,
+          "title": "1147293 - dose_era.dose_era_start_date"
+        },
+        {
+          "const": 1147294,
+          "title": "1147294 - dose_era.dose_era_end_date"
+        },
+        {
+          "const": 1147295,
+          "title": "1147295 - condition_era.condition_era_id"
+        },
+        {
+          "const": 1147296,
+          "title": "1147296 - condition_era.person_id"
+        },
+        {
+          "const": 1147297,
+          "title": "1147297 - condition_era.condition_concept_id"
+        },
+        {
+          "const": 1147298,
+          "title": "1147298 - condition_era.condition_era_start_date"
+        },
+        {
+          "const": 1147299,
+          "title": "1147299 - condition_era.condition_era_end_date"
+        },
+        {
+          "const": 1147300,
+          "title": "1147300 - condition_era.condition_occurrence_count"
+        },
+        {
+          "const": 1147301,
+          "title": "1147301 - procedure_occurrence"
+        },
+        {
+          "const": 1147302,
+          "title": "1147302 - attribute_definition"
+        },
+        {
+          "const": 1147303,
+          "title": "1147303 - drug_era"
+        },
+        {
+          "const": 1147304,
+          "title": "1147304 - observation"
+        },
+        {
+          "const": 1147305,
+          "title": "1147305 - device_exposure"
+        },
+        {
+          "const": 1147306,
+          "title": "1147306 - specimen"
+        },
+        {
+          "const": 1147307,
+          "title": "1147307 - relationship"
+        },
+        {
+          "const": 1147308,
+          "title": "1147308 - concept_synonym"
+        },
+        {
+          "const": 1147309,
+          "title": "1147309 - procedure_cost"
+        },
+        {
+          "const": 1147310,
+          "title": "1147310 - domain"
+        },
+        {
+          "const": 1147311,
+          "title": "1147311 - concept"
+        },
+        {
+          "const": 1147312,
+          "title": "1147312 - death"
+        },
+        {
+          "const": 1147313,
+          "title": "1147313 - care_site"
+        },
+        {
+          "const": 1147314,
+          "title": "1147314 - person"
+        },
+        {
+          "const": 1147315,
+          "title": "1147315 - provider"
+        },
+        {
+          "const": 1147316,
+          "title": "1147316 - drug_cost"
+        },
+        {
+          "const": 1147317,
+          "title": "1147317 - note"
+        },
+        {
+          "const": 1147318,
+          "title": "1147318 - vocabulary"
+        },
+        {
+          "const": 1147319,
+          "title": "1147319 - cohort_attribute"
+        },
+        {
+          "const": 1147320,
+          "title": "1147320 - fact_relationship"
+        },
+        {
+          "const": 1147321,
+          "title": "1147321 - observation_period"
+        },
+        {
+          "const": 1147322,
+          "title": "1147322 - concept_class"
+        },
+        {
+          "const": 1147323,
+          "title": "1147323 - cohort_definition"
+        },
+        {
+          "const": 1147324,
+          "title": "1147324 - dose_era"
+        },
+        {
+          "const": 1147325,
+          "title": "1147325 - cdm_source"
+        },
+        {
+          "const": 1147326,
+          "title": "1147326 - cohort"
+        },
+        {
+          "const": 1147327,
+          "title": "1147327 - payer_plan_period"
+        },
+        {
+          "const": 1147328,
+          "title": "1147328 - device_cost"
+        },
+        {
+          "const": 1147329,
+          "title": "1147329 - condition_era"
+        },
+        {
+          "const": 1147330,
+          "title": "1147330 - measurement"
+        },
+        {
+          "const": 1147331,
+          "title": "1147331 - concept_ancestor"
+        },
+        {
+          "const": 1147332,
+          "title": "1147332 - visit_occurrence"
+        },
+        {
+          "const": 1147333,
+          "title": "1147333 - condition_occurrence"
+        },
+        {
+          "const": 1147334,
+          "title": "1147334 - source_to_concept_map"
+        },
+        {
+          "const": 1147335,
+          "title": "1147335 - location"
+        },
+        {
+          "const": 1147336,
+          "title": "1147336 - concept_relationship"
+        },
+        {
+          "const": 1147337,
+          "title": "1147337 - drug_strength"
+        },
+        {
+          "const": 1147338,
+          "title": "1147338 - visit_cost"
+        },
+        {
+          "const": 1147339,
+          "title": "1147339 - drug_exposure"
+        },
+        {
+          "const": 1147340,
+          "title": "1147340 - OMOP CDM Version 5.0.1"
+        },
+        {
+          "const": 1147341,
+          "title": "1147341 - cost.amount_allowed"
+        },
+        {
+          "const": 1147342,
+          "title": "1147342 - cost.cost_domain_id"
+        },
+        {
+          "const": 1147343,
+          "title": "1147343 - cost.cost_event_id"
+        },
+        {
+          "const": 1147344,
+          "title": "1147344 - cost.cost_id"
+        },
+        {
+          "const": 1147345,
+          "title": "1147345 - cost.cost_type_concept_id"
+        },
+        {
+          "const": 1147346,
+          "title": "1147346 - cost.currency_concept_id"
+        },
+        {
+          "const": 1147347,
+          "title": "1147347 - cost.paid_by_patient"
+        },
+        {
+          "const": 1147348,
+          "title": "1147348 - cost.paid_by_payer"
+        },
+        {
+          "const": 1147349,
+          "title": "1147349 - cost.paid_by_primary"
+        },
+        {
+          "const": 1147350,
+          "title": "1147350 - cost.paid_dispensing_fee"
+        },
+        {
+          "const": 1147351,
+          "title": "1147351 - cost.paid_ingredient_cost"
+        },
+        {
+          "const": 1147352,
+          "title": "1147352 - cost.paid_patient_coinsurance"
+        },
+        {
+          "const": 1147353,
+          "title": "1147353 - cost.paid_patient_copay"
+        },
+        {
+          "const": 1147354,
+          "title": "1147354 - cost.paid_patient_deductible"
+        },
+        {
+          "const": 1147355,
+          "title": "1147355 - cost.payer_plan_period_id"
+        },
+        {
+          "const": 1147356,
+          "title": "1147356 - cost.revenue_code_concept_id"
+        },
+        {
+          "const": 1147357,
+          "title": "1147357 - cost.reveue_code_source_value"
+        },
+        {
+          "const": 1147358,
+          "title": "1147358 - cost.total_charge"
+        },
+        {
+          "const": 1147359,
+          "title": "1147359 - cost.total_cost"
+        },
+        {
+          "const": 1147360,
+          "title": "1147360 - cost.total_paid"
+        },
+        {
+          "const": 1147361,
+          "title": "1147361 - drug_strength.denominator_unit_concept_id"
+        },
+        {
+          "const": 1147362,
+          "title": "1147362 - drug_strength.denominator_value"
+        },
+        {
+          "const": 1147363,
+          "title": "1147363 - drug_strength.invalid_reason"
+        },
+        {
+          "const": 1147364,
+          "title": "1147364 - drug_strength.valid_end_date"
+        },
+        {
+          "const": 1147365,
+          "title": "1147365 - drug_strength.valid_start_date"
+        },
+        {
+          "const": 1147366,
+          "title": "1147366 - cost"
+        },
+        {
+          "const": 1147367,
+          "title": "1147367 - OMOP CDM Version 4.0.0"
+        },
+        {
+          "const": 1147368,
+          "title": "1147368 - concept.concept_id"
+        },
+        {
+          "const": 1147369,
+          "title": "1147369 - concept.concept_name"
+        },
+        {
+          "const": 1147370,
+          "title": "1147370 - concept.concept_level"
+        },
+        {
+          "const": 1147371,
+          "title": "1147371 - concept.concept_class"
+        },
+        {
+          "const": 1147372,
+          "title": "1147372 - concept.vocabulary_id"
+        },
+        {
+          "const": 1147373,
+          "title": "1147373 - concept.concept_code"
+        },
+        {
+          "const": 1147374,
+          "title": "1147374 - concept.valid_start_date"
+        },
+        {
+          "const": 1147375,
+          "title": "1147375 - concept.valid_end_date"
+        },
+        {
+          "const": 1147376,
+          "title": "1147376 - concept.invalid_reason"
+        },
+        {
+          "const": 1147377,
+          "title": "1147377 - concept_ancestor.ancestor_concept_id"
+        },
+        {
+          "const": 1147378,
+          "title": "1147378 - concept_ancestor.descendant_concept_id"
+        },
+        {
+          "const": 1147379,
+          "title": "1147379 - concept_ancestor.min_levels_of_separation"
+        },
+        {
+          "const": 1147380,
+          "title": "1147380 - concept_ancestor.max_levels_of_separation"
+        },
+        {
+          "const": 1147381,
+          "title": "1147381 - concept_relationship.concept_id_1"
+        },
+        {
+          "const": 1147382,
+          "title": "1147382 - concept_relationship.concept_id_2"
+        },
+        {
+          "const": 1147383,
+          "title": "1147383 - concept_relationship.relationship_id"
+        },
+        {
+          "const": 1147384,
+          "title": "1147384 - concept_relationship.valid_start_date"
+        },
+        {
+          "const": 1147385,
+          "title": "1147385 - concept_relationship.valid_end_date"
+        },
+        {
+          "const": 1147386,
+          "title": "1147386 - concept_relationship.invalid_reason"
+        },
+        {
+          "const": 1147387,
+          "title": "1147387 - concept_synonym.concept_synonym_id"
+        },
+        {
+          "const": 1147388,
+          "title": "1147388 - concept_synonym.concept_id"
+        },
+        {
+          "const": 1147389,
+          "title": "1147389 - concept_synonym.concept_synonym_name"
+        },
+        {
+          "const": 1147390,
+          "title": "1147390 - drug_strength.drug_concept_id"
+        },
+        {
+          "const": 1147391,
+          "title": "1147391 - drug_strength.ingredient_concept_id"
+        },
+        {
+          "const": 1147392,
+          "title": "1147392 - drug_strength.amount_value"
+        },
+        {
+          "const": 1147393,
+          "title": "1147393 - drug_strength.amount_unit"
+        },
+        {
+          "const": 1147394,
+          "title": "1147394 - drug_strength.concentration_value"
+        },
+        {
+          "const": 1147395,
+          "title": "1147395 - drug_strength.concentration_enum_unit"
+        },
+        {
+          "const": 1147396,
+          "title": "1147396 - drug_strength.concentration_denom_unit"
+        },
+        {
+          "const": 1147397,
+          "title": "1147397 - drug_strength.valid_start_date"
+        },
+        {
+          "const": 1147398,
+          "title": "1147398 - drug_strength.valid_end_date"
+        },
+        {
+          "const": 1147399,
+          "title": "1147399 - drug_strength.invalid_reason"
+        },
+        {
+          "const": 1147400,
+          "title": "1147400 - relationship.relationship_id"
+        },
+        {
+          "const": 1147401,
+          "title": "1147401 - relationship.relationship_name"
+        },
+        {
+          "const": 1147402,
+          "title": "1147402 - relationship.is_hierarchical"
+        },
+        {
+          "const": 1147403,
+          "title": "1147403 - relationship.defines_ancestry"
+        },
+        {
+          "const": 1147404,
+          "title": "1147404 - relationship.reverse_relationship"
+        },
+        {
+          "const": 1147405,
+          "title": "1147405 - source_to_concept_map.source_code"
+        },
+        {
+          "const": 1147406,
+          "title": "1147406 - source_to_concept_map.source_vocabulary_id"
+        },
+        {
+          "const": 1147407,
+          "title": "1147407 - source_to_concept_map.source_code_description"
+        },
+        {
+          "const": 1147408,
+          "title": "1147408 - source_to_concept_map.target_concept_id"
+        },
+        {
+          "const": 1147409,
+          "title": "1147409 - source_to_concept_map.target_vocabulary_id"
+        },
+        {
+          "const": 1147410,
+          "title": "1147410 - source_to_concept_map.mapping_type"
+        },
+        {
+          "const": 1147411,
+          "title": "1147411 - source_to_concept_map.primary_map"
+        },
+        {
+          "const": 1147412,
+          "title": "1147412 - source_to_concept_map.valid_start_date"
+        },
+        {
+          "const": 1147413,
+          "title": "1147413 - source_to_concept_map.valid_end_date"
+        },
+        {
+          "const": 1147414,
+          "title": "1147414 - source_to_concept_map.invalid_reason"
+        },
+        {
+          "const": 1147415,
+          "title": "1147415 - vocabulary.vocabulary_id"
+        },
+        {
+          "const": 1147416,
+          "title": "1147416 - vocabulary.vocabulary_name"
+        },
+        {
+          "const": 1147417,
+          "title": "1147417 - vocabulary"
+        },
+        {
+          "const": 1147418,
+          "title": "1147418 - concept_synonym"
+        },
+        {
+          "const": 1147419,
+          "title": "1147419 - concept_relationship"
+        },
+        {
+          "const": 1147420,
+          "title": "1147420 - relationship"
+        },
+        {
+          "const": 1147421,
+          "title": "1147421 - concept_ancestor"
+        },
+        {
+          "const": 1147422,
+          "title": "1147422 - drug_strength"
+        },
+        {
+          "const": 1147423,
+          "title": "1147423 - concept"
+        },
+        {
+          "const": 1147424,
+          "title": "1147424 - source_to_concept_map"
+        },
+        {
+          "const": 1147425,
+          "title": "1147425 - OMOP CDM Version 5.1.0"
+        },
+        {
+          "const": 1147426,
+          "title": "1147426 - condition_occurrence.condition_end_date"
+        },
+        {
+          "const": 1147427,
+          "title": "1147427 - condition_occurrence.condition_end_datetime"
+        },
+        {
+          "const": 1147428,
+          "title": "1147428 - condition_occurrence.condition_source_concept_id"
+        },
+        {
+          "const": 1147429,
+          "title": "1147429 - condition_occurrence.condition_source_value"
+        },
+        {
+          "const": 1147430,
+          "title": "1147430 - condition_occurrence.condition_start_datetime"
+        },
+        {
+          "const": 1147431,
+          "title": "1147431 - condition_occurrence.condition_type_concept_id"
+        },
+        {
+          "const": 1147432,
+          "title": "1147432 - condition_occurrence.provider_id"
+        },
+        {
+          "const": 1147433,
+          "title": "1147433 - condition_occurrence.stop_reason"
+        },
+        {
+          "const": 1147434,
+          "title": "1147434 - condition_occurrence.visit_occurrence_id"
+        },
+        {
+          "const": 1147435,
+          "title": "1147435 - death.cause_concept_id"
+        },
+        {
+          "const": 1147436,
+          "title": "1147436 - death.cause_source_concept_id"
+        },
+        {
+          "const": 1147437,
+          "title": "1147437 - death.cause_source_value"
+        },
+        {
+          "const": 1147438,
+          "title": "1147438 - death.death_datetime"
+        },
+        {
+          "const": 1147439,
+          "title": "1147439 - death.death_type_concept_id"
+        },
+        {
+          "const": 1147440,
+          "title": "1147440 - device_exposure.device_exposure_end_date"
+        },
+        {
+          "const": 1147441,
+          "title": "1147441 - device_exposure.device_exposure_end_datetime"
+        },
+        {
+          "const": 1147442,
+          "title": "1147442 - device_exposure.device_exposure_start_datetime"
+        },
+        {
+          "const": 1147443,
+          "title": "1147443 - device_exposure.device_source_concept_id"
+        },
+        {
+          "const": 1147444,
+          "title": "1147444 - device_exposure.device_source_value"
+        },
+        {
+          "const": 1147445,
+          "title": "1147445 - device_exposure.device_type_concept_id"
+        },
+        {
+          "const": 1147446,
+          "title": "1147446 - device_exposure.provider_id"
+        },
+        {
+          "const": 1147447,
+          "title": "1147447 - device_exposure.quantity"
+        },
+        {
+          "const": 1147448,
+          "title": "1147448 - device_exposure.unique_device_id"
+        },
+        {
+          "const": 1147449,
+          "title": "1147449 - device_exposure.visit_occurrence_id"
+        },
+        {
+          "const": 1147450,
+          "title": "1147450 - drug_exposure.days_supply"
+        },
+        {
+          "const": 1147451,
+          "title": "1147451 - drug_exposure.dose_unit_concept_id"
+        },
+        {
+          "const": 1147452,
+          "title": "1147452 - drug_exposure.dose_unit_source_value"
+        },
+        {
+          "const": 1147453,
+          "title": "1147453 - drug_exposure.drug_exposure_end_date"
+        },
+        {
+          "const": 1147454,
+          "title": "1147454 - drug_exposure.drug_exposure_end_datetime"
+        },
+        {
+          "const": 1147455,
+          "title": "1147455 - drug_exposure.drug_exposure_start_datetime"
+        },
+        {
+          "const": 1147456,
+          "title": "1147456 - drug_exposure.drug_source_concept_id"
+        },
+        {
+          "const": 1147457,
+          "title": "1147457 - drug_exposure.drug_source_value"
+        },
+        {
+          "const": 1147458,
+          "title": "1147458 - drug_exposure.drug_type_concept_id"
+        },
+        {
+          "const": 1147459,
+          "title": "1147459 - drug_exposure.effective_drug_dose"
+        },
+        {
+          "const": 1147460,
+          "title": "1147460 - drug_exposure.lot_number"
+        },
+        {
+          "const": 1147461,
+          "title": "1147461 - drug_exposure.provider_id"
+        },
+        {
+          "const": 1147462,
+          "title": "1147462 - drug_exposure.quantity"
+        },
+        {
+          "const": 1147463,
+          "title": "1147463 - drug_exposure.refills"
+        },
+        {
+          "const": 1147464,
+          "title": "1147464 - drug_exposure.route_concept_id"
+        },
+        {
+          "const": 1147465,
+          "title": "1147465 - drug_exposure.route_source_value"
+        },
+        {
+          "const": 1147466,
+          "title": "1147466 - drug_exposure.sig"
+        },
+        {
+          "const": 1147467,
+          "title": "1147467 - drug_exposure.stop_reason"
+        },
+        {
+          "const": 1147468,
+          "title": "1147468 - drug_exposure.visit_occurrence_id"
+        },
+        {
+          "const": 1147469,
+          "title": "1147469 - drug_strength.box_size"
+        },
+        {
+          "const": 1147470,
+          "title": "1147470 - drug_strength.invalid_reason"
+        },
+        {
+          "const": 1147471,
+          "title": "1147471 - drug_strength.valid_end_date"
+        },
+        {
+          "const": 1147472,
+          "title": "1147472 - drug_strength.valid_start_date"
+        },
+        {
+          "const": 1147473,
+          "title": "1147473 - measurement.measurement_datetime"
+        },
+        {
+          "const": 1147474,
+          "title": "1147474 - note.note_datetime"
+        },
+        {
+          "const": 1147475,
+          "title": "1147475 - observation.observation_datetime"
+        },
+        {
+          "const": 1147476,
+          "title": "1147476 - observation_period.observation_period_end_date"
+        },
+        {
+          "const": 1147477,
+          "title": "1147477 - observation_period.observation_period_end_datetime"
+        },
+        {
+          "const": 1147478,
+          "title": "1147478 - observation_period.observation_period_start_datetime"
+        },
+        {
+          "const": 1147479,
+          "title": "1147479 - observation_period.period_type_concept_id"
+        },
+        {
+          "const": 1147480,
+          "title": "1147480 - person.birth_datetime"
+        },
+        {
+          "const": 1147481,
+          "title": "1147481 - procedure_occurrence.modifier_concept_id"
+        },
+        {
+          "const": 1147482,
+          "title": "1147482 - procedure_occurrence.procedure_datetime"
+        },
+        {
+          "const": 1147483,
+          "title": "1147483 - procedure_occurrence.procedure_source_concept_id"
+        },
+        {
+          "const": 1147484,
+          "title": "1147484 - procedure_occurrence.procedure_source_value"
+        },
+        {
+          "const": 1147485,
+          "title": "1147485 - procedure_occurrence.procedure_type_concept_id"
+        },
+        {
+          "const": 1147486,
+          "title": "1147486 - procedure_occurrence.provider_id"
+        },
+        {
+          "const": 1147487,
+          "title": "1147487 - procedure_occurrence.qualifier_source_value"
+        },
+        {
+          "const": 1147488,
+          "title": "1147488 - procedure_occurrence.quantity"
+        },
+        {
+          "const": 1147489,
+          "title": "1147489 - procedure_occurrence.visit_occurrence_id"
+        },
+        {
+          "const": 1147490,
+          "title": "1147490 - specimen.specimen_datetime"
+        },
+        {
+          "const": 1147491,
+          "title": "1147491 - visit_occurrence.visit_end_datetime"
+        },
+        {
+          "const": 1147492,
+          "title": "1147492 - visit_occurrence.visit_start_datetime"
+        },
+        {
+          "const": 1147493,
+          "title": "1147493 - OMOP CDM Version 5.1.1"
+        },
+        {
+          "const": 1147494,
+          "title": "1147494 - OMOP CDM Version 5.2.0"
+        },
+        {
+          "const": 1147495,
+          "title": "1147495 - condition_occurrence.condition_status_concept_id"
+        },
+        {
+          "const": 1147496,
+          "title": "1147496 - condition_occurrence.condition_status_source_value"
+        },
+        {
+          "const": 1147497,
+          "title": "1147497 - cost.drg_concept_id"
+        },
+        {
+          "const": 1147498,
+          "title": "1147498 - cost.drg_source_value"
+        },
+        {
+          "const": 1147499,
+          "title": "1147499 - drug_exposure.days_supply"
+        },
+        {
+          "const": 1147500,
+          "title": "1147500 - drug_exposure.dose_unit_source_value"
+        },
+        {
+          "const": 1147501,
+          "title": "1147501 - drug_exposure.drug_exposure_end_date"
+        },
+        {
+          "const": 1147502,
+          "title": "1147502 - drug_exposure.drug_source_concept_id"
+        },
+        {
+          "const": 1147503,
+          "title": "1147503 - drug_exposure.drug_source_value"
+        },
+        {
+          "const": 1147504,
+          "title": "1147504 - drug_exposure.drug_type_concept_id"
+        },
+        {
+          "const": 1147505,
+          "title": "1147505 - drug_exposure.lot_number"
+        },
+        {
+          "const": 1147506,
+          "title": "1147506 - drug_exposure.provider_id"
+        },
+        {
+          "const": 1147507,
+          "title": "1147507 - drug_exposure.quantity"
+        },
+        {
+          "const": 1147508,
+          "title": "1147508 - drug_exposure.refills"
+        },
+        {
+          "const": 1147509,
+          "title": "1147509 - drug_exposure.route_concept_id"
+        },
+        {
+          "const": 1147510,
+          "title": "1147510 - drug_exposure.route_source_value"
+        },
+        {
+          "const": 1147511,
+          "title": "1147511 - drug_exposure.sig"
+        },
+        {
+          "const": 1147512,
+          "title": "1147512 - drug_exposure.stop_reason"
+        },
+        {
+          "const": 1147513,
+          "title": "1147513 - drug_exposure.verbatim_end_date"
+        },
+        {
+          "const": 1147514,
+          "title": "1147514 - drug_exposure.visit_occurrence_id"
+        },
+        {
+          "const": 1147515,
+          "title": "1147515 - note.encoding_concept_id"
+        },
+        {
+          "const": 1147516,
+          "title": "1147516 - note.language_concept_id"
+        },
+        {
+          "const": 1147517,
+          "title": "1147517 - note.note_class_concept_id"
+        },
+        {
+          "const": 1147518,
+          "title": "1147518 - note.note_source_value"
+        },
+        {
+          "const": 1147519,
+          "title": "1147519 - note.note_text"
+        },
+        {
+          "const": 1147520,
+          "title": "1147520 - note.note_title"
+        },
+        {
+          "const": 1147521,
+          "title": "1147521 - note.provider_id"
+        },
+        {
+          "const": 1147522,
+          "title": "1147522 - note.visit_occurrence_id"
+        },
+        {
+          "const": 1147523,
+          "title": "1147523 - note_nlp.lexical_variant"
+        },
+        {
+          "const": 1147524,
+          "title": "1147524 - note_nlp.nlp_date"
+        },
+        {
+          "const": 1147525,
+          "title": "1147525 - note_nlp.nlp_datetime"
+        },
+        {
+          "const": 1147526,
+          "title": "1147526 - note_nlp.nlp_system"
+        },
+        {
+          "const": 1147527,
+          "title": "1147527 - note_nlp.note_id"
+        },
+        {
+          "const": 1147528,
+          "title": "1147528 - note_nlp.note_nlp_concept_id"
+        },
+        {
+          "const": 1147529,
+          "title": "1147529 - note_nlp.note_nlp_id"
+        },
+        {
+          "const": 1147530,
+          "title": "1147530 - note_nlp.note_nlp_source_concept_id"
+        },
+        {
+          "const": 1147531,
+          "title": "1147531 - note_nlp.offset"
+        },
+        {
+          "const": 1147532,
+          "title": "1147532 - note_nlp.section_concept_id"
+        },
+        {
+          "const": 1147533,
+          "title": "1147533 - note_nlp.snippet"
+        },
+        {
+          "const": 1147534,
+          "title": "1147534 - note_nlp.term_exists"
+        },
+        {
+          "const": 1147535,
+          "title": "1147535 - note_nlp.term_modifiers"
+        },
+        {
+          "const": 1147536,
+          "title": "1147536 - note_nlp.term_temporal"
+        },
+        {
+          "const": 1147537,
+          "title": "1147537 - visit_occurrence.admitting_source_concept_id"
+        },
+        {
+          "const": 1147538,
+          "title": "1147538 - visit_occurrence.admitting_source_value"
+        },
+        {
+          "const": 1147539,
+          "title": "1147539 - visit_occurrence.discharge_to_concept_id"
+        },
+        {
+          "const": 1147540,
+          "title": "1147540 - visit_occurrence.discharge_to_source_value"
+        },
+        {
+          "const": 1147541,
+          "title": "1147541 - visit_occurrence.preceding_visit_occurrence_id"
+        },
+        {
+          "const": 1147542,
+          "title": "1147542 - note_nlp"
+        },
+        {
+          "const": 1147543,
+          "title": "1147543 - OMOP CDM Version 5.3.0"
+        },
+        {
+          "const": 1147544,
+          "title": "1147544 - cohort_attribute.cohort_end_date"
+        },
+        {
+          "const": 1147545,
+          "title": "1147545 - cohort_attribute.cohort_start_date"
+        },
+        {
+          "const": 1147546,
+          "title": "1147546 - cohort_attribute.subject_id"
+        },
+        {
+          "const": 1147547,
+          "title": "1147547 - condition_occurrence.condition_source_concept_id"
+        },
+        {
+          "const": 1147548,
+          "title": "1147548 - condition_occurrence.condition_source_value"
+        },
+        {
+          "const": 1147549,
+          "title": "1147549 - condition_occurrence.condition_start_datetime"
+        },
+        {
+          "const": 1147550,
+          "title": "1147550 - condition_occurrence.condition_status_concept_id"
+        },
+        {
+          "const": 1147551,
+          "title": "1147551 - condition_occurrence.condition_status_source_value"
+        },
+        {
+          "const": 1147552,
+          "title": "1147552 - condition_occurrence.visit_detail_id"
+        },
+        {
+          "const": 1147553,
+          "title": "1147553 - device_exposure.device_exposure_start_datetime"
+        },
+        {
+          "const": 1147554,
+          "title": "1147554 - device_exposure.device_source_concept_id"
+        },
+        {
+          "const": 1147555,
+          "title": "1147555 - device_exposure.device_source_value"
+        },
+        {
+          "const": 1147556,
+          "title": "1147556 - device_exposure.visit_detail_id"
+        },
+        {
+          "const": 1147557,
+          "title": "1147557 - drug_exposure.dose_unit_source_value"
+        },
+        {
+          "const": 1147558,
+          "title": "1147558 - drug_exposure.drug_exposure_start_datetime"
+        },
+        {
+          "const": 1147559,
+          "title": "1147559 - drug_exposure.drug_source_concept_id"
+        },
+        {
+          "const": 1147560,
+          "title": "1147560 - drug_exposure.drug_source_value"
+        },
+        {
+          "const": 1147561,
+          "title": "1147561 - drug_exposure.route_source_value"
+        },
+        {
+          "const": 1147562,
+          "title": "1147562 - drug_exposure.visit_detail_id"
+        },
+        {
+          "const": 1147563,
+          "title": "1147563 - measurement.measurement_datetime"
+        },
+        {
+          "const": 1147564,
+          "title": "1147564 - measurement.measurement_source_concept_id"
+        },
+        {
+          "const": 1147565,
+          "title": "1147565 - measurement.measurement_source_value"
+        },
+        {
+          "const": 1147566,
+          "title": "1147566 - measurement.measurement_time"
+        },
+        {
+          "const": 1147567,
+          "title": "1147567 - measurement.measurement_type_concept_id"
+        },
+        {
+          "const": 1147568,
+          "title": "1147568 - measurement.operator_concept_id"
+        },
+        {
+          "const": 1147569,
+          "title": "1147569 - measurement.provider_id"
+        },
+        {
+          "const": 1147570,
+          "title": "1147570 - measurement.range_high"
+        },
+        {
+          "const": 1147571,
+          "title": "1147571 - measurement.range_low"
+        },
+        {
+          "const": 1147572,
+          "title": "1147572 - measurement.unit_concept_id"
+        },
+        {
+          "const": 1147573,
+          "title": "1147573 - measurement.unit_source_value"
+        },
+        {
+          "const": 1147574,
+          "title": "1147574 - measurement.value_as_concept_id"
+        },
+        {
+          "const": 1147575,
+          "title": "1147575 - measurement.value_as_number"
+        },
+        {
+          "const": 1147576,
+          "title": "1147576 - measurement.value_source_value"
+        },
+        {
+          "const": 1147577,
+          "title": "1147577 - measurement.visit_detail_id"
+        },
+        {
+          "const": 1147578,
+          "title": "1147578 - measurement.visit_occurrence_id"
+        },
+        {
+          "const": 1147579,
+          "title": "1147579 - metadata.metadata_concept_id"
+        },
+        {
+          "const": 1147580,
+          "title": "1147580 - metadata.metadata_date"
+        },
+        {
+          "const": 1147581,
+          "title": "1147581 - metadata.metadata_datetime"
+        },
+        {
+          "const": 1147582,
+          "title": "1147582 - metadata.metadata_type_concept_id"
+        },
+        {
+          "const": 1147583,
+          "title": "1147583 - metadata.name"
+        },
+        {
+          "const": 1147584,
+          "title": "1147584 - metadata.value_as_concept_id"
+        },
+        {
+          "const": 1147585,
+          "title": "1147585 - metadata.value_as_string"
+        },
+        {
+          "const": 1147586,
+          "title": "1147586 - note.note_source_value"
+        },
+        {
+          "const": 1147587,
+          "title": "1147587 - note.note_text"
+        },
+        {
+          "const": 1147588,
+          "title": "1147588 - note.visit_detail_id"
+        },
+        {
+          "const": 1147589,
+          "title": "1147589 - note_nlp.note_nlp_id"
+        },
+        {
+          "const": 1147590,
+          "title": "1147590 - observation.observation_source_concept_id"
+        },
+        {
+          "const": 1147591,
+          "title": "1147591 - observation.observation_source_value"
+        },
+        {
+          "const": 1147592,
+          "title": "1147592 - observation.qualifier_source_value"
+        },
+        {
+          "const": 1147593,
+          "title": "1147593 - observation.unit_source_value"
+        },
+        {
+          "const": 1147594,
+          "title": "1147594 - observation.visit_detail_id"
+        },
+        {
+          "const": 1147595,
+          "title": "1147595 - observation_period.observation_period_end_date"
+        },
+        {
+          "const": 1147596,
+          "title": "1147596 - observation_period.period_type_concept_id"
+        },
+        {
+          "const": 1147597,
+          "title": "1147597 - payer_plan_period.family_source_value"
+        },
+        {
+          "const": 1147598,
+          "title": "1147598 - payer_plan_period.payer_concept_id"
+        },
+        {
+          "const": 1147599,
+          "title": "1147599 - payer_plan_period.payer_source_concept_id"
+        },
+        {
+          "const": 1147600,
+          "title": "1147600 - payer_plan_period.payer_source_value"
+        },
+        {
+          "const": 1147601,
+          "title": "1147601 - payer_plan_period.plan_concept_id"
+        },
+        {
+          "const": 1147602,
+          "title": "1147602 - payer_plan_period.plan_source_concept_id"
+        },
+        {
+          "const": 1147603,
+          "title": "1147603 - payer_plan_period.plan_source_value"
+        },
+        {
+          "const": 1147604,
+          "title": "1147604 - payer_plan_period.sponsor_concept_id"
+        },
+        {
+          "const": 1147605,
+          "title": "1147605 - payer_plan_period.sponsor_source_concept_id"
+        },
+        {
+          "const": 1147606,
+          "title": "1147606 - payer_plan_period.sponsor_source_value"
+        },
+        {
+          "const": 1147607,
+          "title": "1147607 - payer_plan_period.stop_reason_concept_id"
+        },
+        {
+          "const": 1147608,
+          "title": "1147608 - payer_plan_period.stop_reason_source_concept_id"
+        },
+        {
+          "const": 1147609,
+          "title": "1147609 - payer_plan_period.stop_reason_source_value"
+        },
+        {
+          "const": 1147610,
+          "title": "1147610 - procedure_occurrence.modifier_source_value"
+        },
+        {
+          "const": 1147611,
+          "title": "1147611 - procedure_occurrence.procedure_datetime"
+        },
+        {
+          "const": 1147612,
+          "title": "1147612 - procedure_occurrence.procedure_source_concept_id"
+        },
+        {
+          "const": 1147613,
+          "title": "1147613 - procedure_occurrence.procedure_source_value"
+        },
+        {
+          "const": 1147614,
+          "title": "1147614 - procedure_occurrence.visit_detail_id"
+        },
+        {
+          "const": 1147615,
+          "title": "1147615 - visit_detail.admitting_source_concept_id"
+        },
+        {
+          "const": 1147616,
+          "title": "1147616 - visit_detail.admitting_source_value"
+        },
+        {
+          "const": 1147617,
+          "title": "1147617 - visit_detail.care_site_id"
+        },
+        {
+          "const": 1147618,
+          "title": "1147618 - visit_detail.discharge_to_concept_id"
+        },
+        {
+          "const": 1147619,
+          "title": "1147619 - visit_detail.discharge_to_source_value"
+        },
+        {
+          "const": 1147620,
+          "title": "1147620 - visit_detail.person_id"
+        },
+        {
+          "const": 1147621,
+          "title": "1147621 - visit_detail.preceding_visit_detail_id"
+        },
+        {
+          "const": 1147622,
+          "title": "1147622 - visit_detail.provider_id"
+        },
+        {
+          "const": 1147623,
+          "title": "1147623 - visit_detail.visit_detail_concept_id"
+        },
+        {
+          "const": 1147624,
+          "title": "1147624 - visit_detail.visit_detail_id"
+        },
+        {
+          "const": 1147625,
+          "title": "1147625 - visit_detail.visit_detail_parent_id"
+        },
+        {
+          "const": 1147626,
+          "title": "1147626 - visit_detail.visit_end_date"
+        },
+        {
+          "const": 1147627,
+          "title": "1147627 - visit_detail.visit_end_datetime"
+        },
+        {
+          "const": 1147628,
+          "title": "1147628 - visit_detail.visit_occurrence_id"
+        },
+        {
+          "const": 1147629,
+          "title": "1147629 - visit_detail.visit_source_concept_id"
+        },
+        {
+          "const": 1147630,
+          "title": "1147630 - visit_detail.visit_source_value"
+        },
+        {
+          "const": 1147631,
+          "title": "1147631 - visit_detail.visit_start_date"
+        },
+        {
+          "const": 1147632,
+          "title": "1147632 - visit_detail.visit_start_datetime"
+        },
+        {
+          "const": 1147633,
+          "title": "1147633 - visit_detail.visit_type_concept_id"
+        },
+        {
+          "const": 1147634,
+          "title": "1147634 - vocabulary.vocabulary_reference"
+        },
+        {
+          "const": 1147635,
+          "title": "1147635 - vocabulary.vocabulary_version"
+        },
+        {
+          "const": 1147636,
+          "title": "1147636 - metadata"
+        },
+        {
+          "const": 1147637,
+          "title": "1147637 - visit_detail"
+        },
+        {
+          "const": 1147638,
+          "title": "1147638 - OMOP CDM Version 5.3.1"
+        },
+        {
+          "const": 1147639,
+          "title": "1147639 - measurement.measurement_datetime"
+        },
+        {
+          "const": 1147640,
+          "title": "1147640 - measurement.measurement_time"
+        },
+        {
+          "const": 1147641,
+          "title": "1147641 - payer_plan_period.stop_reason_source_value"
+        },
+        {
+          "const": 1147642,
+          "title": "1147642 - visit_detail.visit_detail_end_date"
+        },
+        {
+          "const": 1147643,
+          "title": "1147643 - visit_detail.visit_detail_end_datetime"
+        },
+        {
+          "const": 1147644,
+          "title": "1147644 - visit_detail.visit_detail_source_concept_id"
+        },
+        {
+          "const": 1147645,
+          "title": "1147645 - visit_detail.visit_detail_source_value"
+        },
+        {
+          "const": 1147646,
+          "title": "1147646 - visit_detail.visit_detail_start_date"
+        },
+        {
+          "const": 1147647,
+          "title": "1147647 - visit_detail.visit_detail_start_datetime"
+        },
+        {
+          "const": 1147648,
+          "title": "1147648 - visit_detail.visit_detail_type_concept_id"
+        },
+        {
+          "const": 1147649,
+          "title": "1147649 - OMOP CDM Version 5.2.2"
+        },
+        {
+          "const": 1147650,
+          "title": "1147650 - observation_period.observation_period_end_date"
+        },
+        {
+          "const": 1147651,
+          "title": "1147651 - observation_period.period_type_concept_id"
+        },
+        {
+          "const": 1147652,
+          "title": "1147652 - OMOP CDM Version 6.0.0"
+        },
+        {
+          "const": 1147653,
+          "title": "1147653 - device_exposure.person_id"
+        },
+        {
+          "const": 1147654,
+          "title": "1147654 - care_site.care_site_id"
+        },
+        {
+          "const": 1147655,
+          "title": "1147655 - care_site.location_id"
+        },
+        {
+          "const": 1147656,
+          "title": "1147656 - care_site.place_of_service_concept_id"
+        },
+        {
+          "const": 1147657,
+          "title": "1147657 - cohort.cohort_definition_id"
+        },
+        {
+          "const": 1147658,
+          "title": "1147658 - cohort.subject_id"
+        },
+        {
+          "const": 1147659,
+          "title": "1147659 - condition_era.condition_era_end_datetime"
+        },
+        {
+          "const": 1147660,
+          "title": "1147660 - condition_era.condition_era_id"
+        },
+        {
+          "const": 1147661,
+          "title": "1147661 - condition_era.condition_era_start_datetime"
+        },
+        {
+          "const": 1147662,
+          "title": "1147662 - condition_era.person_id"
+        },
+        {
+          "const": 1147663,
+          "title": "1147663 - condition_occurrence.condition_occurrence_id"
+        },
+        {
+          "const": 1147664,
+          "title": "1147664 - condition_occurrence.condition_source_concept_id"
+        },
+        {
+          "const": 1147665,
+          "title": "1147665 - condition_occurrence.condition_source_value"
+        },
+        {
+          "const": 1147666,
+          "title": "1147666 - condition_occurrence.condition_start_date"
+        },
+        {
+          "const": 1147667,
+          "title": "1147667 - condition_occurrence.condition_start_datetime"
+        },
+        {
+          "const": 1147668,
+          "title": "1147668 - condition_occurrence.condition_status_concept_id"
+        },
+        {
+          "const": 1147669,
+          "title": "1147669 - condition_occurrence.condition_status_source_value"
+        },
+        {
+          "const": 1147670,
+          "title": "1147670 - condition_occurrence.person_id"
+        },
+        {
+          "const": 1147671,
+          "title": "1147671 - condition_occurrence.provider_id"
+        },
+        {
+          "const": 1147672,
+          "title": "1147672 - condition_occurrence.stop_reason"
+        },
+        {
+          "const": 1147673,
+          "title": "1147673 - condition_occurrence.visit_detail_id"
+        },
+        {
+          "const": 1147674,
+          "title": "1147674 - condition_occurrence.visit_occurrence_id"
+        },
+        {
+          "const": 1147675,
+          "title": "1147675 - cost.billed_date"
+        },
+        {
+          "const": 1147676,
+          "title": "1147676 - cost.cost"
+        },
+        {
+          "const": 1147677,
+          "title": "1147677 - cost.cost_concept_id"
+        },
+        {
+          "const": 1147678,
+          "title": "1147678 - cost.cost_event_field_concept_id"
+        },
+        {
+          "const": 1147679,
+          "title": "1147679 - cost.cost_event_id"
+        },
+        {
+          "const": 1147680,
+          "title": "1147680 - cost.cost_id"
+        },
+        {
+          "const": 1147681,
+          "title": "1147681 - cost.cost_source_concept_id"
+        },
+        {
+          "const": 1147682,
+          "title": "1147682 - cost.cost_source_value"
+        },
+        {
+          "const": 1147683,
+          "title": "1147683 - cost.cost_type_concept_id"
+        },
+        {
+          "const": 1147684,
+          "title": "1147684 - cost.currency_concept_id"
+        },
+        {
+          "const": 1147685,
+          "title": "1147685 - cost.drg_concept_id"
+        },
+        {
+          "const": 1147686,
+          "title": "1147686 - cost.drg_source_value"
+        },
+        {
+          "const": 1147687,
+          "title": "1147687 - cost.incurred_date"
+        },
+        {
+          "const": 1147688,
+          "title": "1147688 - cost.paid_date"
+        },
+        {
+          "const": 1147689,
+          "title": "1147689 - cost.payer_plan_period_id"
+        },
+        {
+          "const": 1147690,
+          "title": "1147690 - cost.person_id"
+        },
+        {
+          "const": 1147691,
+          "title": "1147691 - cost.revenue_code_concept_id"
+        },
+        {
+          "const": 1147692,
+          "title": "1147692 - cost.revenue_code_source_value"
+        },
+        {
+          "const": 1147693,
+          "title": "1147693 - device_exposure.device_exposure_id"
+        },
+        {
+          "const": 1147694,
+          "title": "1147694 - device_exposure.device_exposure_start_date"
+        },
+        {
+          "const": 1147695,
+          "title": "1147695 - device_exposure.device_exposure_start_datetime"
+        },
+        {
+          "const": 1147696,
+          "title": "1147696 - device_exposure.device_source_concept_id"
+        },
+        {
+          "const": 1147697,
+          "title": "1147697 - dose_era.dose_era_end_datetime"
+        },
+        {
+          "const": 1147698,
+          "title": "1147698 - dose_era.dose_era_id"
+        },
+        {
+          "const": 1147699,
+          "title": "1147699 - dose_era.dose_era_start_datetime"
+        },
+        {
+          "const": 1147700,
+          "title": "1147700 - dose_era.person_id"
+        },
+        {
+          "const": 1147701,
+          "title": "1147701 - drug_era.drug_era_end_datetime"
+        },
+        {
+          "const": 1147702,
+          "title": "1147702 - drug_era.drug_era_id"
+        },
+        {
+          "const": 1147703,
+          "title": "1147703 - drug_era.drug_era_start_datetime"
+        },
+        {
+          "const": 1147704,
+          "title": "1147704 - drug_era.person_id"
+        },
+        {
+          "const": 1147705,
+          "title": "1147705 - drug_exposure.drug_exposure_end_date"
+        },
+        {
+          "const": 1147706,
+          "title": "1147706 - drug_exposure.drug_exposure_end_datetime"
+        },
+        {
+          "const": 1147707,
+          "title": "1147707 - drug_exposure.drug_exposure_id"
+        },
+        {
+          "const": 1147708,
+          "title": "1147708 - drug_exposure.drug_exposure_start_date"
+        },
+        {
+          "const": 1147709,
+          "title": "1147709 - drug_exposure.drug_exposure_start_datetime"
+        },
+        {
+          "const": 1147710,
+          "title": "1147710 - drug_exposure.drug_source_concept_id"
+        },
+        {
+          "const": 1147711,
+          "title": "1147711 - drug_exposure.person_id"
+        },
+        {
+          "const": 1147712,
+          "title": "1147712 - drug_exposure.route_concept_id"
+        },
+        {
+          "const": 1147713,
+          "title": "1147713 - fact_relationship.fact_id_1"
+        },
+        {
+          "const": 1147714,
+          "title": "1147714 - fact_relationship.fact_id_2"
+        },
+        {
+          "const": 1147715,
+          "title": "1147715 - location.country"
+        },
+        {
+          "const": 1147716,
+          "title": "1147716 - location.latitude"
+        },
+        {
+          "const": 1147717,
+          "title": "1147717 - location.location_id"
+        },
+        {
+          "const": 1147718,
+          "title": "1147718 - location.location_source_value"
+        },
+        {
+          "const": 1147719,
+          "title": "1147719 - location.longitude"
+        },
+        {
+          "const": 1147720,
+          "title": "1147720 - location_history.domain_id"
+        },
+        {
+          "const": 1147721,
+          "title": "1147721 - location_history.end_date"
+        },
+        {
+          "const": 1147722,
+          "title": "1147722 - location_history.entity_id"
+        },
+        {
+          "const": 1147723,
+          "title": "1147723 - location_history.location_history_id"
+        },
+        {
+          "const": 1147724,
+          "title": "1147724 - location_history.location_id"
+        },
+        {
+          "const": 1147725,
+          "title": "1147725 - location_history.relationship_type_concept_id"
+        },
+        {
+          "const": 1147726,
+          "title": "1147726 - location_history.start_date"
+        },
+        {
+          "const": 1147727,
+          "title": "1147727 - measurement.measurement_date"
+        },
+        {
+          "const": 1147728,
+          "title": "1147728 - measurement.measurement_datetime"
+        },
+        {
+          "const": 1147729,
+          "title": "1147729 - measurement.measurement_id"
+        },
+        {
+          "const": 1147730,
+          "title": "1147730 - measurement.measurement_source_concept_id"
+        },
+        {
+          "const": 1147731,
+          "title": "1147731 - measurement.person_id"
+        },
+        {
+          "const": 1147732,
+          "title": "1147732 - note.encoding_concept_id"
+        },
+        {
+          "const": 1147733,
+          "title": "1147733 - note.language_concept_id"
+        },
+        {
+          "const": 1147734,
+          "title": "1147734 - note.note_class_concept_id"
+        },
+        {
+          "const": 1147735,
+          "title": "1147735 - note.note_date"
+        },
+        {
+          "const": 1147736,
+          "title": "1147736 - note.note_datetime"
+        },
+        {
+          "const": 1147737,
+          "title": "1147737 - note.note_event_field_concept_id"
+        },
+        {
+          "const": 1147738,
+          "title": "1147738 - note.note_event_id"
+        },
+        {
+          "const": 1147739,
+          "title": "1147739 - note.note_id"
+        },
+        {
+          "const": 1147740,
+          "title": "1147740 - note.note_source_value"
+        },
+        {
+          "const": 1147741,
+          "title": "1147741 - note.note_text"
+        },
+        {
+          "const": 1147742,
+          "title": "1147742 - note.note_title"
+        },
+        {
+          "const": 1147743,
+          "title": "1147743 - note.note_type_concept_id"
+        },
+        {
+          "const": 1147744,
+          "title": "1147744 - note.person_id"
+        },
+        {
+          "const": 1147745,
+          "title": "1147745 - note.provider_id"
+        },
+        {
+          "const": 1147746,
+          "title": "1147746 - note.visit_detail_id"
+        },
+        {
+          "const": 1147747,
+          "title": "1147747 - note.visit_occurrence_id"
+        },
+        {
+          "const": 1147748,
+          "title": "1147748 - note_nlp.nlp_date"
+        },
+        {
+          "const": 1147749,
+          "title": "1147749 - note_nlp.nlp_datetime"
+        },
+        {
+          "const": 1147750,
+          "title": "1147750 - note_nlp.nlp_system"
+        },
+        {
+          "const": 1147751,
+          "title": "1147751 - note_nlp.note_id"
+        },
+        {
+          "const": 1147752,
+          "title": "1147752 - note_nlp.note_nlp_concept_id"
+        },
+        {
+          "const": 1147753,
+          "title": "1147753 - note_nlp.note_nlp_id"
+        },
+        {
+          "const": 1147754,
+          "title": "1147754 - note_nlp.note_nlp_source_concept_id"
+        },
+        {
+          "const": 1147755,
+          "title": "1147755 - note_nlp.section_concept_id"
+        },
+        {
+          "const": 1147756,
+          "title": "1147756 - note_nlp.term_exists"
+        },
+        {
+          "const": 1147757,
+          "title": "1147757 - note_nlp.term_modifiers"
+        },
+        {
+          "const": 1147758,
+          "title": "1147758 - note_nlp.term_temporal"
+        },
+        {
+          "const": 1147759,
+          "title": "1147759 - observation.observation_date"
+        },
+        {
+          "const": 1147760,
+          "title": "1147760 - observation.observation_datetime"
+        },
+        {
+          "const": 1147761,
+          "title": "1147761 - observation.observation_event_id"
+        },
+        {
+          "const": 1147762,
+          "title": "1147762 - observation.observation_id"
+        },
+        {
+          "const": 1147763,
+          "title": "1147763 - observation.observation_source_concept_id"
+        },
+        {
+          "const": 1147764,
+          "title": "1147764 - observation.obs_event_field_concept_id"
+        },
+        {
+          "const": 1147765,
+          "title": "1147765 - observation.person_id"
+        },
+        {
+          "const": 1147766,
+          "title": "1147766 - observation.value_as_datetime"
+        },
+        {
+          "const": 1147767,
+          "title": "1147767 - observation.visit_detail_id"
+        },
+        {
+          "const": 1147768,
+          "title": "1147768 - observation.visit_occurrence_id"
+        },
+        {
+          "const": 1147769,
+          "title": "1147769 - observation_period.observation_period_id"
+        },
+        {
+          "const": 1147770,
+          "title": "1147770 - observation_period.person_id"
+        },
+        {
+          "const": 1147771,
+          "title": "1147771 - payer_plan_period.contract_concept_id"
+        },
+        {
+          "const": 1147772,
+          "title": "1147772 - payer_plan_period.contract_person_id"
+        },
+        {
+          "const": 1147773,
+          "title": "1147773 - payer_plan_period.contract_source_concept_id"
+        },
+        {
+          "const": 1147774,
+          "title": "1147774 - payer_plan_period.contract_source_value"
+        },
+        {
+          "const": 1147775,
+          "title": "1147775 - payer_plan_period.family_source_value"
+        },
+        {
+          "const": 1147776,
+          "title": "1147776 - payer_plan_period.payer_concept_id"
+        },
+        {
+          "const": 1147777,
+          "title": "1147777 - payer_plan_period.payer_plan_period_end_date"
+        },
+        {
+          "const": 1147778,
+          "title": "1147778 - payer_plan_period.payer_plan_period_id"
+        },
+        {
+          "const": 1147779,
+          "title": "1147779 - payer_plan_period.payer_plan_period_start_date"
+        },
+        {
+          "const": 1147780,
+          "title": "1147780 - payer_plan_period.payer_source_concept_id"
+        },
+        {
+          "const": 1147781,
+          "title": "1147781 - payer_plan_period.payer_source_value"
+        },
+        {
+          "const": 1147782,
+          "title": "1147782 - payer_plan_period.person_id"
+        },
+        {
+          "const": 1147783,
+          "title": "1147783 - payer_plan_period.plan_concept_id"
+        },
+        {
+          "const": 1147784,
+          "title": "1147784 - payer_plan_period.plan_source_concept_id"
+        },
+        {
+          "const": 1147785,
+          "title": "1147785 - payer_plan_period.plan_source_value"
+        },
+        {
+          "const": 1147786,
+          "title": "1147786 - payer_plan_period.sponsor_concept_id"
+        },
+        {
+          "const": 1147787,
+          "title": "1147787 - payer_plan_period.sponsor_source_concept_id"
+        },
+        {
+          "const": 1147788,
+          "title": "1147788 - payer_plan_period.sponsor_source_value"
+        },
+        {
+          "const": 1147789,
+          "title": "1147789 - payer_plan_period.stop_reason_concept_id"
+        },
+        {
+          "const": 1147790,
+          "title": "1147790 - payer_plan_period.stop_reason_source_concept_id"
+        },
+        {
+          "const": 1147791,
+          "title": "1147791 - payer_plan_period.stop_reason_source_value"
+        },
+        {
+          "const": 1147792,
+          "title": "1147792 - person.care_site_id"
+        },
+        {
+          "const": 1147793,
+          "title": "1147793 - person.death_datetime"
+        },
+        {
+          "const": 1147794,
+          "title": "1147794 - person.ethnicity_concept_id"
+        },
+        {
+          "const": 1147795,
+          "title": "1147795 - person.ethnicity_source_concept_id"
+        },
+        {
+          "const": 1147796,
+          "title": "1147796 - person.ethnicity_source_value"
+        },
+        {
+          "const": 1147797,
+          "title": "1147797 - person.gender_source_concept_id"
+        },
+        {
+          "const": 1147798,
+          "title": "1147798 - person.gender_source_value"
+        },
+        {
+          "const": 1147799,
+          "title": "1147799 - person.location_id"
+        },
+        {
+          "const": 1147800,
+          "title": "1147800 - person.person_id"
+        },
+        {
+          "const": 1147801,
+          "title": "1147801 - person.person_source_value"
+        },
+        {
+          "const": 1147802,
+          "title": "1147802 - person.provider_id"
+        },
+        {
+          "const": 1147803,
+          "title": "1147803 - person.race_concept_id"
+        },
+        {
+          "const": 1147804,
+          "title": "1147804 - person.race_source_concept_id"
+        },
+        {
+          "const": 1147805,
+          "title": "1147805 - person.race_source_value"
+        },
+        {
+          "const": 1147806,
+          "title": "1147806 - procedure_occurrence.modifier_concept_id"
+        },
+        {
+          "const": 1147807,
+          "title": "1147807 - procedure_occurrence.person_id"
+        },
+        {
+          "const": 1147808,
+          "title": "1147808 - procedure_occurrence.procedure_date"
+        },
+        {
+          "const": 1147809,
+          "title": "1147809 - procedure_occurrence.procedure_datetime"
+        },
+        {
+          "const": 1147810,
+          "title": "1147810 - procedure_occurrence.procedure_occurrence_id"
+        },
+        {
+          "const": 1147811,
+          "title": "1147811 - procedure_occurrence.procedure_source_concept_id"
+        },
+        {
+          "const": 1147812,
+          "title": "1147812 - provider.care_site_id"
+        },
+        {
+          "const": 1147813,
+          "title": "1147813 - provider.gender_concept_id"
+        },
+        {
+          "const": 1147814,
+          "title": "1147814 - provider.gender_source_concept_id"
+        },
+        {
+          "const": 1147815,
+          "title": "1147815 - provider.provider_id"
+        },
+        {
+          "const": 1147816,
+          "title": "1147816 - provider.specialty_concept_id"
+        },
+        {
+          "const": 1147817,
+          "title": "1147817 - specimen.anatomic_site_concept_id"
+        },
+        {
+          "const": 1147818,
+          "title": "1147818 - specimen.disease_status_concept_id"
+        },
+        {
+          "const": 1147819,
+          "title": "1147819 - specimen.person_id"
+        },
+        {
+          "const": 1147820,
+          "title": "1147820 - specimen.specimen_date"
+        },
+        {
+          "const": 1147821,
+          "title": "1147821 - specimen.specimen_datetime"
+        },
+        {
+          "const": 1147822,
+          "title": "1147822 - specimen.specimen_id"
+        },
+        {
+          "const": 1147823,
+          "title": "1147823 - survey_conduct.assisted_concept_id"
+        },
+        {
+          "const": 1147824,
+          "title": "1147824 - survey_conduct.assisted_source_value"
+        },
+        {
+          "const": 1147825,
+          "title": "1147825 - survey_conduct.collection_method_concept_id"
+        },
+        {
+          "const": 1147826,
+          "title": "1147826 - survey_conduct.collection_method_source_value"
+        },
+        {
+          "const": 1147827,
+          "title": "1147827 - survey_conduct.person_id"
+        },
+        {
+          "const": 1147828,
+          "title": "1147828 - survey_conduct.provider_id"
+        },
+        {
+          "const": 1147829,
+          "title": "1147829 - survey_conduct.respondent_type_concept_id"
+        },
+        {
+          "const": 1147830,
+          "title": "1147830 - survey_conduct.respondent_type_source_value"
+        },
+        {
+          "const": 1147831,
+          "title": "1147831 - survey_conduct.response_visit_occurrence_id"
+        },
+        {
+          "const": 1147832,
+          "title": "1147832 - survey_conduct.survey_concept_id"
+        },
+        {
+          "const": 1147833,
+          "title": "1147833 - survey_conduct.survey_conduct_id"
+        },
+        {
+          "const": 1147834,
+          "title": "1147834 - survey_conduct.survey_end_date"
+        },
+        {
+          "const": 1147835,
+          "title": "1147835 - survey_conduct.survey_end_datetime"
+        },
+        {
+          "const": 1147836,
+          "title": "1147836 - survey_conduct.survey_source_concept_id"
+        },
+        {
+          "const": 1147837,
+          "title": "1147837 - survey_conduct.survey_source_identifier"
+        },
+        {
+          "const": 1147838,
+          "title": "1147838 - survey_conduct.survey_source_value"
+        },
+        {
+          "const": 1147839,
+          "title": "1147839 - survey_conduct.survey_start_date"
+        },
+        {
+          "const": 1147840,
+          "title": "1147840 - survey_conduct.survey_start_datetime"
+        },
+        {
+          "const": 1147841,
+          "title": "1147841 - survey_conduct.survey_version_number"
+        },
+        {
+          "const": 1147842,
+          "title": "1147842 - survey_conduct.timing_concept_id"
+        },
+        {
+          "const": 1147843,
+          "title": "1147843 - survey_conduct.timing_source_value"
+        },
+        {
+          "const": 1147844,
+          "title": "1147844 - survey_conduct.validated_survey_concept_id"
+        },
+        {
+          "const": 1147845,
+          "title": "1147845 - survey_conduct.validated_survey_source_value"
+        },
+        {
+          "const": 1147846,
+          "title": "1147846 - survey_conduct.visit_detail_id"
+        },
+        {
+          "const": 1147847,
+          "title": "1147847 - survey_conduct.visit_occurrence_id"
+        },
+        {
+          "const": 1147848,
+          "title": "1147848 - visit_detail.admitted_from_concept_id"
+        },
+        {
+          "const": 1147849,
+          "title": "1147849 - visit_detail.admitted_from_source_value"
+        },
+        {
+          "const": 1147850,
+          "title": "1147850 - visit_detail.discharge_to_concept_id"
+        },
+        {
+          "const": 1147851,
+          "title": "1147851 - visit_detail.discharge_to_source_value"
+        },
+        {
+          "const": 1147852,
+          "title": "1147852 - visit_detail.person_id"
+        },
+        {
+          "const": 1147853,
+          "title": "1147853 - visit_detail.preceding_visit_detail_id"
+        },
+        {
+          "const": 1147854,
+          "title": "1147854 - visit_detail.visit_detail_end_date"
+        },
+        {
+          "const": 1147855,
+          "title": "1147855 - visit_detail.visit_detail_end_datetime"
+        },
+        {
+          "const": 1147856,
+          "title": "1147856 - visit_detail.visit_detail_id"
+        },
+        {
+          "const": 1147857,
+          "title": "1147857 - visit_detail.visit_detail_parent_id"
+        },
+        {
+          "const": 1147858,
+          "title": "1147858 - visit_detail.visit_detail_source_concept_id"
+        },
+        {
+          "const": 1147859,
+          "title": "1147859 - visit_detail.visit_detail_start_date"
+        },
+        {
+          "const": 1147860,
+          "title": "1147860 - visit_detail.visit_detail_start_datetime"
+        },
+        {
+          "const": 1147861,
+          "title": "1147861 - visit_detail.visit_occurrence_id"
+        },
+        {
+          "const": 1147862,
+          "title": "1147862 - visit_occurrence.admitted_from_concept_id"
+        },
+        {
+          "const": 1147863,
+          "title": "1147863 - visit_occurrence.admitted_from_source_value"
+        },
+        {
+          "const": 1147864,
+          "title": "1147864 - visit_occurrence.discharge_to_concept_id"
+        },
+        {
+          "const": 1147865,
+          "title": "1147865 - visit_occurrence.discharge_to_source_value"
+        },
+        {
+          "const": 1147866,
+          "title": "1147866 - visit_occurrence.person_id"
+        },
+        {
+          "const": 1147867,
+          "title": "1147867 - visit_occurrence.visit_end_date"
+        },
+        {
+          "const": 1147868,
+          "title": "1147868 - visit_occurrence.visit_end_datetime"
+        },
+        {
+          "const": 1147869,
+          "title": "1147869 - visit_occurrence.visit_occurrence_id"
+        },
+        {
+          "const": 1147870,
+          "title": "1147870 - visit_occurrence.visit_source_concept_id"
+        },
+        {
+          "const": 1147871,
+          "title": "1147871 - visit_occurrence.visit_start_date"
+        },
+        {
+          "const": 1147872,
+          "title": "1147872 - visit_occurrence.visit_start_datetime"
+        },
+        {
+          "const": 1147873,
+          "title": "1147873 - vocabulary.vocabulary_version"
+        },
+        {
+          "const": 1147874,
+          "title": "1147874 - location_history"
+        },
+        {
+          "const": 1147875,
+          "title": "1147875 - survey_conduct"
+        }
+      ]
+    }
+  },
+  "required": [
+    "episode_id",
+    "event_id",
+    "episode_event_field_concept_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "episode_id",
+      "table": "EPISODE",
+      "fieldInTable": "EPISODE_ID"
+    },
+    {
+      "field": "episode_event_field_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID",
+      "domain": "Metadata"
+    }
+  ]
+}

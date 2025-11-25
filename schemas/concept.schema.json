@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Concept",
+  "type": "object",
+  "properties": {
+    "concept_id": {
+      "type": "integer",
+      "description": "User Guidance: A unique identifier for each Concept across all domains."
+    },
+    "concept_name": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: An unambiguous, meaningful and descriptive name for the Concept."
+    },
+    "domain_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: A foreign key to the [DOMAIN](https://ohdsi.github.io/CommonDataModel/cdm54.html#domain) table the Concept belongs to."
+    },
+    "vocabulary_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: A foreign key to the [VOCABULARY](https://ohdsi.github.io/CommonDataModel/cdm54.html#vocabulary)\ntable indicating from which source the\nConcept has been adapted."
+    },
+    "concept_class_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: The attribute or concept class of the\nConcept. Examples are 'Clinical Drug',\n'Ingredient', 'Clinical Finding' etc."
+    },
+    "standard_concept": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "User Guidance: This flag determines where a Concept is\na Standard Concept, i.e. is used in the\ndata, a Classification Concept, or a\nnon-standard Source Concept. The\nallowable values are 'S' (Standard\nConcept) and 'C' (Classification\nConcept), otherwise the content is NULL."
+    },
+    "concept_code": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "User Guidance: The concept code represents the identifier\nof the Concept in the source vocabulary,\nsuch as SNOMED-CT concept IDs,\nRxNorm RXCUIs etc. Note that concept\ncodes are not unique across vocabularies."
+    },
+    "valid_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date when the Concept was first\nrecorded. The default value is\n1-Jan-1970, meaning, the Concept has no\n(known) date of inception."
+    },
+    "valid_end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date when the Concept became\ninvalid because it was deleted or\nsuperseded (updated) by a new concept.\nThe default value is 31-Dec-2099,\nmeaning, the Concept is valid until it\nbecomes deprecated."
+    },
+    "invalid_reason": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "User Guidance: Reason the Concept was invalidated.\nPossible values are D (deleted), U\n(replaced with an update) or NULL when\nvalid_end_date has the default value."
+    }
+  },
+  "required": [
+    "concept_id",
+    "concept_name",
+    "domain_id",
+    "vocabulary_id",
+    "concept_class_id",
+    "concept_code",
+    "valid_start_date",
+    "valid_end_date"
+  ],
+  "x-primaryKey": [
+    "concept_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "domain_id",
+      "table": "DOMAIN",
+      "fieldInTable": "DOMAIN_ID"
+    },
+    {
+      "field": "vocabulary_id",
+      "table": "VOCABULARY",
+      "fieldInTable": "VOCABULARY_ID"
+    },
+    {
+      "field": "concept_class_id",
+      "table": "CONCEPT_CLASS",
+      "fieldInTable": "CONCEPT_CLASS_ID"
+    }
+  ]
+}

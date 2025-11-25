@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Concept Class",
+  "type": "object",
+  "properties": {
+    "concept_class_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: A unique key for each class."
+    },
+    "concept_class_name": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: The name describing the Concept Class, e.g.\nClinical Finding, Ingredient, etc."
+    },
+    "concept_class_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: A Concept that represents the Concept Class."
+    }
+  },
+  "required": [
+    "concept_class_id",
+    "concept_class_name",
+    "concept_class_concept_id"
+  ],
+  "x-primaryKey": [
+    "concept_class_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "concept_class_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

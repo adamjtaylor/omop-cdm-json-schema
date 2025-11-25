@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cohort Definition",
+  "type": "object",
+  "properties": {
+    "cohort_definition_id": {
+      "type": "integer",
+      "description": "User Guidance: This is the identifier given to the cohort, usually by the ATLAS application"
+    },
+    "cohort_definition_name": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: A short description of the cohort"
+    },
+    "cohort_definition_description": {
+      "type": "string",
+      "description": "User Guidance: A complete description of the cohort."
+    },
+    "definition_type_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: Type defining what kind of Cohort Definition the record represents and how the syntax may be executed."
+    },
+    "cohort_definition_syntax": {
+      "type": "string",
+      "description": "User Guidance: Syntax or code to operationalize the Cohort Definition."
+    },
+    "subject_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: This field contains a Concept that represents the domain of the subjects that are members of the cohort (e.g., Person, Provider, Visit)."
+    },
+    "cohort_initiation_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: A date to indicate when the Cohort was initiated in the COHORT table."
+    }
+  },
+  "required": [
+    "cohort_definition_id",
+    "cohort_definition_name",
+    "definition_type_concept_id",
+    "subject_concept_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "definition_type_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "subject_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

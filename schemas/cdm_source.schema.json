@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cdm Source",
+  "type": "object",
+  "properties": {
+    "cdm_source_name": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: The name of the CDM instance."
+    },
+    "cdm_source_abbreviation": {
+      "type": "string",
+      "maxLength": 25,
+      "description": "User Guidance: The abbreviation of the CDM instance."
+    },
+    "cdm_holder": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: The holder of the CDM instance."
+    },
+    "source_description": {
+      "type": "string",
+      "description": "User Guidance: The description of the CDM instance."
+    },
+    "source_documentation_reference": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "User Guidance: Refers to a publication or web resource describing the source data\n\nETL Conventions: e.g. a data dictionary."
+    },
+    "cdm_etl_reference": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "ETL Conventions: Version of the ETL script used. e.g. link to the Git release"
+    },
+    "source_release_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date the data was extracted from the source system. In some systems that is the same as the date the ETL was run. Typically the latest even date in the source is on the source_release_date."
+    },
+    "cdm_release_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date the ETL script was completed. Typically this is after the source_release_date."
+    },
+    "cdm_version": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "User Guidance: Version of the OMOP CDM used as string. e.g. v5.4"
+    },
+    "cdm_version_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The Concept Id representing the version of the CDM.\n\nETL Conventions: You can find all concepts that represent the CDM versions using the query: `SELECT * FROM CONCEPT WHERE   VOCABULARY_ID = 'CDM' AND CONCEPT_CLASS = 'CDM'`"
+    },
+    "vocabulary_version": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: Version of the OMOP standardised vocabularies loaded\n\nETL Conventions: You can find the version of your Vocabulary using the query: `SELECT vocabulary_version from vocabulary  where vocabulary_id = 'None'`"
+    }
+  },
+  "required": [
+    "cdm_source_name",
+    "cdm_source_abbreviation",
+    "cdm_holder",
+    "source_release_date",
+    "cdm_release_date",
+    "cdm_version_concept_id",
+    "vocabulary_version"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "cdm_version_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

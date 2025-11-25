@@ -3,8 +3,10 @@
 # Data directory (contains large CONCEPT.csv vocabulary file)
 data/
 
-# Generated schemas (759MB total - regenerate with ./convert.sh)
-schemas/
+# Large drug schemas (>100MB - exceed GitHub limit, regenerate with ./convert.sh)
+schemas/dose_era.schema.json
+schemas/drug_era.schema.json
+schemas/drug_exposure.schema.json
 
 # Python cache
 __pycache__/

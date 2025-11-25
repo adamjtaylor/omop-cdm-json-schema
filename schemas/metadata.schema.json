@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Metadata",
+  "type": "object",
+  "properties": {
+    "metadata_id": {
+      "type": "integer",
+      "description": "User Guidance: The unique key given to a Metadata record.\n\nETL Conventions: Attribute value is auto-generated"
+    },
+    "metadata_concept_id": {
+      "type": "integer"
+    },
+    "metadata_type_concept_id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 250
+    },
+    "value_as_string": {
+      "type": "string",
+      "maxLength": 250
+    },
+    "value_as_concept_id": {
+      "type": "integer"
+    },
+    "value_as_number": {
+      "type": "number",
+      "description": "User Guidance: This is the numerical value of the result of the Metadata, if applicable and available. It is not expected that all Metadata will have numeric results, rather, this field is here to house values should they exist."
+    },
+    "metadata_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "metadata_datetime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "metadata_id",
+    "metadata_concept_id",
+    "metadata_type_concept_id",
+    "name"
+  ],
+  "x-primaryKey": [
+    "metadata_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "metadata_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "metadata_type_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "value_as_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cost",
+  "type": "object",
+  "properties": {
+    "cost_id": {
+      "type": "integer"
+    },
+    "cost_event_id": {
+      "type": "integer"
+    },
+    "cost_domain_id": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "cost_type_concept_id": {
+      "type": "integer"
+    },
+    "currency_concept_id": {
+      "type": "integer"
+    },
+    "total_charge": {
+      "type": "number"
+    },
+    "total_cost": {
+      "type": "number"
+    },
+    "total_paid": {
+      "type": "number"
+    },
+    "paid_by_payer": {
+      "type": "number"
+    },
+    "paid_by_patient": {
+      "type": "number"
+    },
+    "paid_patient_copay": {
+      "type": "number"
+    },
+    "paid_patient_coinsurance": {
+      "type": "number"
+    },
+    "paid_patient_deductible": {
+      "type": "number"
+    },
+    "paid_by_primary": {
+      "type": "number"
+    },
+    "paid_ingredient_cost": {
+      "type": "number"
+    },
+    "paid_dispensing_fee": {
+      "type": "number"
+    },
+    "payer_plan_period_id": {
+      "type": "integer"
+    },
+    "amount_allowed": {
+      "type": "number"
+    },
+    "revenue_code_concept_id": {
+      "type": "integer"
+    },
+    "revenue_code_source_value": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "User Guidance: Revenue codes are a method to charge for a class of procedures and conditions in the U.S. hospital system."
+    },
+    "drg_concept_id": {
+      "type": "integer"
+    },
+    "drg_source_value": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "User Guidance: Diagnosis Related Groups are US codes used to classify hospital cases into one of approximately 500 groups."
+    }
+  },
+  "required": [
+    "cost_id",
+    "cost_event_id",
+    "cost_domain_id",
+    "cost_type_concept_id"
+  ],
+  "x-primaryKey": [
+    "cost_id"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "cost_domain_id",
+      "table": "DOMAIN",
+      "fieldInTable": "DOMAIN_ID"
+    },
+    {
+      "field": "cost_type_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "currency_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "revenue_code_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "drg_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}

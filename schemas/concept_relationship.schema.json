@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Concept Relationship",
+  "type": "object",
+  "properties": {
+    "concept_id_1": {
+      "type": "integer"
+    },
+    "concept_id_2": {
+      "type": "integer"
+    },
+    "relationship_id": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "User Guidance: The relationship between CONCEPT_ID_1 and CONCEPT_ID_2. Please see the [Vocabulary Conventions](https://ohdsi.github.io/CommonDataModel/dataModelConventions.html#concept_relationships). for more information."
+    },
+    "valid_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date when the relationship is first recorded."
+    },
+    "valid_end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "User Guidance: The date when the relationship is invalidated."
+    },
+    "invalid_reason": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "User Guidance: Reason the relationship was invalidated. Possible values are 'D' (deleted), 'U' (updated) or NULL."
+    }
+  },
+  "required": [
+    "concept_id_1",
+    "concept_id_2",
+    "relationship_id",
+    "valid_start_date",
+    "valid_end_date"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "concept_id_1",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "concept_id_2",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "relationship_id",
+      "table": "RELATIONSHIP",
+      "fieldInTable": "RELATIONSHIP_ID"
+    }
+  ]
+}

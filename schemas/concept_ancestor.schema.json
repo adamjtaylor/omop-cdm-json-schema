@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Concept Ancestor",
+  "type": "object",
+  "properties": {
+    "ancestor_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The Concept Id for the higher-level concept\nthat forms the ancestor in the relationship."
+    },
+    "descendant_concept_id": {
+      "type": "integer",
+      "description": "User Guidance: The Concept Id for the lower-level concept\nthat forms the descendant in the\nrelationship."
+    },
+    "min_levels_of_separation": {
+      "type": "integer",
+      "description": "User Guidance: The minimum separation in number of\nlevels of hierarchy between ancestor and\ndescendant concepts. This is an attribute\nthat is used to simplify hierarchic analysis."
+    },
+    "max_levels_of_separation": {
+      "type": "integer",
+      "description": "User Guidance: The maximum separation in number of\nlevels of hierarchy between ancestor and\ndescendant concepts. This is an attribute\nthat is used to simplify hierarchic analysis."
+    }
+  },
+  "required": [
+    "ancestor_concept_id",
+    "descendant_concept_id",
+    "min_levels_of_separation",
+    "max_levels_of_separation"
+  ],
+  "x-foreignKeys": [
+    {
+      "field": "ancestor_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    },
+    {
+      "field": "descendant_concept_id",
+      "table": "CONCEPT",
+      "fieldInTable": "CONCEPT_ID"
+    }
+  ]
+}
