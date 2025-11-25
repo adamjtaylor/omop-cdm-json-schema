@@ -1,0 +1,33 @@
+# OMOP CDM JSON Schema Generator - Git Ignore
+
+# Data directory (contains large CONCEPT.csv vocabulary file)
+data/
+
+# Generated schemas (759MB total - regenerate with ./convert.sh)
+schemas/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
